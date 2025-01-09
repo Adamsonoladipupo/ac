@@ -24,9 +24,13 @@
             background-color: var(--pryColorDark);
         }
         /* --- For fonts size --- */
-        p, a {
+        p {
             font-size: 14px;
         }
+        .link_size_desk  a {
+            font-size: 14px;
+        }
+        .link_size_mobile
         h1, h2, h3, h4 {
             font-size: 24px;
         }
@@ -36,12 +40,12 @@
         }
         .form{
             background-color: #fff;
-            margin: 100px auto 0 auto;
-            padding: 20px;
+            margin: 80px auto 0 auto;
+            padding: 30px 60px ;
             align-items: center;
             text-align: center;
             border-radius: 10px;
-            width: 30%;
+            width: 36%;
         }
         .form a{
             color: var(--pryColor);
@@ -107,34 +111,48 @@
         }
         .footerLinks{
             margin-top: 20px;
+            display: flex;
+            justify-content: center;
         }
         .footerLinks a{
             color: #fff;
             text-decoration: none;
             padding: 10px;
+            font-weight: 300;
         }
         @media screen and (max-width: 1220px){
             .form{
                 width: 40%;
+                padding: 30px 55px ;
             }
         }
         @media screen and (max-width: 1020px){
             .form{
                 width: 45%;
+                padding: 30px 50px ;
             }
         }
         @media screen and (max-width: 900px){
             .form{
                 width: 50%;
+                padding: 30px 45px ;
             }
         }
         @media screen and (max-width: 750px){
             .form{
                 width: 60%;
+                padding: 30px 30px ;
             }
+            .footerLinks a{
+                padding: 5px;
+            }
+            .link_size_desk  a {
+                font-size: 12px;
+            }
+            
             /* --- For fonts size --- */
             p, a {
-                font-size: 12px;
+                font-size: 13px;
             }
             h1, h2, h3, h4 {
                 font-size: 20px;
@@ -143,6 +161,7 @@
         @media screen and (max-width: 500px){
             .form{
                 width: 85%;
+                padding: 30px 20px ;
             }
         }
     </style>
@@ -176,10 +195,28 @@
                 <p>New to Airtime Cabal? <a href="signup.html">Create an Account</a></p>
             </form>
         </div>
-        <div class="footerLinks">
-            <a href="index.html">© AirtimeCabal</a>
-            <a href="#">Contact US</a>
-            <a href="#">API Doc</a>
+        <div class="footerLinks link_size_desk">
+            <div>
+                <a href="index.html" style="display: flex; align-items: center;">© AirtimeCabal
+                    <svg width="20px" height="20px"  viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="none" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div>
+                <a href="#" style="display: flex; align-items: center;">Contact US
+                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div>
+                <a href="#" style="display: flex; align-items: center;">API Doc
+                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
         </div>
     </div>
     <script>
