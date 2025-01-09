@@ -3,14 +3,88 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <title>Airtime Cabal</title>
+    <style>
+        :root {
+            --pryColor : #2376F3;
+            --pryColorLight : #ECF4FF;
+            --pryColor90Per : #0061f3;
+            --grey : #9E9E9E;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Space Grotesk", serif;
+        }
+        body{
+            background-color: #fff;
+        }
+        header nav{
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 70px 130px 0 130px;
+        }
+        .nav-links a{
+            margin: 0 10px;
+        }
+        a{
+            text-decoration: none;
+        }
+        .nav-button button{
+            padding: 7px 20px;
+            border-radius: 5px;
+            outline: none;
+            border: none;
+            margin: 0 7px;
+        }
+        .nav-button button:nth-child(1){
+            background-color: var(--pryColorLight);
+            color: var(--pryColor);
+        }
+        .nav-button button:nth-child(2){
+            background-color: var(--pryColor);
+            color: #fff;
+        }
+
+
+
+
+        @media screen and (max-width: 1220px){
+
+        }
+        @media screen and (max-width: 1020px){
+
+        }
+        @media screen and (max-width: 900px){
+
+        }
+        @media screen and (max-width: 750px){
+
+        }
+        @media screen and (max-width: 500px){
+
+        }
+    </style>
 </head>
 <body>
-    Hello World!
-    Welcome to Airtime Cabal <br>
-    <a href="signin.html">Sign in</a> <br>
-    <a href="signup.html">Sign Up</a> <br>
-    <a href="https://www.figma.com/proto/Md6Gt0PRGfmxUi3StqEZFO/Gosub.ng-Landing-Page?page-id=728%3A622&node-id=728-623&p=f&viewport=-1382%2C3027%2C1.01&t=gMtiAXKAtUatSUkN-1&scaling=scale-down-width&content-scaling=fixed&starting-point-node-id=728%3A623">proposed Landing page</a>
-    
+    <header>
+        <nav>
+            <div class="logo">
+                Airtime Cabal
+            </div>
+            <div class="nav-links">
+                <a href="#">Use</a>
+                <a href="#">Learn</a>
+                <a href="#">Build</a>
+            </div>
+            <div class="nav-button">
+                <button>Contact</button>
+                <button><a href="signin.html" style="color: #fff;">Dashboard</a></button>
+            </div>
+        </nav>
+    </header>
 </body>
 </html>

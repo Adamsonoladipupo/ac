@@ -4,10 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <title>Sign In</title>
+    <title>Sign Up</title>
     <style>
         :root {
             --pryColor : #2376F3;
+            --pryColorDark : #17335e;
             --pryColor90Per : #0061f3;
             --grey : #9E9E9E;
         }
@@ -18,8 +19,16 @@
             font-family: "Space Grotesk", serif;
         }
         body{
-            background-color: #fff;
+            background-color: var(--pryColorDark);
         }
+        /* --- For fonts size --- */
+        p, a {
+            font-size: 14px;
+        }
+        h1, h2, h3, h4 {
+            font-size: 24px;
+        }
+
         .signin{
             text-align: center;
             margin-bottom: 50px;
@@ -30,7 +39,7 @@
             padding: 40px 30px;
             align-items: center;
             text-align: center;
-            border-radius: 30px;
+            border-radius: 10px;
             width: 40%;
             box-shadow: 4px 5px 30px 10px rgba(0, 0, 0, 0.05);
             
@@ -171,7 +180,7 @@
             </form>
         </div>
         <div class="footerLinks">
-            <p>Already have an acount,</p> <a href="signin.html" style="display: flex; align-items: center;">Sign in <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <p style="color: #fff;">Already have an acount,</p> <a href="signin.html" style="display: flex; align-items: center;">Sign in <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2376F3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                 </svg></a>
             
