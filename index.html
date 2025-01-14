@@ -151,9 +151,16 @@
         .F_body_image img{
             width: 500px;
         }
+
+        /* -- Styling the testimonials section -- */
+
         .testimonials{
             background-color: var(--pryColor);
             padding: 20px 130px;
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
         }
         .tst_header{
             display: flex;
@@ -162,26 +169,63 @@
             margin: 20px 0 60px 0;
             color: #fff;
         }
-        .arrow_btn {
-            gap: 20px;
+        .container{
+
         }
         .tst_items{
             display: flex;
             align-items: center;
             justify-content: space-between;
-            gap: 20px;
+            gap: 10px;
+            position: relative;
+            width: 100%;
+            height: 320px;
+            overflow: hidden;
         }
         .tst_item{
-            background-color: #f1f1f1;
-            width: 380px;
-            height: 250px;
+            background-color: #fff;
             border-radius: 30px;
             padding: 30px 50px;
             cursor: pointer;
+
+            width: 330px;
+            height: 1;
+            position: absolute;
+            transition: left 0.5s cubic-bezier(0.645, 0.045, 0.354, 1);
+            overflow: hidden;
         }
+        .slider-item:nth-child(1){
+            left: calc(-330px + -20px);
+        }
+        .slider-item:nth-child(2){
+            left: 0;
+        }
+        .slider-item:nth-child(3){
+            left: calc(330px + 20px);
+        }
+        .slider-item:nth-child(4){
+            left: calc((330px + 20px) * 2);
+        }
+        .slider-item:nth-child(5){
+            left: calc((330px + 20px) * 3);
+        }
+        .slider-item:nth-child(6){
+            left: calc((330px + 20px) * 4);
+        }
+        .slider-item:nth-child(7){
+            left: calc((330px + 20px) * 5);
+        }
+        .slider-item:nth-child(8){
+            left: calc((330px + 20px) * 6);
+        }
+
         .arrow_btn{
             display: flex;
             align-items: center;
+            gap: 10px;
+        }
+        .arrow_btn svg:hover{
+            fill: #151515;
         }
 
         /* --- Styling the Trusted partner section --- */
@@ -496,27 +540,27 @@
             </div>
         </div>
     </div>
-    <div class="testimonials">
+    <div class="testimonials container">
         <div class="tst_header">
             <div>
                 <h2>What Our Customers Says</h2>
                 <p>Don't take our words for it, see for yourself</p>
             </div>
             <div class="arrow_btn">
-                <span class="arrow_left">
-                    <svg width="15%" height="15%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 8L8 12M8 12L12 16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <span class=" arrow_left fas fa-arrow-left" id="prev_btn">
+                    <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 8L8 12M8 12L12 16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                 </span>
-                <span class="arrow_right">
-                    <svg width="15%" height="15%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M12 16L16 12M16 12L12 8M16 12H8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                <span class="arrow_right fas fa-arrow-right" id="next_btn">
+                    <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 16L16 12M16 12L12 8M16 12H8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                 </span>
             </div>
         </div>
-        <div class="tst_items">
-            <div class="tst_item">
+        <div class="tst_items slider">
+            <div class="tst_item slider-item">
                 <img src="images/customers logo.png" alt="" width="100px" style="margin-bottom: 30px;">
                 <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
                 <div class="" style="display: flex; align-items: center;">
@@ -524,16 +568,40 @@
                     <span>Customer's Name</span>
                 </div>
             </div>
-            <div class="tst_item">
-                <img src="images/customers logo.png" alt="" width="100px" style="margin-bottom: 30px;">
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 2.png" alt="" width="100px" style="margin-bottom: 30px;">
                 <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
                 <div class="" style="display: flex; align-items: center;">
                     <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
                     <span>Customer's Name</span>
                 </div>
             </div>
-            <div class="tst_item">
-                <img src="images/customers logo.png" alt="" width="100px" style="margin-bottom: 30px;">
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 3.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 4.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 5.png" alt="" width="100px" style="margin-bottom: 30px;">
+                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
+                <div class="" style="display: flex; align-items: center;">
+                    <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
+                    <span>Customer's Name</span>
+                </div>
+            </div>
+            <div class="tst_item slider-item">
+                <img src="images/customers logo 3.png" alt="" width="100px" style="margin-bottom: 30px;">
                 <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
                 <div class="" style="display: flex; align-items: center;">
                     <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
@@ -674,5 +742,49 @@
         </div>
 
     </footer>
+
+    <script>
+        // JavaScript File for controlling the customer review section 
+        
+        // Reference To Buttons
+        var btnLeft = document.getElementById('prev_btn');
+        var btnRight = document.getElementById('next_btn');
+        
+        // Reference To Slider
+        var slider = document.querySelector('.container .slider');
+        
+        btnRight.addEventListener('click', nextSlide);
+        function nextSlide(){
+            slider.appendChild(slider.firstElementChild);
+        }
+        
+        btnLeft.addEventListener('click', prevSlide);
+        function prevSlide(){
+            slider.prepend(slider.lastElementChild);
+        }
+        
+        // Auto Sliding
+        function autoSlide(){
+            deleteInterval = setInterval(timer, 4000); // 4000 mile sec = 4 sec
+            function timer(){
+                nextSlide();
+            }
+        }
+        autoSlide();
+        
+        // Stop Auto Sliding When Mouse is Over
+        slider.addEventListener('mouseover', deleteAutoSliding);
+        btnRight.addEventListener('mouseover', deleteAutoSliding);
+        btnLeft.addEventListener('mouseover', deleteAutoSliding);
+        
+        function deleteAutoSliding(){
+            clearInterval(deleteInterval);
+        }
+        
+        // Resume Auto Sliding When Mouse is Out
+        slider.addEventListener('mouseout', autoSlide);
+        btnRight.addEventListener('mouseout', autoSlide);
+        btnLeft.addEventListener('mouseout', autoSlide);
+    </script>
 </body>
 </html>
