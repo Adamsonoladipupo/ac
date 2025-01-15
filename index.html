@@ -27,6 +27,8 @@
         p, a {
             font-size: 14px;
         }
+
+        /* -- This is for styling the Navigation section of the page  -- */
         h1{
             font-size: 60px;
             margin-bottom: 20px;
@@ -70,6 +72,8 @@
             color: #fff;
             
         }
+
+        /* -- This is for styling the Hero Section  -- */
         .hero_section{
             display: flex;
             align-items: center;
@@ -90,6 +94,8 @@
             background-color: #fff;
             color: #000;
         }
+
+        /* -- This is for Styling the Features Section  -- */
         .features :nth-child(4){
             background-color: #434343;
             color: #fff;
@@ -108,12 +114,14 @@
             box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.10);
         }
 
+        /* -- This is for stylng the API Features section -- */
 
         .API_features{
             display: grid;
             align-items: center;
             justify-content: center;
-            margin: 20px 130px;
+            place-items: center ;
+            margin: 60px 130px;
         }
         .F_header{
             background-color: var(--pryColorLight);
@@ -122,12 +130,16 @@
             align-items: center;
             justify-content: space-between;
             border-radius: 10px;
+            width: 80%;
+            
 
         }
         .F_header button{
             margin: 0 0px;
+            background-color: var(--pryColorLight);
+            cursor: pointer;
         }
-        .F_header .active {
+        .F_header button.active {
             background-color: var(--pryColor);
             color: #fff;
         }
@@ -156,21 +168,18 @@
 
         .testimonials{
             background-color: var(--pryColor);
-            padding: 20px 130px;
+            padding: 40px 130px;
             width: 100%;
             display: flex;
             flex-direction: column;
             justify-content: center;
         }
-        .tst_header{
+        .tst_header{    
             display: flex;
             align-items:start ;
             justify-content: space-between;
             margin: 20px 0 60px 0;
             color: #fff;
-        }
-        .container{
-
         }
         .tst_items{
             display: flex;
@@ -320,6 +329,8 @@
             margin-bottom: 20px;
             padding-left: 30px;
         }
+
+        /* -- This is for styling the Call To Action CTA footer region of the page -- */
         .footer_CTA{
             margin: 210px 130px 50px 130px;
             background-color: var(--pryColor);
@@ -351,6 +362,8 @@
             background-color: #fff;
             margin: 0 20px 20px 20px;
         }
+
+        /* -- This is for styling the Footer section of the page -- */
         footer p{
             font-size: 20px;
             margin: 15px 0;
@@ -399,7 +412,9 @@
 
 
 
-
+        /* ------------------------------------------------- */
+        /* -------- Styling for smaller screens ------------ */
+        /* ------------------------------------------------- */
 
         @media screen and (max-width: 1220px){
 
@@ -457,6 +472,7 @@
             <img src="images/mobile.png" alt="">
         </div>
     </div>
+    <!-- This is the Features Section -->
     <div class="features">
         <div class="features_item">
             <h4>Access 50+ APIs protocols with secure authentication</h4>
@@ -502,33 +518,19 @@
                 </button>
             </div>
         </div>
-        <div>
-            <div>
-
-            </div>
-        </div>
-        <div>
-            <div>
-
-            </div>
-        </div>
-        <div>
-            <div>
-
-            </div>
-        </div>
     </div>
+    <!-- API Features Section -->
     <div class="API_features">
-        <div class="F_header">
-            <button class="active"><a href="#">Pay-in API</a></button>
-            <button><a href="#">API Balance</a></button>
-            <button><a href="#">Swift Payment</a></button>
-            <button><a href="#">Payout API</a></button>
+        <div class="F_header F_buttons">
+            <button onclick="changeContent(1)">Pay-in API</button>
+            <button onclick="changeContent(2)">API Balance</button>
+            <button onclick="changeContent(3)">Swift Payment</button>
+            <button onclick="changeContent(4)">Payout API</button>
         </div>
         <div class="F_body">
             <div class="F_body_text">
-                <h2>Fast Payment APIs Links</h2>
-                <p>Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.</p>
+                <h2 id="f_header">Fast Payment APIs Links</h2>
+                <p id="content">Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.</p>
                 <button><a href="#" style="color: #fff; display: flex;">View Dashboard 
                     <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
@@ -536,10 +538,11 @@
                 </button>
             </div>
             <div class="F_body_image">
-                <img src="images/image5.png" alt="">
+                <img id="F_image" src="images/image5.png" alt="image of APIs">
             </div>
         </div>
-    </div>
+    </div>          
+    <!-- Testimonials Section -->
     <div class="testimonials container">
         <div class="tst_header">
             <div>
@@ -595,7 +598,7 @@
             <div class="tst_item slider-item">
                 <img src="images/customers logo 5.png" alt="" width="100px" style="margin-bottom: 30px;">
                 <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
-                <div class="" style="display: flex; align-items: center;">
+                <div class="" style="display: flex; align-items: center;">  
                     <img src="images/customer 1.png" alt="" class="customer_image" width="40px">
                     <span>Customer's Name</span>
                 </div>
@@ -744,7 +747,7 @@
     </footer>
 
     <script>
-        // JavaScript File for controlling the customer review section 
+        // JavaScript code for controlling the customer review section 
         
         // Reference To Buttons
         var btnLeft = document.getElementById('prev_btn');
@@ -785,6 +788,46 @@
         slider.addEventListener('mouseout', autoSlide);
         btnRight.addEventListener('mouseout', autoSlide);
         btnLeft.addEventListener('mouseout', autoSlide);
+
+
+        // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section
+
+        window.onload = function() {
+                changeContent(1);
+            };
+
+        function changeContent(buttonNumber) {
+            const f_header = document.getElementById("f_header");
+            const F_image = document.getElementById("F_image");
+            const content = document.getElementById("content");
+            const F_buttons = document.querySelectorAll('.F_buttons button');
+
+            // Reset all buttons' active state
+            F_buttons.forEach(button => button.classList.remove('active'));
+
+            // Set the active class to the clicked button
+            F_buttons[buttonNumber - 1].classList.add('active');
+
+            // Change content based on button clicked
+            if (buttonNumber === 1) {
+                f_header.textContent = "Fast Payment APIs Links";
+                F_image.src = "images/image5.png";
+                content.textContent = "Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.";
+            } else if (buttonNumber === 2) {
+                f_header.textContent = "Seamless API Integration for Your Balance Management";
+                F_image.src = "images/image6.png";
+                content.textContent = "Our API helps users manage their account balances more efficiently by providing real-time tracking and balance updates.";
+            } else if (buttonNumber === 3) {
+                f_header.textContent = "Instant Transfers with Swift Payment APIs";
+                F_image.src = "images/image7.png";
+                content.textContent = "Swift Payment APIs allow businesses to process transactions quickly, ensuring fast and reliable payments across global markets.";
+            } else if (buttonNumber === 4) {
+                f_header.textContent = "Efficient Pay-out Solutions with Our API";
+                F_image.src = "images/image8.png";
+                content.textContent = "Pay-out API provides a secure way for businesses to send payments and disburse funds to recipients, ensuring timely transactions.";
+            }
+        }
+
     </script>
 </body>
 </html>
