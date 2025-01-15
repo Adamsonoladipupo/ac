@@ -96,22 +96,44 @@
         }
 
         /* -- This is for Styling the Features Section  -- */
-        .features :nth-child(4){
+        .features{
+            background-color: var(--pryColorLight);
+            padding: 50px 130px;
+        }
+        .Features_container {
+            display: grid;
+            column-gap: 20px;
+            row-gap: 20px;
+            grid-template-columns: auto auto;
+        }
+
+        .Features_container > div {
+            text-align: left;
+            
+        }
+        .Features_container > div > div {
+            background-color: #fff;
+            padding: 50px;
+            text-align: left; 
+            margin-bottom: 20px;
+            border-radius: 30px;
+            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.10);
+        }
+        .Features_container > div > div button {
+            margin-top: 20px;
+        }
+        .Features_container > div > div p {
+            margin: 20px 0;
+        }
+        .Features_container > div > div h4 {
+            font-size: 30px;
+        }
+        .Features_container > div:nth-child(2) > div:nth-child(2) {
             background-color: #434343;
             color: #fff;
         }
-        .features{
-            background-color: var(--pryColorLight);
-            padding: 20px 130px;
-            
-        }
-        .features_item {
-            width: 580px;
-            height: auto;
-            padding: 80px;
-            background-color: #fff;
-            border-radius: 30px;
-            box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.10);
+        .Features_container > div:nth-child(2) > div:nth-child(2) button{
+            background-color: red;
         }
 
         /* -- This is for stylng the API Features section -- */
@@ -473,49 +495,59 @@
         </div>
     </div>
     <!-- This is the Features Section -->
-    <div class="features">
-        <div class="features_item">
-            <h4>Access 50+ APIs protocols with secure authentication</h4>
-            <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
-            <div class="features_image">
-                <button style="background-color: var(--pryColor);"><a href="#" style="color: #fff; display: flex;">Get a free integration 
-                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a>
-                </button>
+    <div class="features Features_container">
+        <div>
+            <div class="features_item">
+                <h4>Access 50+ APIs protocols with secure authentication</h4>
+                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
+                <div class="features_image">
+                    <div>
+                        <img src="images/image_buttons.png" alt="" style="width: 200px;">
+                    </div>
+                    <button style="background-color: var(--pryColor);"><a href="#" style="color: #fff; display: flex;">Get a free integration 
+                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    </button>
+                </div>
+            </div>
+            <div class="features_item">
+                <h4>Advance monitoring and statistics</h4>
+                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
+                <div class="features_image">
+                    <button style="background-color: var(--pryColorLight);"><a href="#" style="color: var(--pryColor); display: flex;">Get a free integration 
+                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2260BE" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    </button>
+                </div>
             </div>
         </div>
-        <div class="features_item">
-            <h4>Advance monitoring and statistics</h4>
-            <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
-            <div class="features_image">
-                <button style="background-color: var(--pryColorLight);"><a href="#" style="color: var(--pryColor); display: flex;">Get a free integration 
-                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2260BE" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a>
-                </button>
+        <div>
+            <div class="features_item">
+                <h4>Advance monitoring and statistics</h4>
+                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
+                <div class="features_image">
+                    <button style="background-color: var(--pryColorLight);"><a href="#" style="color: var(--pryColor); display: flex;">Get a free integration 
+                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2260BE" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    </button>
+                </div>
             </div>
-        </div>
-        <div class="features_item">
-            <h4>Advance monitoring and statistics</h4>
-            <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
-            <div class="features_image">
-                <button style="background-color: var(--pryColorLight);"><a href="#" style="color: var(--pryColor); display: flex;">Get a free integration 
-                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2260BE" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a>
-                </button>
-            </div>
-        </div>
-        <div class="features_item">
-            <h4>Advance monitoring and statistics</h4>
-            <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
-            <div class="features_image">
-                <button style="background-color: #fff"><a href="#" style="color: #434343; display: flex;">Get a free integration 
-                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#434343" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a>
-                </button>
+            <div class="features_item">
+                <h4>Advance monitoring and statistics</h4>
+                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
+                <div class="features_image">
+                    <div>
+                        <img src="images/image_padlock.png" alt="" style="width: 200px;">
+                    </div>
+                    <button style="background-color: #fff"><a href="#" style="color: #434343; display: flex;">Get a free integration 
+                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#434343" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                        </svg></a>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
