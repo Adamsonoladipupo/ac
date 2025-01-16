@@ -23,15 +23,11 @@
         body{
             background-color: #fff;
         }
-        .mainFrame {
-            margin: 0 130px;
-        }
         /* --- For fonts size --- */
         p, a {
             font-size: 14px;
         }
 
-        /* -- This is for styling the Navigation section of the page  -- */
         h1{
             font-size: 60px;
             margin-bottom: 20px;
@@ -41,6 +37,8 @@
             font-size: 40px;
             margin-bottom: 20px;
         }
+
+        /* -- This is for styling the Navigation section of the page  -- */
         header nav{
             display: flex;
             align-items: center;
@@ -449,6 +447,10 @@
         .footer_icons svg{
             fill: #A6A6A6;
             cursor: pointer;
+            transition: 0.5s all ease;
+        }
+        .footer_icons svg:hover{
+            fill: #fff;
         }
         .footer_icons{
             width: 250px;
@@ -465,15 +467,225 @@
 
         @media screen and (max-width: 1220px){
 
+            header nav{
+                margin: 70px 100px 0 100px;
+            }
+            .hero_section{
+                margin: 70px 100px 0 100px;
+            }
+            .features{
+                padding: 50px 100px;
+            }
+            .API_features{
+                margin: 60px 100px;
+            }
+            .testimonials{
+                padding: 40px 100px;
+            }
+            .trusted_partners{
+                padding: 0px 100px;
+            }
+            .article_blogs{
+                padding: 20px 100px;
+            }
+            .footer_CTA{
+                margin: 210px 100px 50px 100px;
+            }
+            footer{
+                padding: 20px 100px;
+            }
+
         }
         @media screen and (max-width: 1020px){
-
+            h1{
+                font-size: 50px;
+                margin-bottom: 20px;
+                margin-right: 50px;
+            }
+            .hero_section{
+                margin: 70px 60px 0 60px;
+            }
+            .features{
+                padding: 50px 60px;
+            }
+            .API_features{
+                margin: 60px 60px;
+            }
+            .testimonials{
+                padding: 40px 60px;
+            }
+            .trusted_partners{
+                padding: 0px 60px;
+            }
+            .article_blogs{
+                padding: 20px 60px;
+            }
+            .footer_CTA{
+                margin: 210px 60px 50px 60px;
+            }
+            footer{
+                padding: 20px 60px;
+            }
         }
         @media screen and (max-width: 900px){
-
+            /* Styling font size */
+            p, a {
+                font-size: 14px;
+            }
+            h1{
+                font-size: 42px;
+                margin-bottom: 20px;
+                margin-right: 50px;
+            }
+            h2{
+                font-size: 30px;
+                margin-bottom: 16px;
+            }
+            .hero_section{
+                margin: 70px 60px 0 60px;
+            }
+            .hero_image img{
+                width: 350px;
+            }
+            .features{
+                padding: 50px 60px;
+            }
+            .Features_container > div > div {
+                padding: 30px;
+            }
+            .API_features{
+                margin: 60px 60px;
+            }
+            .F_header{
+                width: 90%;
+            }
+            .F_body_image img{
+                width: 300px;
+            }
+            .testimonials{
+                padding: 40px 60px;
+            }
+            .tst_header{    
+                margin: 20px 0 30px 0;
+            }
+            .trusted_partners{
+                padding: 0px 60px;
+            }
+            .trusted_partners_text {
+                padding: 15px 15px 15px 0;
+            }
+            .logo_item img {
+                width: 100px;
+                margin-inline: 18px;
+            }
+            .article{
+                width: 150px;
+                margin-right: 50px;
+            }
+            .article_blogs{
+                padding: 20px 60px;
+                margin-top: 20px;
+            }
+            .article_blogs h2{
+                margin-bottom: 30px;
+            }
+            .footer_CTA{
+                margin: 130px 60px 50px 60px;
+                height: 400px;
+            }
+            .CTA_image img {
+                margin-top: -200px;
+                margin-left: 30px;
+            }
+            .CTA_text h3 {
+                font-size: 30px;
+                margin: 0 20px 20px 20px;
+            }
+            .CTA_text p {
+                font-size: 14px;
+                margin: 0 20px 20px 20px;
+            }
+            footer{
+                padding: 20px 60px;
+            }
+            footer p{
+                font-size: 14px;
+                margin: 10px 0;
+            }
+            footer a{
+                padding-top: 10px;
+                font-size: 14px;
+            }
+            .footer_icons{
+                width: 180px;
+                display: flex;
+            }
+            .footer_links{
+                margin: 50px 0;
+                color: #A6A6A6;
+            }
+            .footer_below_hr {
+                margin: 50px 0;
+            }
         }
         @media screen and (max-width: 750px){
-
+            h1{
+                font-size: 35px;
+                margin-bottom: 20px;
+                margin-right: 50px;
+            }
+            .hero_section{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                margin: 40px 30px 0 60px;
+            }
+            .hero_image img{
+                width: 450px;
+                margin-top: 20px;
+                
+            }
+            .features{
+                padding: 50px 30px;
+            }
+            .API_features{
+                margin: 40px 30px;
+            }
+            .testimonials{
+                padding: 30px 30px;
+            }
+            .trusted_partners{
+                padding: 0px 30px;
+            }
+            .article{
+                width: inherit;
+                margin-right: 50px;
+            }
+            .article_blogs{
+                padding: 20px 30px;
+            }
+            .article_items{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+            }
+            .footer_CTA{
+                margin: 210px 30px 50px 30px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100%;
+            }
+            .CTA_image img {
+                margin-top: -180px;
+                margin-left: 50px;
+            }
+            footer{
+                padding: 20px 30px;
+            }
         }
         @media screen and (max-width: 500px){
 
