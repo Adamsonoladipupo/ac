@@ -22,10 +22,12 @@
         }
         body{
             background-color: #fff;
+            transition: all 0.7s ease;
         }
         /* --- For fonts size --- */
         p, a {
             font-size: 14px;
+
         }
 
         h1{
@@ -45,6 +47,7 @@
             top: 0;
             z-index: 99;
             
+            
         }
         header nav{
             display: flex;
@@ -52,9 +55,10 @@
             justify-content: space-between;
             margin-top: 50px;
             padding: 20px 130px 10px 130px;
-            background-color: red;
+            background-color: #fff;
             z-index: 99;
             /* padding: 20px 0; */
+            
             
         }
         .nav-menu {
@@ -144,6 +148,12 @@
             margin-bottom: 20px;
             border-radius: 30px;
             box-shadow: 10px 10px 30px rgba(0, 0, 0, 0.10);
+        }
+        .Features_container > div:nth-child(1) > div:nth-child(2){
+            margin-bottom: 0px;
+        }
+        .Features_container > div:nth-child(2) > div:nth-child(1){
+            margin-top: 0px;
         }
         .features_item span svg{
             background-color: var(--pryColor);
@@ -390,6 +400,11 @@
             margin-bottom: 20px;
             border-left: 3px solid var(--pryColor);
             padding-left: 30px;
+            transition: all .7s ease;
+        }
+        .article_snippet h3:hover{
+            border-left: 20px solid var(--pryColor);
+            color: var(--pryColor);
         }
         .article_snippet{
             border-left: 1px solid #7E7E7E;
@@ -495,7 +510,8 @@
         @media screen and (max-width: 1220px){
 
             header nav{
-                /* margin: 70px 100px 0 100px; */
+                padding: 20px 100px 10px 100px;
+                margin-top: 30px;
             }
             .hero_section{
                 margin: 70px 100px 0 100px;
@@ -534,7 +550,8 @@
                 margin-right: 50px;
             }
             header nav{
-                /* margin: 70px 60px 0 60px; */
+                padding: 20px 60px 20px 60px;
+                margin-top: 10px;
             }
             .hero_section{
                 margin: 70px 60px 0 60px;
@@ -586,10 +603,8 @@
             /* ---------Styling the Header/ Navigation menu */
 
             header nav{
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                /* margin: 30px 50px 0 50px; */
+                padding: 30px 60px 20px 60px;
+                margin-top: 0px;
             }
             .nav-menu {
                 display: none;
@@ -652,6 +667,7 @@
             }
             .Features_container > div > div {
                 padding: 30px;
+                
             }
             .API_features{
                 margin: 60px 60px;
@@ -735,7 +751,7 @@
                 margin-right: 50px;
             }
             header nav{
-                /* margin: 40px 30px 0 30px; */
+                padding: 20px 30px 20px 30px;
             }
             .hero_section{
                 display: flex;
@@ -769,6 +785,12 @@
             .Features_container > div:nth-child(2) > div:nth-child(2) button{
                 position: relative;
                 bottom: 8px;
+            }
+            .Features_container > div:nth-child(1) > div:nth-child(2){
+                margin-bottom: 5px;
+            }
+            .Features_container > div:nth-child(2) > div:nth-child(1){
+                margin-top: -5px;
             }
             .API_features{
                 margin: 40px 30px;
@@ -842,7 +864,7 @@
                 font-size: 20px;
             }
             header nav{
-                /* margin: 30px 20px 0 20px; */
+                padding: 20px;
             }
             .hero_section{
                 margin: 40px 20px 0 20px;
@@ -1280,7 +1302,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M512 256C512 114.6 397.4 0 256 0S0 114.6 0 256C0 376 82.7 476.8 194.2 504.5V334.2H141.4V256h52.8V222.3c0-87.1 39.4-127.5 125-127.5c16.2 0 44.2 3.2 55.7 6.4V172c-6-.6-16.5-1-29.6-1c-42 0-58.2 15.9-58.2 57.2V256h83.6l-14.4 78.2H287V510.1C413.8 494.8 512 386.9 512 256h0z"/></svg>
                 </a>
                 <a href="#">
-                    <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22.25" viewBox="0 0 448 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M100.3 448H7.4V148.9h92.9zM53.8 108.1C24.1 108.1 0 83.5 0 53.8a53.8 53.8 0 0 1 107.6 0c0 29.7-24.1 54.3-53.8 54.3zM447.9 448h-92.7V302.4c0-34.7-.7-79.2-48.3-79.2-48.3 0-55.7 37.7-55.7 76.7V448h-92.8V148.9h89.1v40.8h1.3c12.4-23.5 42.7-48.3 87.9-48.3 94 0 111.3 61.9 111.3 142.3V448z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="19.375" viewBox="0 0 496 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M248 8C111 8 0 119 0 256S111 504 248 504 496 393 496 256 385 8 248 8zM363 176.7c-3.7 39.2-19.9 134.4-28.1 178.3-3.5 18.6-10.3 24.8-16.9 25.4-14.4 1.3-25.3-9.5-39.3-18.7-21.8-14.3-34.2-23.2-55.3-37.2-24.5-16.1-8.6-25 5.3-39.5 3.7-3.8 67.1-61.5 68.3-66.7 .2-.7 .3-3.1-1.2-4.4s-3.6-.8-5.1-.5q-3.3 .7-104.6 69.1-14.8 10.2-26.9 9.9c-8.9-.2-25.9-5-38.6-9.1-15.5-5-27.9-7.7-26.8-16.3q.8-6.7 18.5-13.7 108.4-47.2 144.6-62.3c68.9-28.6 83.2-33.6 92.5-33.8 2.1 0 6.6 .5 9.6 2.9a10.5 10.5 0 0 1 3.5 6.7A43.8 43.8 0 0 1 363 176.7z"/></svg>
                 </a>
                 <a href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22.25" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M389.2 48h70.6L305.6 224.2 487 464H345L233.7 318.6 106.5 464H35.8L200.7 275.5 26.8 48H172.4L272.9 180.9 389.2 48zM364.4 421.8h39.1L151.1 88h-42L364.4 421.8z"/></svg>
