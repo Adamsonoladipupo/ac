@@ -39,15 +39,39 @@
         }
 
         /* -- This is for styling the Navigation section of the page  -- */
+
+        header {
+            position: sticky;
+            top: 0;
+            z-index: 99;
+            
+        }
         header nav{
             display: flex;
             align-items: center;
             justify-content: space-between;
-            margin: 70px 130px 0 130px;
+            margin-top: 50px;
+            padding: 20px 130px 10px 130px;
+            background-color: red;
+            z-index: 99;
+            /* padding: 20px 0; */
+            
+        }
+        .nav-menu {
+            display: contents;
+            align-items: center;
+            justify-content: space-between;
+            position: static;
+            /* flex-direction: row; */
+            /* justify-content: flex-end; */
+            transform: translateY(0);
         }
         .nav-links a{
             margin: 0 30px;
             color: #000;
+        }
+        .hamburger {
+            display: none;
         }
         a{
             text-decoration: none;
@@ -471,7 +495,7 @@
         @media screen and (max-width: 1220px){
 
             header nav{
-                margin: 70px 100px 0 100px;
+                /* margin: 70px 100px 0 100px; */
             }
             .hero_section{
                 margin: 70px 100px 0 100px;
@@ -508,6 +532,9 @@
                 font-size: 50px;
                 margin-bottom: 20px;
                 margin-right: 50px;
+            }
+            header nav{
+                /* margin: 70px 60px 0 60px; */
             }
             .hero_section{
                 margin: 70px 60px 0 60px;
@@ -555,6 +582,65 @@
                 font-size: 30px;
                 margin-bottom: 16px;
             }
+
+            /* ---------Styling the Header/ Navigation menu */
+
+            header nav{
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                /* margin: 30px 50px 0 50px; */
+            }
+            .nav-menu {
+                display: none;
+                flex-direction: column;
+                align-items: center;
+                position: absolute;
+                top: 50px;
+                left: 0;
+                width: 100%;
+                transition: transform 0.3s ease;
+                transform: translateX(100%);
+                background-color: #fff;
+                padding: 30px;
+
+            }
+            .nav-links a{
+                display: flex;
+                flex-direction: column;
+                text-align: left;
+                margin: 20px 0;
+            }
+            .nav-menu.active {
+                display: flex;
+                transform: translateY(0);
+            }
+            .hamburger {
+                display: block;
+            }
+            .hamburger.active .bar:nth-child(2) {
+                opacity: 0;
+            }
+            .hamburger.active .bar:nth-child(1) {
+                -webkit-transform: translateY(8px) rotate(45deg);
+                transform: translateY(8px) rotate(45deg);
+            }
+            .hamburger.active .bar:nth-child(3) {
+                -webkit-transform: translateY(-8px) rotate(-45deg);
+                transform: translateY(-8px) rotate(-45deg);
+            }
+            .bar {
+                display: block;
+                width: 25px;
+                height: 3px;
+                margin: 5px auto;
+                -webkit-transition: all 0.3s ease-in-out;
+                transition: all 0.3s ease-in-out;
+                background-color: #424242;
+            }
+            /* --------End of styling for the Header/ Navigation */
+
+
             .hero_section{
                 margin: 70px 60px 0 60px;
             }
@@ -647,6 +733,9 @@
                 font-size: 35px;
                 margin-bottom: 20px;
                 margin-right: 50px;
+            }
+            header nav{
+                /* margin: 40px 30px 0 30px; */
             }
             .hero_section{
                 display: flex;
@@ -751,6 +840,9 @@
             }
             h3 {
                 font-size: 20px;
+            }
+            header nav{
+                /* margin: 30px 20px 0 20px; */
             }
             .hero_section{
                 margin: 40px 20px 0 20px;
@@ -859,17 +951,25 @@
             <div class="logo">
                 Airtime Cabal
             </div>
-            <div class="nav-links">
-                <a href="#">Use</a>
-                <a href="#">Learn</a>
-                <a href="#">Build</a>
+            <div class="nav-menu">
+                <div class="nav-links">
+                    <a href="#">Use</a>
+                    <a href="#">Learn</a>
+                    <a href="#">Build</a>
+                </div>
+                <div class="nav-button">
+                    <button><a href="#">Contact</a></button>
+                    <button><a href="signin.html" style="color: #fff;">Dashboard</a></button>
+                </div>
             </div>
-            <div class="nav-button">
-                <button>Contact</button>
-                <button><a href="signin.html" style="color: #fff;">Dashboard</a></button>
+            <div class="hamburger" id="hamburger">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
         </nav>
     </header>
+    <!-- --------------This is the Hero section of the Landing page -------------- -->
     <div class="hero_section">
         <div class="hero-text&buttons">
             <div>
@@ -1195,7 +1295,26 @@
     </footer>
 
     <script>
-        // JavaScript code for controlling the customer review section 
+        // Script for controlling the Toggling of the Navigation menu ////
+
+        const hamburger = document.querySelector(".hamburger");
+        const navMenu = document.querySelector(".nav-menu");
+        const navLink = document.querySelectorAll(".nav-link");
+        
+        hamburger.addEventListener("click", mobileMenu);
+        navLink.forEach(n => n.addEventListener("click", closeMenu));
+        
+        function mobileMenu() {
+            hamburger.classList.toggle("active");
+            navMenu.classList.toggle("active");
+        }
+        
+        function closeMenu() {
+            hamburger.classList.remove("active");
+            navMenu.classList.remove("active");
+        }
+
+        // JavaScript code for controlling the customer review section ////
         
         // Reference To Buttons
         var btnLeft = document.getElementById('prev_btn');
@@ -1238,7 +1357,7 @@
         btnLeft.addEventListener('mouseout', autoSlide);
 
 
-        // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section
+        // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section ////
 
         window.onload = function() {
                 changeContent(1);
@@ -1276,7 +1395,7 @@
             }
         }
 
-        // the script for controlling the copyright 
+        // The script for controlling the copyright  ////
 
         document.addEventListener("DOMContentLoaded", function() {
             const currentYear = new Date().getFullYear();
