@@ -12,6 +12,7 @@
             --pryColor : #2260BE;
             --pryColorLight : #ECF4FF;
             --pryColor90Per : #0061f3;
+            --pryColorDark : #17335e;
             --grey : #9E9E9E;
         }
         *{
@@ -57,18 +58,16 @@
             padding: 20px 130px 10px 130px;
             background-color: #fff;
             z-index: 99;
-            /* padding: 20px 0; */
-            
-            
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.048);
+            transition: transform 0.5s ease;
         }
         .nav-menu {
             display: contents;
             align-items: center;
             justify-content: space-between;
             position: static;
-            /* flex-direction: row; */
-            /* justify-content: flex-end; */
             transform: translateY(0);
+            transition: transform 0.5s ease;
         }
         .nav-links a{
             margin: 0 30px;
@@ -101,6 +100,28 @@
             background-color: var(--pryColor);
             color: #fff;
             
+        }
+        
+        /* ---------Scroll to the Top Styling --------------- */
+        .scrollToTopBtn {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            cursor: pointer;
+            display: none;
+            transition: all 0.5s ease;
+            z-index: 10;
+        }
+        .scrollToTopBtn svg {
+            width: 50px;
+            height: 50px;
+            fill: #434343;
+            box-shadow: 0 3px 5px rgba(0, 0, 0, 0.479); 
+            border-radius: 50%;
+        }
+
+        .scrollToTopBtn svg:hover {
+            fill: var(--pryColor);
         }
 
         /* -- This is for styling the Hero Section  -- */
@@ -614,7 +635,7 @@
                 top: 50px;
                 left: 0;
                 width: 100%;
-                transition: transform 0.3s ease;
+                transition: transform 0.5s ease;
                 transform: translateX(100%);
                 background-color: #fff;
                 padding: 30px;
@@ -625,10 +646,12 @@
                 flex-direction: column;
                 text-align: left;
                 margin: 20px 0;
+                transition: transform 0.5s ease;
             }
             .nav-menu.active {
                 display: flex;
                 transform: translateY(0);
+                transition: transform 0.5s ease;
             }
             .hamburger {
                 display: block;
@@ -649,8 +672,8 @@
                 width: 25px;
                 height: 3px;
                 margin: 5px auto;
-                -webkit-transition: all 0.3s ease-in-out;
-                transition: all 0.3s ease-in-out;
+                -webkit-transition: all 0.5s ease-in-out;
+                transition: all 0.5s ease-in-out;
                 background-color: #424242;
             }
             /* --------End of styling for the Header/ Navigation */
@@ -991,6 +1014,11 @@
             </div>
         </nav>
     </header>
+    <!-- ---------Scroll to the top button -------------------- -->
+    <span id="scrollToTopBtn" class="scrollToTopBtn">
+        <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM377 271c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-87-87-87 87c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 167c9.4-9.4 24.6-9.4 33.9 0L377 271z"/></svg>
+    </span>
+
     <!-- --------------This is the Hero section of the Landing page -------------- -->
     <div class="hero_section">
         <div class="hero-text&buttons">
@@ -1377,7 +1405,25 @@
         slider.addEventListener('mouseout', autoSlide);
         btnRight.addEventListener('mouseout', autoSlide);
         btnLeft.addEventListener('mouseout', autoSlide);
+        
+        //  Scroll to the Top Script ////
 
+        // Get the button
+        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+
+        // When the user scrolls down 100px from the top of the document, show the button
+        window.onscroll = function() {
+            if (document.body.scrollTop > 100 || document.documentElement.scrollTop > 100) {
+                scrollToTopBtn.style.display = "block";
+            } else {
+                scrollToTopBtn.style.display = "none";
+            }
+        };
+
+        // When the user clicks on the button, scroll to the top of the document
+        scrollToTopBtn.onclick = function() {
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        };
 
         // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section ////
 
