@@ -1123,14 +1123,12 @@
             <div class="F_body_text">
                 <h2 id="f_header">Fast Payment APIs Links</h2>
                 <p id="content">Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.</p>
-                <button><a href="#" style="color: #fff; display: flex;">View Dashboard 
-                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a>
+                <button style="color: #fff;" id="toggleButton">View API Script →
                 </button>
             </div>
-            <div class="F_body_image">
-                <img id="F_image" src="images/image5.png" alt="image of APIs">
+            <div class="F_body_image" id="F_image">
+                <img id="toggleImage" src="images/image11.png" alt="image of APIs" >
+                
             </div>
         </div>
     </div>          
@@ -1422,7 +1420,7 @@
     </footer>
 
     <script>
-        // Script for controlling the Toggling of the Navigation menu ////
+        // Script for controlling the Toggling of the Navigation menu ----------------------- ////
 
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
@@ -1441,7 +1439,7 @@
             navMenu.classList.remove("active");
         }
 
-        // JavaScript code for controlling the customer review section ////
+        // JavaScript code for controlling the customer review section -------------------- ////
         
         // Reference To Buttons
         var btnLeft = document.getElementById('prev_btn');
@@ -1483,7 +1481,7 @@
         btnRight.addEventListener('mouseout', autoSlide);
         btnLeft.addEventListener('mouseout', autoSlide);
         
-        //  Scroll to the Top Script ////
+        //  Scroll to the Top Script ---------------------- ////
 
         // Get the button
         const scrollToTopBtn = document.getElementById('scrollToTopBtn');
@@ -1502,7 +1500,7 @@
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
 
-        // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section ////
+        // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section --------------- ////
 
         window.onload = function() {
                 changeContent(1);
@@ -1513,6 +1511,22 @@
             const F_image = document.getElementById("F_image");
             const content = document.getElementById("content");
             const F_buttons = document.querySelectorAll('.F_buttons button');
+            // Get elements under each tab
+            const image = document.getElementById('toggleImage');
+            const button = document.getElementById('toggleButton');
+
+            // Initial and alternate image sources
+            const image1 = 'images/image11.png';
+            const image2 = 'images/image12.png';
+            const image3 = 'images/image21.png';
+            const image4 = 'images/image22.png';
+            const image5 = 'images/image31.png';
+            const image6 = 'images/image32.png';
+            const image7 = 'images/image41.png';
+            const image8 = 'images/image42.png';
+
+
+            // ---------------------------------------------------
 
             // Reset all buttons' active state
             F_buttons.forEach(button => button.classList.remove('active'));
@@ -1523,24 +1537,56 @@
             // Change content based on button clicked
             if (buttonNumber === 1) {
                 f_header.textContent = "Fast Payment APIs Links";
-                F_image.src = "images/image5.png";
+                F_image.src = "images/image11.png";
                 content.textContent = "Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.";
+
+                
             } else if (buttonNumber === 2) {
                 f_header.textContent = "Seamless API Integration for Your Balance Management";
-                F_image.src = "images/image6.png";
+                F_image.src = "images/image21.png";
                 content.textContent = "Our API helps users manage their account balances more efficiently by providing real-time tracking and balance updates.";
+
             } else if (buttonNumber === 3) {
                 f_header.textContent = "Instant Transfers with Swift Payment APIs";
-                F_image.src = "images/image7.png";
+                F_image.src = "images/image31.png";
                 content.textContent = "Swift Payment APIs allow businesses to process transactions quickly, ensuring fast and reliable payments across global markets.";
+
             } else if (buttonNumber === 4) {
                 f_header.textContent = "Efficient Pay-out Solutions with Our API";
-                F_image.src = "images/image8.png";
+                F_image.src = "images/image41.png";
                 content.textContent = "Pay-out API provides a secure way for businesses to send payments and disburse funds to recipients, ensuring timely transactions.";
+
             }
+            
+            // ----------------------------------------------------------------
+
+            // Initial state for button text
+            const changeText = 'View API Script →';
+            const resetText = 'View API User-Interface →';
+
+            // Set an initial flag to keep track of the state
+            let isImage1 = true;
+            
+
+            // Add click event listener to the button
+            button.addEventListener('click', () => {
+                if (isImage1) {
+                    // Change image to Image 2
+                    image.src = image2;
+                    // Change button text to Reset Image
+                    button.textContent = resetText;
+                } else {
+                    // Reset image to Image 1
+                    image.src = image1;
+                    // Change button text to Change Image
+                    button.textContent = changeText;
+                }
+                // Toggle the state
+                isImage1 = !isImage1;
+            });
         }
 
-        // The script for controlling the copyright  ////
+        // The script for controlling the copyright -------------- ////
 
         document.addEventListener("DOMContentLoaded", function() {
             const currentYear = new Date().getFullYear();
