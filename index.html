@@ -11,7 +11,8 @@
         :root {
             --pryColor : #2260BE;
             --pryColorLight : #ECF4FF;
-            --pryColor90Per : #0061f3;
+            --pryColor90Per : #0041a1;
+            --pryColor_BTN_Hover : #0041a1;
             --pryColorDark : #17335e;
             --grey : #9E9E9E;
         }
@@ -87,19 +88,25 @@
             outline: none;
             border: none;
             border-radius: 10px;
-            transition: 0.5s all ease;
+            transition: 0.5s;
+            cursor: pointer;
+        }
+        .pry_btn {
+            color: #fff;
+            background-color: var(--pryColor);
+        }
+        .sec_btn {
+            color: var(--pryColor);
+            background-color: var(--pryColorLight);
+        }
+        .sec_btn:hover {
+            background-color: #d9e7fc;
+        }
+        button:hover {
+            background-color: var(--pryColor_BTN_Hover);
         }
         .nav-button button{
             margin: 0 7px 0 0;
-        }
-        .nav-button button:nth-child(1){
-            background-color: var(--pryColorLight);
-            color: var(--pryColor);
-        }
-        .nav-button button:nth-child(2){
-            background-color: var(--pryColor);
-            color: #fff;
-            
         }
         
         /* ---------Scroll to the Top Styling --------------- */
@@ -134,16 +141,11 @@
         .hero_image img{
             width: 500px;
         }
-        .hero_button button{
+        .hero_button {
             margin: 20px 7px 0 0;
-        }
-        .hero_button button:nth-child(1){
-            background-color: var(--pryColor);
-            color: #fff;
-        }
-        .hero_button button:nth-child(2){
-            background-color: #fff;
-            color: #000;
+            display: flex;
+            align-items: center;
+            gap: 30px;
         }
 
         /* -- This is for Styling the Features Section  -- */
@@ -227,6 +229,40 @@
             place-items: center ;
             margin: 60px 130px;
         }
+        .tab {
+        padding: 15px 20px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 10px;
+        }
+        .tab.active {
+        background-color: var(--pryColor);
+        color: white;
+        }
+        .content {
+        margin-top: 20px;
+        }
+        .image-container img {
+        width: 400px;
+        height: auto;
+        display: none;
+        }
+        .image-container img.active {
+        display: block;
+        }
+        .button-container button {
+        padding: 15px 20px;
+        background-color: var(--pryColor);
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        margin-top: 50px;
+        }
+        .button-container button:hover {
+        background-color: var(--pryColor_BTN_Hover);
+        }
         .F_header{
             background-color: var(--pryColorLight);
             padding: 10px;
@@ -236,14 +272,9 @@
             border-radius: 10px;
             width: 80%;
         }
-        .F_header button{
-            margin: 0 0px;
-            background-color: var(--pryColorLight);
-            cursor: pointer;
-        }
-        .F_header button.active {
-            background-color: var(--pryColor);
-            color: #fff;
+        .F_header div {
+            font-size: small;
+            text-align: center;
         }
         .F_body{
             display: flex;
@@ -258,14 +289,6 @@
         .F_body_text{
             margin-right: 100px;
         }
-        .F_body_text button{
-            margin-top: 50px;
-            background-color: var(--pryColor);
-        }
-        .F_body_image img{
-            width: 500px;
-        }
-
         /* -- Styling the testimonials section -- */
 
         .testimonials{
@@ -704,7 +727,7 @@
             .F_header{
                 width: 90%;
             }
-            .F_body_image img{
+            .image-container img{
                 width: 300px;
             }
             .testimonials{
@@ -835,7 +858,7 @@
                 padding: 10px;
                 width: 100%;
             }
-            .F_body_image img{
+            .image-container img{
                 width: 100%;
                 margin: 20px 0;
             }
@@ -912,16 +935,11 @@
                 margin-top: 20px;
             }
             .F_header{
-                padding: 10px;
+                padding: 5px;
                 width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
-                overflow: visible;
-            }
-            .F_header button{
-                background-color: var(--pryColorLight);
-                cursor: pointer;
             }
             .F_body{
                 margin-top: 30px;
@@ -1009,8 +1027,8 @@
                     <a href="#">Build</a>
                 </div>
                 <div class="nav-button">
-                    <button><a href="#">Contact</a></button>
-                    <button><a href="signin.html" style="color: #fff;">Dashboard</a></button>
+                    <a href="#"><button class="sec_btn">Contact</button></a>
+                    <a href="signin.html" ><button class="pry_btn" >Dashboard</button></a>
                 </div>
             </div>
             <div class="hamburger" id="hamburger">
@@ -1032,16 +1050,8 @@
                 <h1>The Gateway to Africa's Payment Ecosystem random </h1>
             </div>
             <div class="hero_button">
-                <button><a href="#" style="color: #fff; display: flex;">Get a free integration 
-                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a>
-                </button>
-                <button><a href="#" style="color: #000; display: flex;">Read Docs 
-                    <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#000" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg></a>
-                </button>
+                <a href="#" ><button class="pry_btn">Get a free integration →</button></a>
+                <a href="#" style="color: #000; display: flex;">Read Docs →</a>
             </div>
         </div>
         <div class="hero_image">
@@ -1058,11 +1068,7 @@
                     <div>
                         <img src="images/image_buttons.png" alt="" >
                     </div>
-                    <button style="background-color: var(--pryColor);"><a href="#" style="color: #fff; display: flex;">Get a free integration 
-                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg></a>
-                    </button>
+                    <a href=""><button class="pry_btn">Get a free integration →</button></a>
                 </div>
             </div>
             <div class="features_item">
@@ -1072,11 +1078,7 @@
                 <h4>Major API Integration</h4>
                 <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
                 <div class="features_image">
-                    <button style="background-color: var(--pryColorLight);"><a href="#" style="color: var(--pryColor); display: flex;">Get a free integration 
-                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2260BE" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg></a>
-                    </button>
+                    <a href="#" ><button class="sec_btn">Get a free integration →</button></a>
                 </div>
             </div>
         </div>
@@ -1088,11 +1090,7 @@
                 <h4>Advance monitoring and statistics</h4>
                 <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
                 <div class="features_image">
-                    <button style="background-color: var(--pryColorLight);"><a href="#" style="color: var(--pryColor); display: flex;">Get a free integration 
-                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2260BE" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg></a>
-                    </button>
+                    <a href="#" ><button class="sec_btn">Get a free integration →</button></a>
                 </div>
             </div>
             <div class="features_item">
@@ -1102,36 +1100,42 @@
                     <div>
                         <img src="images/image_padlock.png" alt="">
                     </div>
-                    <button style="background-color: #fff"><a href="#" style="color: #434343; display: flex;">Get a free integration 
-                        <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#434343" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg></a>
-                    </button>
+                    <a href="#"><button class="sec_btn">Get a free integration </button></a>
                 </div>
             </div>
         </div>
     </div>
     <!-- API Features Section -->
+
     <div class="API_features">
-        <div class="F_header F_buttons">
-            <button onclick="changeContent(1)">Pay-in API</button>
-            <button onclick="changeContent(2)">API Balance</button>
-            <button onclick="changeContent(3)">Swift Payment</button>
-            <button onclick="changeContent(4)">Payout API</button>
+        <div class="tabs F_header">
+            <div class="tab active" data-tab="1">Pay-in API</div>
+            <div class="tab" data-tab="2">API Balance</div>
+            <div class="tab" data-tab="3">Swift Payment</div>
+            <div class="tab" data-tab="4">Payout API</div>
         </div>
         <div class="F_body">
             <div class="F_body_text">
-                <h2 id="f_header">Fast Payment APIs Links</h2>
-                <p id="content">Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.</p>
-                <button style="color: #fff;" id="toggleButton">View API Script →
-                </button>
+                <div class="content">
+                    <h2 id="tab-title"></h2>
+                    <p id="tab-description"></p>
+                </div>
+                <div class="button-container">
+                    <button id="view-script">View API Script →</button>
+                </div>
             </div>
-            <div class="F_body_image" id="F_image">
-                <img id="toggleImage" src="images/image11.png" alt="image of APIs" >
-                
+            <div class="image-container">
+                <img id="image1" src="images/image11.png" alt="Image 1" class="active">
+                <img id="image2" src="images/image12.png" alt="Image 2">
+                <img id="image3" src="images/image21.png" alt="Image 3">
+                <img id="image4" src="images/image22.png" alt="Image 4">
+                <img id="image5" src="images/image31.png" alt="Image 5">
+                <img id="image6" src="images/image32.png" alt="Image 6">
+                <img id="image7" src="images/image41.png" alt="Image 7">
+                <img id="image8" src="images/image42.png" alt="Image 8">
             </div>
         </div>
-    </div>          
+    </div>
     <!-- Testimonials Section -->
     <div class="testimonials container">
         <div class="tst_header">
@@ -1363,11 +1367,7 @@
         <div class="CTA_text">
             <h3>Connect with Suppliers Globally</h3>
             <p>When it comes to payment, we are the bridge you need. Send money to your suppliers with ease in over 100 countries.</p>
-            <button><a href="#" style="color: #2376F3; display: flex;">View Dashboard 
-                <svg width="20px" height="20px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2376F3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
-                </svg></a>
-            </button>
+            <a href="#" ><button class="sec_btn">View Dashboard →</button></a>
         </div>
     </div>
     <footer>
@@ -1502,89 +1502,70 @@
 
         // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section --------------- ////
 
-        window.onload = function() {
-                changeContent(1);
-            };
+        const tabs = document.querySelectorAll('.tab');
+        const title = document.getElementById('tab-title');
+        const description = document.getElementById('tab-description');
+        const images = document.querySelectorAll('.image-container img');
+        const viewScriptButton = document.getElementById('view-script');
 
-        function changeContent(buttonNumber) {
-            const f_header = document.getElementById("f_header");
-            const F_image = document.getElementById("F_image");
-            const content = document.getElementById("content");
-            const F_buttons = document.querySelectorAll('.F_buttons button');
-            // Get elements under each tab
-            const image = document.getElementById('toggleImage');
-            const button = document.getElementById('toggleButton');
-
-            // Initial and alternate image sources
-            const image1 = 'images/image11.png';
-            const image2 = 'images/image12.png';
-            const image3 = 'images/image21.png';
-            const image4 = 'images/image22.png';
-            const image5 = 'images/image31.png';
-            const image6 = 'images/image32.png';
-            const image7 = 'images/image41.png';
-            const image8 = 'images/image42.png';
-
-
-            // ---------------------------------------------------
-
-            // Reset all buttons' active state
-            F_buttons.forEach(button => button.classList.remove('active'));
-
-            // Set the active class to the clicked button
-            F_buttons[buttonNumber - 1].classList.add('active');
-
-            // Change content based on button clicked
-            if (buttonNumber === 1) {
-                f_header.textContent = "Fast Payment APIs Links";
-                F_image.src = "images/image11.png";
-                content.textContent = "Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.";
-
-                
-            } else if (buttonNumber === 2) {
-                f_header.textContent = "Seamless API Integration for Your Balance Management";
-                F_image.src = "images/image21.png";
-                content.textContent = "Our API helps users manage their account balances more efficiently by providing real-time tracking and balance updates.";
-
-            } else if (buttonNumber === 3) {
-                f_header.textContent = "Instant Transfers with Swift Payment APIs";
-                F_image.src = "images/image31.png";
-                content.textContent = "Swift Payment APIs allow businesses to process transactions quickly, ensuring fast and reliable payments across global markets.";
-
-            } else if (buttonNumber === 4) {
-                f_header.textContent = "Efficient Pay-out Solutions with Our API";
-                F_image.src = "images/image41.png";
-                content.textContent = "Pay-out API provides a secure way for businesses to send payments and disburse funds to recipients, ensuring timely transactions.";
-
-            }
-            
-            // ----------------------------------------------------------------
-
-            // Initial state for button text
-            const changeText = 'View API Script →';
-            const resetText = 'View API User-Interface →';
-
-            // Set an initial flag to keep track of the state
-            let isImage1 = true;
-            
-
-            // Add click event listener to the button
-            button.addEventListener('click', () => {
-                if (isImage1) {
-                    // Change image to Image 2
-                    image.src = image2;
-                    // Change button text to Reset Image
-                    button.textContent = resetText;
-                } else {
-                    // Reset image to Image 1
-                    image.src = image1;
-                    // Change button text to Change Image
-                    button.textContent = changeText;
-                }
-                // Toggle the state
-                isImage1 = !isImage1;
-            });
+        const tabData = {
+        1: {
+            title: "Fast Payment APIs Links",
+            description: "Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.",
+            images: ["image1", "image2"]
+        },
+        2: {
+            title: "Seamless API Integration for Your Balance",
+            description: "Our API helps users manage their account balances more efficiently by providing real-time tracking and balance updates.",
+            images: ["image3", "image4"]
+        },
+        3: {
+            title: "Instant Transfers with Swift Payment APIs",
+            description: "Swift Payment APIs allow businesses to process transactions quickly, ensuring fast and reliable payments across global markets.",
+            images: ["image5", "image6"]
+        },
+        4: {
+            title: "Efficient Pay-out Solutions with Our API",
+            description: "Pay-out API provides a secure way for businesses to send payments and disburse funds to recipients, ensuring timely transactions.",
+            images: ["image7", "image8"]
         }
+        };
+
+        let currentTab = 1;
+        let currentImageIndex = 0;
+
+        const updateContent = (tabId) => {
+        const data = tabData[tabId];
+        title.textContent = data.title;
+        description.textContent = data.description;
+        images.forEach(img => img.classList.remove('active'));
+        document.getElementById(data.images[currentImageIndex]).classList.add('active');
+        };
+
+        tabs.forEach(tab => {
+        tab.addEventListener('click', () => {
+            tabs.forEach(t => t.classList.remove('active'));
+            tab.classList.add('active');
+            currentTab = parseInt(tab.getAttribute('data-tab'));
+            currentImageIndex = 0;
+            viewScriptButton.textContent = "View API Script →"; // Reset button text
+            updateContent(currentTab);
+        });
+        });
+
+        viewScriptButton.addEventListener('click', () => {
+        const data = tabData[currentTab];
+        currentImageIndex = (currentImageIndex + 1) % 2;
+        images.forEach(img => img.classList.remove('active'));
+        document.getElementById(data.images[currentImageIndex]).classList.add('active');
+
+        // Toggle button text
+        viewScriptButton.textContent = 
+            viewScriptButton.textContent === "View API Script →" ? "View API UI →" : "View API Script →";
+        });
+
+        // Initialize with default content
+        updateContent(currentTab);
 
         // The script for controlling the copyright -------------- ////
 
