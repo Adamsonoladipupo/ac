@@ -8,6 +8,12 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
+    <!-- Load plotly.js into the DOM -->
+    <script src='https://cdn.plot.ly/plotly-3.0.0.min.js'></script>
+
+    <!-- Load Chart.js into the DOM -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 
     <title>Dashboard</title>
     <style>
@@ -49,8 +55,9 @@
             align-items: center;
             justify-content: space-between;
             width: 100%;
+            height: 80px;
             border-bottom: solid 1px var(--grey_Stroke);
-            padding: 20px;
+            padding: 20px 20px 20px 30px;
             background-color: #ffffff;
             z-index: 5;
         }
@@ -63,12 +70,12 @@
         .sideBar_Menu {
             position: fixed;
             background-color: #ffffff;
-            width: 200px;
+            width: 220px;
             height: 100%;
             border-right: solid 1px var(--grey_Stroke);
             padding: 20px;
             left: 0;
-            top: 60px;
+            top: 80px;
         }
         .sideBar_Menu h5{
             margin: 20px 0 20px 0;
@@ -98,11 +105,18 @@
             width: 20px;
         }
         .Dashbaord_Content {
-            padding: 80px 30px 0 220px;
+            padding: 100px 30px 0 240px;
             font-size: 14px;
         }
+        .Dashbaord_Content_top {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 170px;
+            height: 100px;
+        }
         .Dashbaord_Content_top a button {
-            margin-bottom: 10px;
+            /* margin-bottom: 10px;  */
             width: 155px;
             font-size: 12px;
         }
@@ -118,6 +132,7 @@
             padding: 10px 10px;
             border-radius: 13px;
             width: 170px;
+            height: 100px;
             box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.10);
         }
         .Dashbaord_Content_wallet_balance svg {
@@ -127,6 +142,52 @@
             padding: 5px;
             border-radius: 20px;
             color: #fff;
+        } 
+        .Data_Visualization {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 46px 30px 30px 240px ;
+            width: 80%;
+            font-size: 14px;
+            font-weight: 600;
+            gap: 20px;
+        }
+        .Bar_graph{
+            width: 100%;
+            height: inherit;
+            border-radius: 12px;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        .Pie_Chart {
+            border-radius: 12px;
+            background-color: #ffffff;
+            padding: 20px;
+            width: 52%;
+        }
+        .transactions {
+            margin: 0 30px 30px 240px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            font-size: 14px;
+        }
+        .div_title {
+            font-size: 14px;
+            font-weight: 600;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        .transactions table tr td{
+            text-align: left;
         }
     </style>
 </head>
@@ -217,7 +278,7 @@
         <div class="Dashbaord_Content_item" style="margin-top: 20px;">
             <div class="Dashbaord_Content_top">
                 <a href="#"><button style="background-color: var(--pryColor); color: #ffffff; ">Fund your Wallet</button></a>
-                <a href="#"><button style="background-color: transparent; color: var(--black); border: 1px solid var(--black);">View Transactions <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 5l7 7l-7 7"/></svg></button></a>
+                <a href="#"><button style="background-color: transparent; color: var(--black); border: 1px solid var(--black);">View Transactions <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 5l7 7l-7 7"/></svg></button></a>
             </div>
             <div class="Dashbaord_Content_wallet_balance">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
@@ -246,6 +307,132 @@
             </div>
         </div>
     </div>
+    <div class="Data_Visualization">
+        <div class="Bar_graph">
+            Income Amount
+            <canvas id="myBarGraph"></canvas>
+        </div>
+        <div class="Pie_Chart">
+            Sucess Rate
+            <canvas id="myChart"></canvas>
+        </div>
+    </div>
+    <div class="transactions">
+        <span class="div_title">Transactions History</span>
+        <table style="margin-top: 25px;">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Services</th>
+                    <th>Transaction ID</th>
+                    <th>Description</th>
+                    <th>Amount</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>2025-02-01</td>
+                    <td>Web Hosting</td>
+                    <td>TXN12345</td>
+                    <td>Annual hosting plan</td>
+                    <td>₦100.00</td>
+                </tr>
+                <tr>
+                    <td>2025-02-03</td>
+                    <td>Domain Registration</td>
+                    <td>TXN12346</td>
+                    <td>Domain renewal for 2 years</td>
+                    <td>₦20.00</td>
+                </tr>
+                <tr>
+                    <td>2025-02-05</td>
+                    <td>SEO Services</td>
+                    <td>TXN12347</td>
+                    <td>SEO Optimization</td>
+                    <td>₦50.00</td>
+                </tr>
+                <tr>
+                    <td>2025-02-07</td>
+                    <td>Consulting</td>
+                    <td>TXN12348</td>
+                    <td>Marketing Strategy Session</td>
+                    <td>₦150.00</td>
+                </tr>
+                <tr>
+                    <td>2025-02-09</td>
+                    <td>Design Services</td>
+                    <td>TXN12349</td>
+                    <td>Logo design and branding</td>
+                    <td>₦200.00</td>
+                </tr>
+                <tr>
+                    <td>2025-02-09</td>
+                    <td>Design Services</td>
+                    <td>TXN12349</td>
+                    <td>Logo design and branding</td>
+                    <td>₦200.00</td>
+                </tr>
+                <tr>
+                    <td>2025-02-09</td>
+                    <td>Design Services</td>
+                    <td>TXN12349</td>
+                    <td>Logo design and branding</td>
+                    <td>₦200.00</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+
+
+    <!-- Script for Bar Graph Data Visualization -->
+    <script>
+        const barG = document.getElementById('myBarGraph');
+        
+            new Chart(barG, {
+            type: 'bar',
+            data: {
+                labels: ['Apr1', 'Apr2','Apr3','Apr4','Apr5','Apr6','Apr7','Apr8','Apr9','Apr10','Apr11','Apr12','Apr13','Apr14','Apr15','Apr16','Apr17','Apr18','Apr19','Apr20','Apr21','Apr22','Apr23','Apr24','Apr25','Apr26','Apr27','Apr28','Apr29',],
+                datasets: [{
+                label: 'Null',
+                data: [200, 190, 240, 300, 400, 550, 600, 700, 200, 350, 214, 100, 812, 900, 800, 1000, 300, 650, 300, 900, 670, 310, 202, 450, 245, 510, 620, 270, 300, 400],
+                backgroundColor: ['#2376F3',],
+                borderWidth: 0
+                }]
+            },
+
+            options: {
+                scales: {
+                y: {
+                    beginAtZero: true
+                }
+                }
+            }
+        });
+    </script>
+
+    <script>
+        const ctx = document.getElementById('myChart');
+    
+        new Chart(ctx, {
+        type: 'doughnut',
+        data: {
+            labels: [
+                'Successful',
+                'Unseccessful',
+            ],
+            datasets: [{
+                label: 'My First Dataset',
+                data: [150, 2],
+                backgroundColor: [
+                '#2376F3',
+                '#BDD4F1',
+                ],
+                hoverOffset: 4
+            }]
+        },
+        });
+    </script>
 
 </body>
 </html>
