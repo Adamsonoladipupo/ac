@@ -252,12 +252,15 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            margin: 46px 30px 30px 240px ;
+            margin: 46px 20px 30px 240px ;
             width: 80%;
             font-size: 14px;
             font-weight: 600;
             gap: 20px;
         }
+        .Data_Visualization div{
+                height: 400px;
+            }
         .Bar_graph{
             width: 100%;
             height: inherit;
@@ -324,9 +327,11 @@
                 gap: 8px;
             }
             .Data_Visualization {
-                margin: 46px 30px 30px 20px ;
+                margin: 46px 20px 30px 20px ;
                 width: 95.5%;
-                gap: 20px;
+            }
+            .Data_Visualization div{
+                height: 370px;
             }
             .transactions {
                 margin: 0 30px 30px 20px;
@@ -352,6 +357,13 @@
                 justify-content: space-between;
                 flex-direction: row;
                 gap: 15px;
+            }
+            .Data_Visualization {
+                margin: 46px 20px 30px 20px ;
+                width: 95%;
+            }
+            .Data_Visualization div{
+                height: 340px;
             }
         }
         @media screen and (max-width: 900px){
@@ -634,7 +646,7 @@
             new Chart(barG, {
             type: 'bar',
             data: {
-                labels: ['Apr1', 'Apr2','Apr3','Apr4','Apr5','Apr6','Apr7','Apr8','Apr9','Apr10','Apr11','Apr12','Apr13','Apr14','Apr15','Apr16','Apr17','Apr18','Apr19','Apr20','Apr21','Apr22','Apr23','Apr24','Apr25','Apr26','Apr27','Apr28','Apr29',],
+                labels: ['Apr 1', 'Apr 2','Apr 3','Apr 4','Apr 5','Apr 6','Apr 7','Apr 8','Apr 9','Apr 10','Apr 11','Apr 12','Apr 13','Apr 14','Apr 15','Apr 16','Apr 17','Apr 18','Apr 19','Apr 20','Apr 21','Apr 22','Apr 23','Apr 24','Apr 25','Apr 26','Apr 27','Apr 28','Apr 9',],
                 datasets: [{
                 label: 'Amount (₦)',
                 data: [200, 190, 240, 300, 400, 550, 600, 700, 200, 350, 214, 100, 812, 900, 800, 1000, 300, 650, 300, 900, 670, 310, 202, 450, 245, 510, 620, 270, 300, 400],
@@ -642,21 +654,26 @@
                 borderWidth: 0
                 }]
             },
-
             options: {
-        scales: {
-            x: {
-                grid: {
-                    display: false // Disable grid on x-axis
-                }
-            },
-            y: {
-                grid: {
-                    display: false // Disable grid on y-axis
+                scales: {
+                    x: {
+                        grid: {
+                            display: false // Disable grid on x-axis
+                        }
+                    },
+                    y: {
+                        grid: {
+                            display: true // Disable grid on y-axis
+                        },
+                        ticks: {
+                            callback: function(value) {
+                                return '₦' + value;  // Adds "#" before the number
+                            }
+                            }
+                    }
+                    
                 }
             }
-        }
-    }
         });
     </script>
 
