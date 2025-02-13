@@ -648,9 +648,11 @@
             data: {
                 labels: ['Apr 1', 'Apr 2','Apr 3','Apr 4','Apr 5','Apr 6','Apr 7','Apr 8','Apr 9','Apr 10','Apr 11','Apr 12','Apr 13','Apr 14','Apr 15','Apr 16','Apr 17','Apr 18','Apr 19','Apr 20','Apr 21','Apr 22','Apr 23','Apr 24','Apr 25','Apr 26','Apr 27','Apr 28','Apr 9',],
                 datasets: [{
-                label: 'Amount (₦)',
-                data: [200, 190, 240, 300, 400, 550, 600, 700, 200, 350, 214, 100, 812, 900, 800, 1000, 300, 650, 300, 900, 670, 310, 202, 450, 245, 510, 620, 270, 300, 400],
+                label: 'Monhtly Sales',
+                data: [200, 200, 400, 200, 400, 600, 600, 700, 200, 350, 214, 100, 812, 900, 800, 1000, 300, 650, 300, 900, 670, 310, 202, 450, 245, 510, 620, 270, 300, 400],
                 backgroundColor: ['#2376F3',],
+                borderRadius: 3,
+                barThickness: 10,
                 borderWidth: 0
                 }]
             },
@@ -669,7 +671,8 @@
                             callback: function(value) {
                                 return '₦' + value;  // Adds "#" before the number
                             }
-                            }
+                        },
+                        
                     }
                     
                 }
