@@ -661,7 +661,10 @@
                     x: {
                         grid: {
                             display: false // Disable grid on x-axis
-                        }
+                        },
+                        ticks: {
+                            color: '#BCBCBC' // Change the color to your preferred color
+                            }
                     },
                     y: {
                         grid: {
@@ -670,7 +673,8 @@
                         ticks: {
                             callback: function(value) {
                                 return '₦' + value;  // Adds "#" before the number
-                            }
+                            },
+                            color: '#BCBCBC'
                         },
                         
                     }
