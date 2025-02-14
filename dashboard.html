@@ -443,7 +443,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 2048 2048"><path fill="currentColor" d="M896 640h128v1408H896zM372 244q-58 58-103 126t-77 144t-47 155t-17 163q0 82 16 162t48 156t76 143t104 127l-91 91q-136-137-208-311T0 832q0-193 72-367t209-312zm1267-91q136 137 208 311t73 368q0 193-72 367t-209 312l-91-91q58-58 103-126t77-144t47-155t17-163q0-82-16-162t-48-156t-76-143t-104-127zm-272 272q81 81 125 186t44 221q0 115-44 220t-125 187l-90-90q63-63 96-145t34-172q0-89-33-171t-97-146zm-724 90q-63 63-97 145t-34 172q0 89 34 171t97 146l-90 90q-81-81-125-186t-44-221q0-115 44-220t125-187z"/></svg>Data Plan</a>
             </div>
             <div class="sideBar_Menu_item">
-                <a href="#">
+                <a href="buy_airtime.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>Buy Airtime</a>
             </div>
             <div class="sideBar_Menu_item">
@@ -646,39 +646,42 @@
             new Chart(barG, {
             type: 'bar',
             data: {
-                labels: ['Apr 1', 'Apr 2','Apr 3','Apr 4','Apr 5','Apr 6','Apr 7','Apr 8','Apr 9','Apr 10','Apr 11','Apr 12','Apr 13','Apr 14','Apr 15','Apr 16','Apr 17','Apr 18','Apr 19','Apr 20','Apr 21','Apr 22','Apr 23','Apr 24','Apr 25','Apr 26','Apr 27','Apr 28','Apr 9',],
+                labels: ['Jan 1', 'Jan 2', 'Jan 3','Jan 4', 'Jan 5', 'Jan 6', 'Jan 7', 'Jan 8', 'Jan 9', 'Jan 10', 'Jan 11', 'Jan 12', 'Jan 13', 'Jan 14', 'Jan 15', 'Jan 16', 'Jan 17', 'Jan 18', 'Jan 19', 'Jan 20', 'Jan 21', 'Jan 22', 'Jan 23', 'Jan 24', 'Jan 25', 'Jan 26', 'Jan 27', 'Jan 28', 'Jan 29', 'Jan 30', 'Jan 31',],
                 datasets: [{
                 label: 'Monhtly Sales',
-                data: [200, 200, 400, 200, 400, 600, 600, 700, 200, 350, 214, 100, 812, 900, 800, 1000, 300, 650, 300, 900, 670, 310, 202, 450, 245, 510, 620, 270, 300, 400],
-                backgroundColor: ['#2376F3',],
-                borderRadius: 3,
-                barThickness: 10,
-                borderWidth: 0
+                data: [65000, 59000, 80000, 81000, 56000, 55000, 40000, 65000, 59000, 80000, 81000, 56000, 55000, 40000, 65000, 59000, 80000, 81000, 56000, 55000, 40000, 65000, 59000, 80000, 81000, 56000, 55000, 40000, 65000, 59000, 80000],
+                backgroundColor: 'rgb(51, 102, 255)',
+                borderColor: 'rgb(51, 102, 255)',
+                borderWidth: 1, 
+                borderRadius: 4,
+                barPercentage: 0.5,
+                barThickness: 13,
+                maxBarThickness: 50,
+                minBarLength: 2
                 }]
             },
             options: {
                 scales: {
                     x: {
                         grid: {
-                            display: false // Disable grid on x-axis
+                        display: false  // Removes the x-axis grid lines
                         },
-                        ticks: {
-                            color: '#BCBCBC' // Change the color to your preferred color
-                            }
                     },
                     y: {
+                        beginAtZero: true,
                         grid: {
-                            display: true, // Disable grid on y-axis
-                            color: 'rgb(242, 242, 242, 0.5)',
+                        display: true,
+                        color: 'rgb(242, 242, 242, 0.5)',
+                        },
+                        border: {
+                        color: 'transparent' // remove y axis origin line
                         },
                         ticks: {
-                            callback: function(value) {
-                                return '₦' + value;  // Adds "#" before the number
-                            },
-                            color: '#BCBCBC'
+                        maxTicksLimit: 5, // Show max of 5 value along Y-axis
+                        stepSize: 25000,
+                        callback: (value) => '₦' + value, // Add currency symbol to y axis value
                         },
-                        
-                    }
+                    },
                     
                 }
             }
