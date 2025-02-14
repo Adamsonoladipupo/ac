@@ -695,19 +695,37 @@
         type: 'doughnut',
         data: {
             labels: [
-                'Successful',
-                'Unseccessful',
+                'Data',
+                'Airtime',
+                'Electricity',
+                'Cable Tv',
+                'Sport Betting',
             ],
             datasets: [{
                 label: 'My First Dataset',
                 data: [150, 2],
                 backgroundColor: [
-                '#2376F3',
-                '#BDD4F1',
+                'rgb(194, 194, 214)',
+                'rgb(181, 227, 183)',
+                'rgb(218, 186, 222)',
+                'rgb(194, 214, 214)',
+                'rgb(221, 221, 187)',
                 ],
-                hoverOffset: 4
+                hoverOffset: 4,
+                borderRadius: 0,
             }]
         },
+        options: {
+                cutout: '65%',
+                radius: '20%',
+                responsive: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        display: false,
+                    },
+                }
+            },
         });
     </script>
 
