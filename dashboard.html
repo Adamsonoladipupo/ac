@@ -703,7 +703,7 @@
             ],
             datasets: [{
                 label: 'My First Dataset',
-                data: [150, 2],
+                data: [30, 50, 60, 30, 90],
                 backgroundColor: [
                 'rgb(194, 194, 214)',
                 'rgb(181, 227, 183)',
@@ -717,15 +717,22 @@
         },
         options: {
                 cutout: '65%',
-                radius: '20%',
+                radius: '50%',
                 responsive: true,
                 plugins: {
                     legend: {
                         position: 'bottom',
-                        display: false,
+                        display: false
                     },
+                },
+                elements: {
+                arc: {
+                    spacing: -10,    // Negative spacing for overlap
+                    
                 }
+                },
             },
+        
         });
     </script>
 
