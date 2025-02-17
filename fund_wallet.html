@@ -451,7 +451,7 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M32.164 32.946V15.148M38 22.964l-5.835-7.91l-5.836 7.91m-10.493-7.91v17.798m5.835-7.816l-5.835 7.91L10 25.036" stroke-width="3"/></svg>Internet</a>
             </div>
             <div class="sideBar_Menu_item">
-                <a href="#">
+                <a href="transaction_history.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M11.962 20q-3.046 0-5.311-1.99q-2.264-1.989-2.62-5.01h1.011q.408 2.58 2.351 4.29T11.962 19q2.925 0 4.962-2.037T18.962 12t-2.038-4.963T11.962 5q-1.553 0-2.918.656q-1.365.655-2.41 1.805h2.481v1H4.962V4.309h1v2.388q1.16-1.273 2.718-1.984T11.962 4q1.663 0 3.118.626t2.542 1.714t1.714 2.542t.626 3.118t-.626 3.118t-1.714 2.542t-2.542 1.714t-3.118.626m3.204-4.146l-3.647-3.646V7h1v4.792l3.354 3.354z" /></svg>History</a>
             </div>
             <h5>Tools</h5>
@@ -498,6 +498,10 @@
             <button onclick="showContent('content4', this)">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18 15h-2v2h2m0-6h-2v2h2m2 6h-8v-2h2v-2h-2v-2h2v-2h-2V9h8M10 7H8V5h2m0 6H8V9h2m0 6H8v-2h2m0 6H8v-2h2M6 7H4V5h2m0 6H4V9h2m0 6H4v-2h2m0 6H4v-2h2m6-10V3H2v18h20V7z"/></svg>
                 Squad →
+            </button>
+            <button onclick="showContent('content5', this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5H4V2h4zM4 22h4v-3H4zM14 2h-4v3h4zm-4 20h4v-3h-4zm6-20v3h4V2zm1 9h-4V7h-2v4H7V7H5v10h2v-4h4v4h2v-4h6V7h-2z"/></svg>
+                Manual Funding →
             </button>
         </div>
         <div id="content1" class="content">
@@ -584,6 +588,26 @@
         <div id="content4" class="content">
             <p>Squad: Card/USSD/ Phone</p>
             <div class="Squad other_payment">
+                <div class="input_amount">
+                    <span>
+                        <label for="">Amount (₦): </label>
+                        <input type="number" name="amount" id="amount" placeholder="Amount (₦): " required>
+                    </span>
+                    <span>
+                        <label for="">PIN</label>
+                        <input type="password" name="pin" id="" placeholder="..." required>
+                    </span>
+                    <a href="#"><button class="primary_action_button">Proceed to pay →</button></a>
+                </div>
+                <div class="caution_box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
+                    <p>Note:A third party payment fee of 1.613% applies. <br> <br>If you are having challenges adding funds to your wallet click on contact us on the left menu</p>
+                </div>
+            </div>
+        </div>
+        <div id="content5" class="content">
+            <p>Manual Funding: Fund your account Manually</p>
+            <div class="Manual_funding other_payment">
                 <div class="input_amount">
                     <span>
                         <label for="">Amount (₦): </label>
