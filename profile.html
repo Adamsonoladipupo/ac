@@ -217,8 +217,71 @@
             padding: 100px 20px 0 240px;
             font-size: 14px;
         }
-        .transactions table tr td{
-            text-align: left;
+        /* Styling the API content */
+        .profile_container {
+            margin-top: 20px;
+        }
+        .button-container {
+            display: block;
+            background-color: #ffffff;
+            padding: 0 15px;
+            border: 1px solid var(--grey_Stroke);
+            border-radius: 12px;
+        }
+        .button-container button {
+            padding: 20px 20px;
+            cursor: pointer;
+            border: none;
+            color: var(--inactive_Link);
+            background-color: #ffffff;
+        }
+        button.active {
+            border-bottom: 2px solid var(--pryColor);
+            color: var(--black);
+            font-weight: 500;
+        }
+        .content {
+            display: none;
+            margin-top: 20px;
+        }
+        .content.active {
+            display: block;
+        }
+        .content-header {
+            display: flex;
+            flex-direction: row;
+            align-items:start ;
+            justify-content: space-between;
+            gap: 20px;
+        }
+        .content-header-item {
+            background-color: #ffffff;
+            padding: 20px;
+            border: 1px solid var(--grey_Stroke);
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 55%; /* Left div takes 70% of the width */
+        }
+        .caution_box {
+            background-color: #ffffff;
+            border: 1px solid var(--grey_Stroke);
+            padding: 20px 100px ;
+            border-radius: 12px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 20px;
+            flex: 1; /* Right div takes the remaining space */
+        }
+        .content-body {
+            background-color: #ffffff;
+            border: 1px solid var(--grey_Stroke);
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 12px;
         }
 
         @media (max-width: 1220px) {
@@ -376,8 +439,36 @@
     </div>
     <div class="Dashbaord_Content">
         <h4>Profile</h4>
-        <div class="profile">
-
+        <div class="profile_container">
+            <div class="button-container">
+                <button id="button1" onclick="showContent('content1')">Personal Details</button>
+                <button id="button2" onclick="showContent('content2')">Business Details</button>
+                <button id="button3" onclick="showContent('content3')">KYC Settings</button>
+            </div>
+            <div class="content_container">
+                <div id="content1" class="content active">
+                    <div class="content-header ">
+                        <div class="content-header-item ">
+                            <span>Profile</span>
+                            <span><p>Manage and View your profile settings</p></span>
+                        </div>
+                        <div class="caution_box">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
+                            <p>Kindly ensure that the information you provide is accurate and precise, that way it's easy for Airtime Cabal keep up with you. </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="content2" class="content">
+                    <div class="content-body">
+                        <p>Business Details</p>
+                    </div>
+                </div>
+                <div id="content3" class="content">
+                    <div class="content-body">
+                        <p>KYC Settings</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -417,6 +508,32 @@
             notificationMenu.classList.remove('active');
             overlay.classList.remove('active');
         });
+    </script>
+    <!-- Script for Dynamic Buttons -->
+    <script>
+        function showContent(contentId) {
+            // Hide all content divs
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            var buttons = document.querySelectorAll('.button-container button');
+            buttons.forEach(function(button) {
+                button.classList.remove('active');
+            });
+
+            // Show the selected content
+            document.getElementById(contentId).classList.add('active');
+
+            // Add active class to the clicked button
+            var activeButton = document.querySelector(`[onclick="showContent('${contentId}')"]`);
+            activeButton.classList.add('active');
+        }
+
+        // Set the first button as active on page load
+        document.getElementById('button1').classList.add('active');
     </script>
 </body>
 </html>
