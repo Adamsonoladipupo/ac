@@ -86,19 +86,19 @@
             gap: 10px;
         }
         .notification-menu {
-            width: 500px;
+            width: 300px;
             background-color: #ffffff;
             color: var(--black);
             height: 100vh;
             padding: 15px;
             position: fixed;
             top: 0;
-            right: -500px;
+            right: -300px;
             transition: transform 0.3s ease;
             z-index: 100;
         }
         .notification-menu.active {
-            transform: translateX(-500px);
+            transform: translateX(-300px);
         }
         .notification-header {
             display: flex;
@@ -126,7 +126,7 @@
         .notification-message {
             background-color: var(--backgroung_Color);
             border-radius: 12px;
-            width: 400px;
+            width: auto;
             height: inherit;
             padding: 20px;
         }
@@ -218,9 +218,12 @@
         }
         .Dashbaord_Content_item {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
+            flex-wrap: wrap;
+            flex-direction: row;
+            align-items: center ;
+            justify-content: space-between ;
             margin-top: 20px;
+            gap: 20px;
         }
         .Dashbaord_Content_wallets {
             display: flex;
@@ -231,21 +234,28 @@
         }
         .Dashbaord_Content_wallet_balance {
             background-color: #ffffff;
-            display: grid;
+            display: flex;
+            flex: 1;
+            flex-direction: column;
+            align-items: left;
             gap: 5px;
             padding: 10px 10px;
             border-radius: 13px;
-            width: 170px;
+            min-width: 155px;
             height: 100px;
             box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.10);
         }
-        .Dashbaord_Content_wallet_balance span:nth-child(3) {
+        .Dashbaord_Content_wallet_balance div {
+            display: grid;
+            gap: 10px;
+        }
+        .Dashbaord_Content_wallet_balance div span:nth-child(2) {
             font-size: 12px;
         }
         .Dashbaord_Content_wallet_balance svg {
             background-color:#2376f33f ;
-            width: 28px;
-            height: 28px;
+            width: 26px;
+            height: 26px;
             padding: 5px;
             border-radius: 20px;
             color: #fff;
@@ -255,30 +265,30 @@
             flex-direction: row;
             align-items: center;
             justify-content: space-between;
-            margin: 46px 20px 30px 240px ;
-            width: 80%;
+            margin: 46px 0 30px 0 ;
             font-size: 14px;
             font-weight: 600;
             gap: 20px;
         }
         .Data_Visualization div{
-                height: 400px;
+            width: 100%;
+            height: 350px;
             }
         .Bar_graph{
-            width: 100%;
+            flex: 1;
             height: inherit;
             border-radius: 12px;
             background-color: #ffffff;
             padding: 20px;
         }
         .Pie_Chart {
+            flex: 0 0 30%;
             border-radius: 12px;
             background-color: #ffffff;
             padding: 20px;
-            width: 52%;
         }
         .transactions {
-            margin: 0 30px 30px 240px;
+            margin: 0 0 30px 0;
             background-color: #ffffff;
             padding: 20px;
             border-radius: 12px;
@@ -299,7 +309,61 @@
         .transactions table tr td{
             text-align: left;
         }
-        @media (max-width: 1220px) {
+        @media screen and (max-width: 1111px){
+            .Dashbaord_Content_top {
+                flex-direction: row;
+                justify-content: space-between;
+                width: auto;
+                height: auto;
+                gap: 20px;
+            }
+            .Dashbaord_Content_wallets {
+                display: flex;
+                flex-wrap: wrap;
+                align-items: center;
+                justify-content:flex-start ;
+                flex-direction: row;
+                gap: 15px;
+            }
+            .Dashbaord_Content_wallet_balance {
+                display: flex;
+                flex:1;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                min-width: 250px;
+                height: auto;
+            }
+        }
+        @media screen and (max-width: 900px){
+            .Dashbaord_Content_wallet_balance {
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+                gap: 10px;
+                min-width: 200px;
+                height: auto;
+            }
+            .Data_Visualization {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: center;
+            }
+            .Data_Visualization div{
+                width: 100%;
+                /* height: 100%; */
+            }
+            .Bar_graph{
+                flex: 1;
+                height: 100%;
+            }
+            .Pie_Chart {
+                flex: 1;
+                height: auto;
+            }
+        }
+        @media (max-width: 750px) {
             .sidebar {
                 transform: translateX(-100%);
             }
@@ -336,44 +400,6 @@
             .Data_Visualization div{
                 height: 370px;
             }
-            .transactions {
-                margin: 0 30px 30px 20px;
-                padding: 20px;
-            }
-        }
-        @media screen and (max-width: 1020px){
-            .Dashbaord_Content_item {
-                flex-direction: column;
-                align-items:start ;
-                gap: 20px;
-            }
-            .Dashbaord_Content_top {
-                flex-direction: row;
-                justify-content: space-between;
-                gap: 20px;
-                width: inherit;
-                height: inherit;
-            }
-            .Dashbaord_Content_wallets {
-                display: flex;
-                align-items: center;
-                justify-content: space-between;
-                flex-direction: row;
-                gap: 15px;
-            }
-            .Data_Visualization {
-                margin: 46px 20px 30px 20px ;
-                width: 95%;
-            }
-            .Data_Visualization div{
-                height: 340px;
-            }
-        }
-        @media screen and (max-width: 900px){
-
-        }
-        @media screen and (max-width: 750px){
-
         }
         @media screen and (max-width: 500px){
 
@@ -501,107 +527,123 @@
             <div class="Dashbaord_Content_wallets">
                 <div class="Dashbaord_Content_wallet_balance">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
-                    <span> <strong>₦570,000,000.00</strong></span>
-                    <span>Wallet Balance</span>
+                    <div>
+                        <span> <strong>₦570,000,000.00</strong></span>
+                        <span>Wallet Balance</span>
+                    </div>
+                    
                 </div>
                 <div class="Dashbaord_Content_wallet_balance">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
-                    <span><strong>₦59,000,000.00</strong></span>
-                    <span>MTN Gifting Balance</span>
+                    <div>
+                        <span><strong>₦59,000,000.00</strong></span>
+                        <span>MTN Gifting Balance</span>
+                    </div>
+                    
                 </div>
                 <div class="Dashbaord_Content_wallet_balance">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
-                    <span><strong>₦100,000,000.00</strong></span>
-                    <span>Airtel Gifting Balance</span>
+                    <div>
+                        <span><strong>₦100,000,000.00</strong></span>
+                        <span>Airtel Gifting Balance</span>
+                    </div>
+                    
                 </div>
                 <div class="Dashbaord_Content_wallet_balance">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
-                    <span><strong>₦34,000,000.00</strong></span>
-                    <span>Glo Gifting Balance</span>
+                    <div>
+                        <span><strong>₦34,000,000.00</strong></span>
+                        <span>Glo Gifting Balance</span>
+                    </div>
                 </div>
                 <div class="Dashbaord_Content_wallet_balance">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
-                    <span><strong>₦100,000.00</strong></span>
-                    <span>9mobile Gifting Balance</span>
+                    <div>
+                        <span><strong>₦100,000.00</strong></span>
+                        <span>9mobile Gifting Balance</span>
+                    </div>
+
                 </div>
             </div>
         </div>
-    </div>
-    <div class="Data_Visualization">
-        <div class="Bar_graph">
-            Revenue Amount
-            <canvas id="myBarGraph"></canvas>
+        <div class="Data_Visualization">
+            <div class="Bar_graph">
+                Revenue Amount
+                <canvas id="myBarGraph"></canvas>
+            </div>
+            <div class="Pie_Chart">
+                Sales Volume
+                <canvas id="myChart" ></canvas>
+            </div>
         </div>
-        <div class="Pie_Chart">
-            Sales Volume
-            <canvas id="myChart" ></canvas>
+        <div class="transactions">
+            <span class="div_title">Transactions History</span>
+            <table style="margin-top: 25px;">
+                <thead>
+                    <tr>
+                        <th>Date</th>
+                        <th>Services</th>
+                        <th>Transaction ID</th>
+                        <th>Description</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>2025-02-01</td>
+                        <td>Web Hosting</td>
+                        <td>TXN12345</td>
+                        <td>Annual hosting plan</td>
+                        <td>₦100.00</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-03</td>
+                        <td>Domain Registration</td>
+                        <td>TXN12346</td>
+                        <td>Domain renewal for 2 years</td>
+                        <td>₦20.00</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-05</td>
+                        <td>SEO Services</td>
+                        <td>TXN12347</td>
+                        <td>SEO Optimization</td>
+                        <td>₦50.00</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-07</td>
+                        <td>Consulting</td>
+                        <td>TXN12348</td>
+                        <td>Marketing Strategy Session</td>
+                        <td>₦150.00</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-09</td>
+                        <td>Design Services</td>
+                        <td>TXN12349</td>
+                        <td>Logo design and branding</td>
+                        <td>₦200.00</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-09</td>
+                        <td>Design Services</td>
+                        <td>TXN12349</td>
+                        <td>Logo design and branding</td>
+                        <td>₦200.00</td>
+                    </tr>
+                    <tr>
+                        <td>2025-02-09</td>
+                        <td>Design Services</td>
+                        <td>TXN12349</td>
+                        <td>Logo design and branding</td>
+                        <td>₦200.00</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
-    <div class="transactions">
-        <span class="div_title">Transactions History</span>
-        <table style="margin-top: 25px;">
-            <thead>
-                <tr>
-                    <th>Date</th>
-                    <th>Services</th>
-                    <th>Transaction ID</th>
-                    <th>Description</th>
-                    <th>Amount</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>2025-02-01</td>
-                    <td>Web Hosting</td>
-                    <td>TXN12345</td>
-                    <td>Annual hosting plan</td>
-                    <td>₦100.00</td>
-                </tr>
-                <tr>
-                    <td>2025-02-03</td>
-                    <td>Domain Registration</td>
-                    <td>TXN12346</td>
-                    <td>Domain renewal for 2 years</td>
-                    <td>₦20.00</td>
-                </tr>
-                <tr>
-                    <td>2025-02-05</td>
-                    <td>SEO Services</td>
-                    <td>TXN12347</td>
-                    <td>SEO Optimization</td>
-                    <td>₦50.00</td>
-                </tr>
-                <tr>
-                    <td>2025-02-07</td>
-                    <td>Consulting</td>
-                    <td>TXN12348</td>
-                    <td>Marketing Strategy Session</td>
-                    <td>₦150.00</td>
-                </tr>
-                <tr>
-                    <td>2025-02-09</td>
-                    <td>Design Services</td>
-                    <td>TXN12349</td>
-                    <td>Logo design and branding</td>
-                    <td>₦200.00</td>
-                </tr>
-                <tr>
-                    <td>2025-02-09</td>
-                    <td>Design Services</td>
-                    <td>TXN12349</td>
-                    <td>Logo design and branding</td>
-                    <td>₦200.00</td>
-                </tr>
-                <tr>
-                    <td>2025-02-09</td>
-                    <td>Design Services</td>
-                    <td>TXN12349</td>
-                    <td>Logo design and branding</td>
-                    <td>₦200.00</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
+
+
 
 
     <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
@@ -656,8 +698,8 @@
                 borderWidth: 1, 
                 borderRadius: 4,
                 barPercentage: 0.5,
-                barThickness: 13,
-                maxBarThickness: 50,
+                barThickness: 9,
+                maxBarThickness: 40,
                 minBarLength: 2
                 }]
             },
