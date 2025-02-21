@@ -313,6 +313,18 @@
         .transactions table tr td{
             text-align: left;
         }
+        table td SVG {
+            background-color: var(--pryColor);
+            padding: 3px;
+            border-radius: 100%;
+            color: #ffffff;
+        }
+        table td:nth-child(1) {
+            display: none;
+        }
+        table th:nth-child(1){
+            display: none;
+        }
         @media screen and (max-width: 1111px){
             .Dashbaord_Content_top {
                 flex-direction: row;
@@ -366,6 +378,18 @@
                 flex: 1;
                 height: auto;
             }
+                        thead {
+                display: none;
+            }
+            table td:nth-child(1) {
+                display: block;
+            }
+            table th:nth-child(1) {
+                display: block;
+            }
+            table td:nth-child(2), td:nth-child(3) {
+                display: none;
+            }
         }
         @media (max-width: 750px) {
             .sidebar {
@@ -403,6 +427,9 @@
             }
             .Data_Visualization div{
                 height: 370px;
+            }
+            table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
+                display: none;
             }
         }
         @media screen and (max-width: 500px){
@@ -585,6 +612,7 @@
             <table style="margin-top: 25px;">
                 <thead>
                     <tr>
+                        <th>SVG</th>
                         <th>Date</th>
                         <th>Services</th>
                         <th>Transaction ID</th>
@@ -594,6 +622,9 @@
                 </thead>
                 <tbody>
                     <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2025-02-01</td>
                         <td>Web Hosting</td>
                         <td>TXN12345</td>
@@ -601,6 +632,9 @@
                         <td>₦100.00</td>
                     </tr>
                     <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2025-02-03</td>
                         <td>Domain Registration</td>
                         <td>TXN12346</td>
@@ -608,6 +642,9 @@
                         <td>₦20.00</td>
                     </tr>
                     <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2025-02-05</td>
                         <td>SEO Services</td>
                         <td>TXN12347</td>
@@ -615,6 +652,9 @@
                         <td>₦50.00</td>
                     </tr>
                     <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2025-02-07</td>
                         <td>Consulting</td>
                         <td>TXN12348</td>
@@ -622,6 +662,9 @@
                         <td>₦150.00</td>
                     </tr>
                     <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2025-02-09</td>
                         <td>Design Services</td>
                         <td>TXN12349</td>
@@ -629,6 +672,9 @@
                         <td>₦200.00</td>
                     </tr>
                     <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2025-02-09</td>
                         <td>Design Services</td>
                         <td>TXN12349</td>
@@ -636,6 +682,9 @@
                         <td>₦200.00</td>
                     </tr>
                     <tr>
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2025-02-09</td>
                         <td>Design Services</td>
                         <td>TXN12349</td>
