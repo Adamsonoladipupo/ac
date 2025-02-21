@@ -100,7 +100,6 @@
             height: 40px;
             background-color: var(--backgroung_Color);
             border-radius: 20px;
-            /* background: url('https://img.icons8.com/ios-filled/50/000000/search.png') no-repeat scroll 7px 7px; */
             padding-left: 30px;
             border: none;
         }
@@ -235,6 +234,18 @@
             width: 100%;
             border-collapse: collapse;
         }
+        table td:nth-child(1) {
+            display: none;
+        }
+        table th:nth-child(1){
+            display: none;
+        }
+        table td SVG {
+            background-color: var(--pryColor);
+            padding: 3px;
+            border-radius: 100%;
+            color: #ffffff;
+        }
         th, td {
             padding: 12px;
         }
@@ -275,7 +286,18 @@
             
         }
         @media screen and (max-width: 900px){
-
+            thead {
+                display: none;
+            }
+            table td:nth-child(1) {
+                display: block;
+            }
+            table th:nth-child(1) {
+                display: block;
+            }
+            table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
+                display: none;
+            }
         }
         @media (max-width: 750px) {
             .sidebar {
@@ -304,6 +326,14 @@
             .Dashbaord_Content {
                 padding: 100px 20px 0 20px;
             }
+            .Dashboard_header_item1 {
+                width: 100%;
+            }
+            .search-bar input {
+                width: 100%;
+                margin: 0 10px;
+            }
+
         }
         @media screen and (max-width: 500px){
 
@@ -435,6 +465,7 @@
             <table id="transactionTable">
                 <thead>
                     <tr>
+                        <th>SVG</th>
                         <th>Date</th>
                         <th>Service</th>
                         <th>Transaction ID</th>
@@ -445,6 +476,9 @@
                 </thead>
                 <tbody>
                     <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-01</td>
                         <td>Data Plan</td>
                         <td>TXN123456</td>
@@ -453,6 +487,9 @@
                         <td>₦10</td>
                     </tr>
                     <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-02</td>
                         <td>Airtime</td>
                         <td>TXN123457</td>
@@ -461,6 +498,9 @@
                         <td>₦5</td>
                     </tr>
                     <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-03</td>
                         <td>Cable TV</td>
                         <td>TXN123458</td>
@@ -469,6 +509,9 @@
                         <td>₦20</td>
                     </tr>
                     <tr class="electricity" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-04</td>
                         <td>Electricity</td>
                         <td>TXN123459</td>
@@ -477,6 +520,9 @@
                         <td>₦30</td>
                     </tr>
                     <tr class="sports-betting" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-05</td>
                         <td>Sports Betting</td>
                         <td>TXN123460</td>
@@ -485,6 +531,9 @@
                         <td>₦15</td>
                     </tr>
                     <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-06</td>
                         <td>Data Plan</td>
                         <td>TXN123461</td>
@@ -493,6 +542,9 @@
                         <td>₦5</td>
                     </tr>
                     <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-07</td>
                         <td>Airtime</td>
                         <td>TXN123462</td>
@@ -501,6 +553,9 @@
                         <td>₦10</td>
                     </tr>
                     <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-08</td>
                         <td>Cable TV</td>
                         <td>TXN123463</td>
@@ -509,6 +564,9 @@
                         <td>₦25</td>
                     </tr>
                     <tr class="electricity" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-09</td>
                         <td>Electricity</td>
                         <td>TXN123464</td>
@@ -517,6 +575,9 @@
                         <td>₦35</td>
                     </tr>
                     <tr class="sports-betting" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-10</td>
                         <td>Sports Betting</td>
                         <td>TXN123465</td>
@@ -525,6 +586,9 @@
                         <td>₦20</td>
                     </tr>
                     <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-11</td>
                         <td>Data Plan</td>
                         <td>TXN123466</td>
@@ -533,6 +597,9 @@
                         <td>₦15</td>
                     </tr>
                     <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
                         <td>2023-10-12</td>
                         <td>Airtime</td>
                         <td>TXN123467</td>
