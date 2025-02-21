@@ -8,13 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <!-- Load plotly.js into the DOM -->
-    <script src='https://cdn.plot.ly/plotly-3.0.0.min.js'></script>
-
-    <!-- Load Chart.js into the DOM -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
     <title>Profile</title>
     <style>
         *{
@@ -98,19 +91,19 @@
             gap: 10px;
         }
         .notification-menu {
-            width: 500px;
+            width: 300px;
             background-color: #ffffff;
             color: var(--black);
             height: 100vh;
             padding: 15px;
             position: fixed;
             top: 0;
-            right: -500px;
+            right: -300px;
             transition: transform 0.3s ease;
             z-index: 100;
         }
         .notification-menu.active {
-            transform: translateX(-500px);
+            transform: translateX(-300px);
         }
         .notification-header {
             display: flex;
@@ -138,7 +131,7 @@
         .notification-message {
             background-color: var(--backgroung_Color);
             border-radius: 12px;
-            width: 400px;
+            width: 100%;
             height: inherit;
             padding: 20px;
         }
@@ -261,12 +254,13 @@
             border-radius: 12px;
             display: flex;
             flex-direction: column;
-            flex: 0 0 55%; /* Left div takes 70% of the width */
+            width: 100%;
+            flex: 0 0 60%;
         }
         .caution_box {
             background-color: #ffffff;
             border: 1px solid var(--grey_Stroke);
-            padding: 20px 100px ;
+            padding: 20px ;
             border-radius: 12px;
             display: flex;
             flex-direction: column;
@@ -274,7 +268,7 @@
             justify-content: center;
             text-align: center;
             gap: 20px;
-            flex: 1; /* Right div takes the remaining space */
+            flex: 1; 
         }
         .content-body {
             background-color: #ffffff;
@@ -283,8 +277,24 @@
             margin-top: 20px;
             border-radius: 12px;
         }
-
-        @media (max-width: 1220px) {
+        @media screen and (max-width: 1111px){
+            
+        }
+        @media screen and (max-width: 900px){
+                .content-header {
+                flex-direction: column;
+                gap: 20px;
+            }
+            .content-header-item {
+                flex: 1;
+            }
+            .caution_box {
+                flex-direction: row;
+                text-align: left;
+                flex: 1;
+            }
+        }
+        @media (max-width: 750px) {
             .sidebar {
                 transform: translateX(-100%);
             }
@@ -311,15 +321,6 @@
             .Dashbaord_Content {
                 padding: 100px 20px 0 20px;
             }
-        }
-        @media screen and (max-width: 1020px){
-        
-        }
-        @media screen and (max-width: 900px){
-
-        }
-        @media screen and (max-width: 750px){
-
         }
         @media screen and (max-width: 500px){
 

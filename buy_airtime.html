@@ -8,9 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <!-- Load plotly.js into the DOM -->
-    <script src='https://cdn.plot.ly/plotly-3.0.0.min.js'></script>
-
     <!-- Load Chart.js into the DOM -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -98,19 +95,19 @@
             gap: 10px;
         }
         .notification-menu {
-            width: 500px;
+            width: 300px;
             background-color: #ffffff;
             color: var(--black);
             height: 100vh;
             padding: 15px;
             position: fixed;
             top: 0;
-            right: -500px;
+            right: -300px;
             transition: transform 0.3s ease;
             z-index: 100;
         }
         .notification-menu.active {
-            transform: translateX(-500px);
+            transform: translateX(-300px);
         }
         .notification-header {
             display: flex;
@@ -138,7 +135,7 @@
         .notification-message {
             background-color: var(--backgroung_Color);
             border-radius: 12px;
-            width: 400px;
+            width: 100%;
             height: inherit;
             padding: 20px;
         }
@@ -226,7 +223,7 @@
         }
         .input_fields {
             display: flex;
-            /* flex-direction: row; */
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
@@ -245,7 +242,7 @@
             border-radius: 10px;
             color: var(--inactive_Link);
             padding: 15px;
-            width: 540px;
+            width: 100%;
             height: 60px;
         }
         .input_fields input {
@@ -253,8 +250,11 @@
             background-color: #ffffff;
             border-radius: 10px;
             padding: 20px;
-            width: 540px;
+            width: 100%;
             height: 60px;
+        }
+        .input_fields div {
+            width: 100%;
         }
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {
@@ -279,8 +279,23 @@
             border-color: var(--pryColor);
             border-radius: 100%;
         }
-
-        @media (max-width: 1220px) {
+        .submit_button {
+            margin: 0 0 0 0;
+        }
+        @media screen and (max-width: 1111px){
+            
+        }
+        @media screen and (max-width: 900px){
+            .input_fields {
+                display: flex;
+                flex-direction: column;
+                gap: 0px;
+            }
+            .submit_button {
+                margin: 0 0 20px 0;
+            }
+        }
+        @media (max-width: 750px) {
             .sidebar {
                 transform: translateX(-100%);
             }
@@ -307,15 +322,6 @@
             .Dashbaord_Content {
                 padding: 100px 20px 0 20px;
             }
-        }
-        @media screen and (max-width: 1020px){
-        
-        }
-        @media screen and (max-width: 900px){
-
-        }
-        @media screen and (max-width: 750px){
-
         }
         @media screen and (max-width: 500px){
 
@@ -476,7 +482,10 @@
                             </span>
                         </div>
                     </div>
-                    <a href="#"><button type="submit" class="primary_action_button">Proceed to pay →</button></a>
+                    <div class="submit_button">
+                        <a href="#"><button type="submit" class="primary_action_button">Proceed to pay →</button></a>
+                    </div>
+                    
                 </form>
 
             </div>

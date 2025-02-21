@@ -98,19 +98,19 @@
             gap: 10px;
         }
         .notification-menu {
-            width: 500px;
+            width: 300px;
             background-color: #ffffff;
             color: var(--black);
             height: 100vh;
             padding: 15px;
             position: fixed;
             top: 0;
-            right: -500px;
+            right: -300px;
             transition: transform 0.3s ease;
             z-index: 100;
         }
         .notification-menu.active {
-            transform: translateX(-500px);
+            transform: translateX(-300px);
         }
         .notification-header {
             display: flex;
@@ -138,7 +138,7 @@
         .notification-message {
             background-color: var(--backgroung_Color);
             border-radius: 12px;
-            width: 400px;
+            width: 100%;
             height: inherit;
             padding: 20px;
         }
@@ -226,7 +226,7 @@
         }
         .input_fields {
             display: flex;
-            /* flex-direction: row; */
+            flex-direction: row;
             align-items: center;
             justify-content: space-between;
             gap: 20px;
@@ -245,7 +245,8 @@
             border-radius: 10px;
             color: var(--inactive_Link);
             padding: 15px;
-            width: 540px;
+            padding: 20px;
+            width: 100%;
             height: 60px;
         }
         .input_fields input {
@@ -253,8 +254,16 @@
             background-color: #ffffff;
             border-radius: 10px;
             padding: 20px;
-            width: 540px;
+            width: 100%;
             height: 60px;
+        }
+        .input_section_1 {
+            width: 100%;
+            flex: 1;
+        }
+        .input_section_2 {
+            width: 100%;
+            flex: 1;
         }
         input[type="number"]::-webkit-outer-spin-button,
         input[type="number"]::-webkit-inner-spin-button {
@@ -263,6 +272,8 @@
         }
         .Networks {
             display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             gap: 20px;
             margin: 12px 0;
         }
@@ -279,8 +290,22 @@
             border-color: var(--pryColor);
             border-radius: 100%;
         }
-
-        @media (max-width: 1220px) {
+        .submit_button {
+            margin: 0 0;
+        }
+        @media screen and (max-width: 1111px){
+            
+        }
+        @media screen and (max-width: 900px){
+            .input_fields {
+                flex-direction: column;
+                gap: 0px;
+            }
+            .submit_button {
+                margin: 20px 0 ;
+            }
+        }
+        @media (max-width: 750px) {
             .sidebar {
                 transform: translateX(-100%);
             }
@@ -307,15 +332,6 @@
             .Dashbaord_Content {
                 padding: 100px 20px 0 20px;
             }
-        }
-        @media screen and (max-width: 1020px){
-        
-        }
-        @media screen and (max-width: 900px){
-
-        }
-        @media screen and (max-width: 750px){
-
         }
         @media screen and (max-width: 500px){
 
@@ -492,7 +508,9 @@
                             </span>
                         </div>
                     </div>
-                    <a href="#"><button type="submit" class="primary_action_button">Proceed to pay →</button></a>
+                    <div class="submit_button">
+                        <a href="#"><button type="submit" class="primary_action_button">Proceed to pay →</button></a>
+                    </div>
                 </form>
 
             </div>
