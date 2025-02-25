@@ -8,9 +8,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <!-- Load plotly.js into the DOM -->
-    <script src='https://cdn.plot.ly/plotly-3.0.0.min.js'></script>
-
     <!-- Load Chart.js into the DOM -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
@@ -40,15 +37,7 @@
         a {
             text-decoration: none;
         }
-        a button {
-            padding: 12px 15px;
-            border-radius: 10px;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
+        
         .overlay {
             display: none;
             position: fixed;
@@ -65,15 +54,18 @@
         }
         .Dashboard_header {
             position: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
+            top: 0;
+            right: 0;
+            left: 220px;
             height: 80px;
-            border-bottom: solid 1px var(--grey_Stroke);
-            padding: 20px 20px 20px 240px;
             background-color: #ffffff;
+            border-bottom: solid 1px var(--grey_Stroke);
             z-index: 5;
+        }
+        #dashboard_header_content {
+            display: flex;
+            justify-content: space-between;           
+            padding: 20px 20px 20px 20px;
         }
         .Dashboard_header_item1 {
             display: flex;
@@ -137,7 +129,7 @@
             font-weight: 600;
 
         }
-        .hamburger {
+        #hamburger {
             display: none;
         }
         /* Stylinf the Left SideBar for Main Menu */
@@ -205,41 +197,52 @@
             fill: var(--inactive_Link);
             width: 20px;
         }
-        .Dashbaord_Content {
-            padding: 100px 20px 0 240px;
+        .Dashbaord_Content_Container {
+            position: absolute;
+            top: 80px;
+            left: 220px;
+            right: 0px;
             font-size: 14px;
+            padding: 20px;
         }
-        .Dashbaord_Content_top {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            width: 170px;
-            height: 100px;
-        }
-        .Dashbaord_Content_top a button {
-            width: 155px;
-            font-size: 12px;
-        }
+
         .Dashbaord_Content_item {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
-            align-items: center ;
             justify-content: space-between ;
             margin-top: 20px;
-            gap: 20px;
+            width: 100%;
+        }
+
+        .Dashbaord_Content_top {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            width: 20%;
+            height: 103px;
+        }
+
+        .Dashbaord_Content_top a button {
+            padding: 12px 0px;
+            border-radius: 10px;
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            width: 150px;
         }
         .Dashbaord_Content_wallets {
             display: flex;
-            align-items: center;
             justify-content: space-between;
             flex-direction: row;
             gap: 15px;
+            width: 80%;
         }
         .Dashbaord_Content_wallet_balance {
             background-color: #ffffff;
             display: flex;
-            flex: 1;
             flex-direction: column;
             align-items: left;
             gap: 5px;
@@ -266,31 +269,68 @@
         } 
         .Data_Visualization {
             display: flex;
+            align-items: center;
             flex-direction: row;
+            justify-content: space-between;
+            position: relative;
+            width: 100%;
+            height: 350px; /* adjust height as needed */
+            margin: auto;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        canvas {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+        .Data_Visualization div {
+            padding: 20px;
+            border-radius: 20px;
+            max-height: 100%;
+            height: 100%;
+            width: 100%;
+            background-color: #ffffff;
+        }
+        .Bar_graph {
+            flex: 1 1 70%;
+        }
+        .Pie_Chart {
+            flex: 1 1 30%;
+        }
+
+        /* .Data_Visualization {
+            display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
             align-items: center;
             justify-content: space-between;
             margin: 46px 0 30px 0 ;
             font-size: 14px;
             font-weight: 600;
             gap: 20px;
-        }
-        .Data_Visualization div{
+            border: 1px solid violet;
             width: 100%;
-            height: 350px;
-            }
+        }
+
         .Bar_graph{
-            flex: 1;
-            height: inherit;
             border-radius: 12px;
             background-color: #ffffff;
             padding: 20px;
+            height: 100%;
+            min-height: 260px;
+            border: 1px solid rebeccapurple;
+            width: 62%;
         }
         .Pie_Chart {
-            flex: 0 0 30%;
             border-radius: 12px;
             background-color: #ffffff;
             padding: 20px;
-        }
+            height: 100%;
+            min-height: 260px;
+            border: 1px solid rebeccapurple;
+            width: 35%;
+        } */
         .transactions {
             margin: 0 0 30px 0;
             background-color: #ffffff;
@@ -325,18 +365,24 @@
         table th:nth-child(1){
             display: none;
         }
-        @media screen and (max-width: 1320px) {
+        @media screen and (max-width: 1310px) {
             .Dashbaord_Content_top {
                 flex-direction: row;
                 justify-content: space-between;
                 width: auto;
                 height: auto;
-                gap: 10px;
+                gap: 20px;
+                margin-bottom: 10px;
+            }
+            .Dashbaord_Content_wallets {
+                width: 100%;
+            }
+            .Dashbaord_Content_wallet_balance {
+                width: 20%;
             }
         }
         @media screen and (max-width: 1111px){
             .Dashbaord_Content_wallets {
-                display: flex;
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content:flex-start ;
@@ -344,40 +390,38 @@
                 gap: 15px;
             }
             .Dashbaord_Content_wallet_balance {
-                display: flex;
                 flex:1;
-                flex-direction: column;
-                align-items: start;
-                gap: 10px;
                 min-width: 250px;
-                height: auto;
+            }
+            .Data_Visualization {
+                height: 300px; /* adjust height as needed */
+            }
+        }
+        @media screen and (max-width: 980px) {
+            .Data_Visualization {
+                height: 260px; /* adjust height as needed */
             }
         }
         @media screen and (max-width: 900px){
-            .Dashbaord_Content_wallet_balance {
-                display: flex;
-                flex-direction: column;
-                height: auto;
-            }
             .Data_Visualization {
-                display: flex;
-                flex-direction: row;
-                flex-wrap: wrap;
-                align-items: center;
+                flex-direction: column;
+                height: 100%;
+            }
+            canvas {
+                position: relative;
             }
             .Data_Visualization div{
-                width: 100%;
-                /* height: 100%; */
+                height: 100%;
             }
             .Bar_graph{
                 flex: 1;
-                height: 100%;
+                height: 4400px;
             }
             .Pie_Chart {
                 flex: 1;
-                height: auto;
             }
-                        thead {
+            
+            thead {
                 display: none;
             }
             table td:nth-child(1) {
@@ -403,7 +447,7 @@
             .content {
                 margin-left: 0;
             }
-            .hamburger {
+            #hamburger {
                 display: block;
                 cursor: pointer;
             }
@@ -411,15 +455,19 @@
                 display: block;
                 cursor: pointer;
             }
+
             .Dashboard_header {
-                padding: 20px 20px 20px 20px;
+                left: 0;
+                /* padding: 20px 20px 20px 20px; */
             }
-            .Dashbaord_Content {
-                padding: 100px 20px 0 20px;
+            .Dashbaord_Content_Container {
+                left: 0;
+                /* padding: 100px 20px 0 20px; */
             }
-            .Dashbaord_Content_wallets {
+             .Dashbaord_Content_wallets {
                 gap: 8px;
             }
+    
             .Data_Visualization {
                 width: 100%;
             }
@@ -428,10 +476,6 @@
             }
             table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
                 display: none;
-            }
-            #myBarGraph {
-                width: 100% !important; /* Set the canvas width for small screens */
-                height: auto !important; /* Change the canvas height for small screens */
             }
         }
         @media screen and (max-width: 500px){
@@ -443,22 +487,23 @@
     <div class="overlay" id="overlay"></div>
     <header>
         <div class="Dashboard_header">
-            <span class="hamburger" id="hamburger">
-                <!-- &#9776; -->
-                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
-            </span>
-            <div class="Dashboard_header_item1">
-                <p>Hello, Mr. User! 👋</p>
-            </div>
-            
-            <div class="Dashboard_header_item2">
-                <div>
-                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
+            <div id="dashboard_header_content">
+                <div id="hamburger">
+                    <!-- &#9776; -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
                 </div>
-                <div>
-                    <span class="notification-icon" id="notification-icon">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="18" cy="6" r="3" fill="red"/><path fill="#B5B5B5" d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A5 5 0 0 1 18 11a5 5 0 0 1-5-5"/></svg>
-                    </span>
+                <div class="Dashboard_header_item1">
+                    <p>Hello, Mr. User! 👋</p>
+                </div>
+                <div class="Dashboard_header_item2">
+                    <div>
+                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
+                    </div>
+                    <div>
+                        <span class="notification-icon" id="notification-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="18" cy="6" r="3" fill="red"/><path fill="#B5B5B5" d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A5 5 0 0 1 18 11a5 5 0 0 1-5-5"/></svg>
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -550,58 +595,63 @@
     <div class="sideBar_Notification">
 
     </div>
-    <div class="Dashbaord_Content">
-        <h4>Dashboard</h4>
-        <div class="Dashbaord_Content_item">
-            <div class="Dashbaord_Content_top">
-                <a href="fund_wallet.html"><button style="background-color: var(--pryColor); color: #ffffff; ">Fund your Wallet</button></a>
-                <a href="#"><button style="background-color: transparent; color: var(--black); border: 1px solid var(--black);">Filter Transactions <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 5l7 7l-7 7"/></svg></button></a>
-            </div>
-            <div class="Dashbaord_Content_wallets">
-                <div class="Dashbaord_Content_wallet_balance">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
+    <div class="Dashbaord_Content_Container">
+        <div class="Dashbaord_Content">
+            <h4>Dashboard</h4>
+            <div class="Dashbaord_Content_item">
+                <div class="Dashbaord_Content_top">
                     <div>
-                        <span> <strong>₦570,000,000.00</strong></span>
-                        <span>Wallet Balance</span>
+                        <a href="fund_wallet.html"><button style="background-color: var(--pryColor); color: #ffffff; ">Fund your Wallet</button></a>
                     </div>
-                    
-                </div>
-                <div class="Dashbaord_Content_wallet_balance">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                     <div>
-                        <span><strong>₦59,000,000.00</strong></span>
-                        <span>MTN Gifting Balance</span>
-                    </div>
-                    
-                </div>
-                <div class="Dashbaord_Content_wallet_balance">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
-                    <div>
-                        <span><strong>₦100,000,000.00</strong></span>
-                        <span>Airtel Gifting Balance</span>
-                    </div>
-                    
-                </div>
-                <div class="Dashbaord_Content_wallet_balance">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
-                    <div>
-                        <span><strong>₦34,000,000.00</strong></span>
-                        <span>Glo Gifting Balance</span>
+                        <a href="#"><button style="background-color: transparent; color: var(--black); border: 1px solid var(--black);">Filter Transactions <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 5l7 7l-7 7"/></svg></button></a>
                     </div>
                 </div>
-                <div class="Dashbaord_Content_wallet_balance">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
-                    <div>
-                        <span><strong>₦100,000.00</strong></span>
-                        <span>9mobile Gifting Balance</span>
+                <div class="Dashbaord_Content_wallets">
+                    <div class="Dashbaord_Content_wallet_balance">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
+                        <div>
+                            <span> <strong>₦570,000,000.00</strong></span>
+                            <span>Wallet Balance</span>
+                        </div>
+                        
                     </div>
-
+                    <div class="Dashbaord_Content_wallet_balance">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
+                        <div>
+                            <span><strong>₦59,000,000.00</strong></span>
+                            <span>MTN Gifting Balance</span>
+                        </div>
+                        
+                    </div>
+                    <div class="Dashbaord_Content_wallet_balance">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
+                        <div>
+                            <span><strong>₦100,000,000.00</strong></span>
+                            <span>Airtel Gifting Balance</span>
+                        </div>
+                        
+                    </div>
+                    <div class="Dashbaord_Content_wallet_balance">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
+                        <div>
+                            <span><strong>₦34,000,000.00</strong></span>
+                            <span>Glo Gifting Balance</span>
+                        </div>
+                    </div>
+                    <div class="Dashbaord_Content_wallet_balance">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
+                        <div>
+                            <span><strong>₦100,000.00</strong></span>
+                            <span>9mobile Gifting Balance</span>
+                        </div>
+                    </div> 
                 </div>
             </div>
         </div>
         <div class="Data_Visualization">
             <div class="Bar_graph">
-                Revenue Amount
+                Revenue
                 <canvas id="myBarGraph"></canvas>
             </div>
             <div class="Pie_Chart">
@@ -753,7 +803,7 @@
                 borderWidth: 1, 
                 borderRadius: 4,
                 barPercentage: 0.5,
-                barThickness: 9,
+                barThickness: 5,
                 maxBarThickness: 40,
                 minBarLength: 2
                 }]
@@ -814,9 +864,9 @@
             }]
         },
         options: {
-                cutout: '65%',
+                cutout: '30%',
                 radius: '70%',
-                responsive: true,
+                responsive: true,  
                 plugins: {
                     legend: {
                         position: 'bottom',
@@ -824,32 +874,15 @@
                     },
                 },
                 elements: {
-                arc: {
-                    spacing: -10,    // Negative spacing for overlap
-                    
-                }
+                    arc: {
+                        spacing: -10,    // Negative spacing for overlap
+                        
+                    }
                 },
+                
             },
         
         });
-    </script>
-    <!-- Script for controlling the properties of the Graph using media qquery -->
-    <script>
-        window.addEventListener('resize', function() {
-            var width = window.innerWidth;
-
-            if (width <= 750) {
-                // Update chart properties for small screens
-                myBarGraph.data.datasets[0].data = [5, 8, 1, 3, 1, 2];  // New data for small screens
-                myChart.data.datasets[0].borderColor = ['rgba(255, 99, 132, 1)'];
-                myBarGraph.options.scales.x.ticks.autoSkip = true; // Auto skip labels for smaller screens
-                myBarGraph.update();
-            } else {
-                myBarGraph.options.scales.x.ticks.autoSkip = false; // Display all labels on larger screens
-                myBarGraph.update();
-            }
-            });
-
     </script>
 
 </body>
