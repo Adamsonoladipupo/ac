@@ -249,6 +249,7 @@
             padding: 10px 10px;
             border-radius: 13px;
             min-width: 155px;
+            width: 600%;
             height: 100px;
             box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.10);
         }
@@ -785,6 +786,12 @@
         notificationCloseBtn.addEventListener('click', () => {
             notificationMenu.classList.remove('active');
             overlay.classList.remove('active');
+        });
+
+        window.addEventListener('resize', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            notificationMenu.classList.remove('active');
         });
     </script>
     <!-- Script for Bar Graph Data Visualization -->
