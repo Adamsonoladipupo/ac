@@ -266,6 +266,44 @@
             margin-top: 20px;
             border-radius: 12px;
         }
+
+        /* Styling the Toggle On and Off button  */
+        .toggle_container {
+            width: 50px;
+            height: 25px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .toggle_switch {
+            background-color: var(--inactive_icon);
+            width: 50px;
+            height: 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            transition: 0.3s ease-in-out;
+        }
+        .toggle_switch::before {
+            position: absolute;
+            content: '';
+            background-color: #ffffff;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            margin: 2.5px;
+            transition: 0.3s ease-in-out;
+        }
+        input:checked + .toggle_switch {
+            background-color: var(--pryColor);
+        }
+        input:checked + .toggle_switch::before {
+            transform: translateX(25px);
+        }
+        .toggle_container input {
+            display: none;
+        }
         @media screen and (max-width: 1111px){
             
         }
@@ -429,7 +467,12 @@
                     <div class="content-header ">
                         <div class="content_header_title">
                             <span><strong>Airtime Cabal API </strong></span>
-                            <span>Toggle Button</span>
+                            <span>
+                                <div class="toggle_container">
+                                    <input type="checkbox" name="toggle" id="check">
+                                    <label for="check" class="toggle_switch"></label>
+                                </div>
+                            </span>
                         </div>
                         <span>Airtime Cabal API is currently enable</span>
                         <p>When enabled users will be required to sign in in other to access or create an API key</p>
