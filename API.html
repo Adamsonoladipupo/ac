@@ -7,8 +7,9 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
 
     <title>Airtime Cabal | API</title>
@@ -483,8 +484,8 @@
                             <span><strong>Airtime Cabal API </strong></span>
                             <span>
                                 <div class="toggle_container" >
-                                    <input type="checkbox" name="toggle" id="check" >
-                                    <label for="check" class="toggle_switch" id="triggerToast"></label>
+                                    <input type="checkbox" name="toggle" id="toggleButton" class="toggleButton">
+                                    <label for="toggleButton" class="toggle_switch" id="toggleButton"></label>
                                 </div>
                             </span>
                         </div>
@@ -597,9 +598,19 @@
         "showMethod": "fadeIn",  // Show method for toast
         "hideMethod": "fadeOut"  // Hide method for toast
         };
-        document.getElementById('triggerToast').addEventListener('click', function() {
-        toastr.success('This is a success message!');
+
+        // Get the toggle button element
+        const toggleButton = document.getElementById('toggleButton');
+
+        // Event listener to show Toastr notification on toggle change
+        toggleButton.addEventListener('change', function() {
+        if (toggleButton.checked) {
+            toastr.success('Your API is now active');
+        } else {
+            toastr.error('Your API has been disabled');
+        }
         });
+
     </script>
 </body>
 </html>
