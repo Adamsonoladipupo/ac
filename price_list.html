@@ -8,14 +8,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
-    <!-- Load plotly.js into the DOM -->
-    <script src='https://cdn.plot.ly/plotly-3.0.0.min.js'></script>
 
-    <!-- Load Chart.js into the DOM -->
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
-
-    <title>Data Plan</title>
+    <title>Price List</title>
     <style>
         *{
             padding: 0;
@@ -32,6 +26,9 @@
             --grey_Stroke: #DDDDDD;
             --inactive_Link: #656565;
             --inactive_icon: #B5B5B5;
+            --success: #0ADF7C;
+            --failed: #FF2828;
+            --pending: #D1ED00;
         }
         body{
             background-color: var(--backgroung_Color);
@@ -97,6 +94,15 @@
             flex-direction: row;
             gap: 10px;
         }
+        .search-bar input {
+            padding: 10px;
+            width: 380px;
+            height: 40px;
+            background-color: var(--backgroung_Color);
+            border-radius: 20px;
+            padding-left: 30px;
+            border: none;
+        }
         .notification-menu {
             width: 300px;
             background-color: #ffffff;
@@ -108,6 +114,8 @@
             right: -300px;
             transition: transform 0.3s ease;
             z-index: 100;
+            height: 100vh;
+            overflow-y: auto;
             height: 100vh;
             overflow-y: auto;
         }
@@ -157,7 +165,6 @@
             position: fixed;
             background-color: #ffffff;
             width: 220px;
-            height: 100%;
             border-right: solid 1px var(--grey_Stroke);
             padding: 20px 20px 20px 20px;
             left: 0;
@@ -167,6 +174,8 @@
             transition: transform 0.3s ease;
             z-index: 99;
             border-left: 1px solid var(--grey_Stroke) ;
+            height: 100vh;
+            overflow-y: auto;
             height: 100vh;
             overflow-y: auto;
         }
@@ -228,132 +237,80 @@
             padding: 100px 20px 0 240px;
             font-size: 14px;
         }
-        .Dashbaord_Content_item{
+        /* Styling of the Transaction History Table */
+        .transaction_table {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
             margin-top: 20px;
         }
-        .form_container form {
-            display: flex;
-            flex-direction: column;
-        }
-        .input_fields {
-            display: flex;
-            flex-direction: row;
-            align-items: center;
-            justify-content: space-between;
-            gap: 20px;
-            margin-bottom: 20px;
-        }
-        .input_fields span {
-            margin: 10px 0 10px 0;
-            display: grid;
-        }
-        .input_fields span label {
-            margin: 0 0 15px 0;
-        }
-        .input_fields span select {
-            border: 1px solid var(--grey_Stroke);
-            background-color: #ffffff;
-            border-radius: 10px;
-            color: var(--inactive_Link);
-            padding: 15px;
-            padding: 20px;
+        table {
             width: 100%;
-            height: 60px;
+            border-collapse: collapse;
         }
-        .input_fields input {
-            border: 1px solid var(--grey_Stroke);
-            background-color: #ffffff;
-            border-radius: 10px;
-            padding: 20px;
-            width: 100%;
-            height: 60px;
-        }
-        .input_section_1 {
-            width: 100%;
-            flex: 1;
-        }
-        .input_section_2 {
-            width: 100%;
-            flex: 1;
-        }
-        input[type="number"]::-webkit-outer-spin-button,
-        input[type="number"]::-webkit-inner-spin-button {
-        -webkit-appearance: none;
-        margin: 0;
-        }
-        .Networks {
-            display: flex;
-            flex-direction: row;
-            flex-wrap: wrap;
-            gap: 20px;
-            margin: 12px 0;
-        }
-        .network-option {
-            display: inline-block;
-            cursor: pointer;
-        }
-        .network-option img {
-            width: 50px;
-            height: 50px;
-            border: 2px solid transparent;
-        }
-        .network-option.selected img {
-            border-color: var(--pryColor);
-            border-radius: 100%;
-        }
-        .submit_button {
-            margin: 0 0;
-        }
-        /* Styling the spinning of the Proceed to pay button /button loading */
-        .spinner-button {
-            position: relative;
-            padding: 10px 20px;
-            font-size: 16px;
-            cursor: pointer;
-            border: none;
-            background-color: #007bff;
-            color: white;
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .spinner-button .spinner {
+        table td:nth-child(1) {
             display: none;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            width: 25px;
-            height: 25px;
-            border: 3px solid rgba(255, 255, 255, 0.3);
-            border-top: 3px solid white;
-            border-radius: 50%;
-            animation: spin 0.3s linear infinite;
-            transform: translate(-50%, -50%);
         }
-
-        .spinner-button.spinning .spinner {
-            display: block;
+        table th:nth-child(1){
+            display: none;
         }
-
-        .spinner-button.spinning .button-text {
-            visibility: hidden;
+        table td SVG {
+            background-color: var(--pryColor);
+            padding: 3px;
+            border-radius: 100%;
+            color: #ffffff;
         }
-
-        @keyframes spin {
-            0% { transform: translate(-50%, -50%) rotate(0deg); }
-            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        th, td {
+            padding: 12px;
         }
-
+        th {
+            background-color: #ffffff;
+            text-align: left;
+            font-weight: 600;
+        }
+        .filter-buttons {
+            margin-bottom: 20px;
+            border-bottom: 1px solid var(--grey_Stroke);
+        }
+        .filter-buttons button {
+            margin-right: 10px;
+            padding: 10px;
+            background-color: #ffffff;
+            border: none;
+            color: var(--inactive_Link);
+        }
+        .filter-buttons button.active {
+            border-bottom: 2px solid var(--pryColor);
+            color: var(--black);
+            font-weight: 500;
+        }
+        tr {
+            cursor: pointer;
+        }
+        .status.success {
+            color: var(--success) ;
+        }
+        .status.failed {
+            color: var(--failed);
+        }
+        .status.pending {
+            color: var(--pending);
+        }
         @media screen and (max-width: 1111px){
             
         }
         @media screen and (max-width: 900px){
-            .input_fields {
-                flex-direction: column;
-                gap: 0px;
+            thead {
+                display: none;
             }
-            .submit_button {
-                margin: 20px 0 ;
+            table td:nth-child(1) {
+                display: block;
+            }
+            table th:nth-child(1) {
+                display: block;
+            }
+            table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
+                display: none;
             }
         }
         @media (max-width: 750px) {
@@ -383,6 +340,14 @@
             .Dashbaord_Content {
                 padding: 100px 20px 0 20px;
             }
+            .Dashboard_header_item1 {
+                width: 100%;
+            }
+            .search-bar input {
+                width: 100%;
+                margin: 0 10px;
+            }
+
         }
         @media screen and (max-width: 500px){
 
@@ -397,8 +362,8 @@
                 <!-- &#9776; -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
             </span>
-            <div class="Dashboard_header_item1">
-                <p>Hello, Mr. User! 👋</p>
+            <div class="Dashboard_header_item1 search-bar">
+                <input type="text" id="searchInput" onkeyup="searchTransactions()" placeholder="  Quick Search">
             </div>
             
             <div class="Dashboard_header_item2">
@@ -450,8 +415,8 @@
             </a>
             </div>
             <h5>Services</h5>
-            <div class="sideBar_Menu_item active-link">
-                <a href="#">
+            <div class="sideBar_Menu_item">
+                <a href="data_plan.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 2048 2048"><path fill="currentColor" d="M896 640h128v1408H896zM372 244q-58 58-103 126t-77 144t-47 155t-17 163q0 82 16 162t48 156t76 143t104 127l-91 91q-136-137-208-311T0 832q0-193 72-367t209-312zm1267-91q136 137 208 311t73 368q0 193-72 367t-209 312l-91-91q58-58 103-126t77-144t47-155t17-163q0-82-16-162t-48-156t-76-143t-104-127zm-272 272q81 81 125 186t44 221q0 115-44 220t-125 187l-90-90q63-63 96-145t34-172q0-89-33-171t-97-146zm-724 90q-63 63-97 145t-34 172q0 89 34 171t97 146l-90 90q-81-81-125-186t-44-221q0-115 44-220t125-187z"/></svg>Data Plan</a>
             </div>
             <div class="sideBar_Menu_item">
@@ -475,10 +440,10 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M32.164 32.946V15.148M38 22.964l-5.835-7.91l-5.836 7.91m-10.493-7.91v17.798m5.835-7.816l-5.835 7.91L10 25.036" stroke-width="3"/></svg>Internet</a>
             </div>
             <div class="sideBar_Menu_item">
-                <a href="transaction_history.html">
+                <a href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M11.962 20q-3.046 0-5.311-1.99q-2.264-1.989-2.62-5.01h1.011q.408 2.58 2.351 4.29T11.962 19q2.925 0 4.962-2.037T18.962 12t-2.038-4.963T11.962 5q-1.553 0-2.918.656q-1.365.655-2.41 1.805h2.481v1H4.962V4.309h1v2.388q1.16-1.273 2.718-1.984T11.962 4q1.663 0 3.118.626t2.542 1.714t1.714 2.542t.626 3.118t-.626 3.118t-1.714 2.542t-2.542 1.714t-3.118.626m3.204-4.146l-3.647-3.646V7h1v4.792l3.354 3.354z" /></svg>History</a>
             </div>
-            <div class="sideBar_Menu_item">
+            <div class="sideBar_Menu_item active-link">
                 <a href="price_list.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M403.29 32H280.36a14.46 14.46 0 0 0-10.2 4.2L24.4 281.9a28.85 28.85 0 0 0 0 40.7l117 117a28.86 28.86 0 0 0 40.71 0L427.8 194a14.46 14.46 0 0 0 4.2-10.2v-123A28.66 28.66 0 0 0 403.29 32"/><path fill="currentColor" d="M352 144a32 32 0 1 1 32-32a32 32 0 0 1-32 32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m230 480l262-262a13.8 13.8 0 0 0 4-10V80"/></svg>Price list</a>
             </div>
@@ -505,74 +470,163 @@
 
     </div>
     <div class="Dashbaord_Content">
-        <h4>Buy Data Plan</h4>
-        <div class="Dashbaord_Content_item">
-            <div class="form_container">
-                    <div class="input_fields">
-                        <div class="input_section_1">
-                            <div class="Network_selection">
-                                <label>Select Network:</label>
-                                <div class="Networks">
-                                    <span class="network-option" onclick="selectNetwork(this)">
-                                        <input type="radio" name="network" value="MTN" hidden>
-                                        <img src="images/MTNIcon.png" alt="MTN">
-                                    </span>
-                                    <span class="network-option" onclick="selectNetwork(this)">
-                                        <input type="radio" name="network" value="Airtel" hidden>
-                                        <img src="images/AirtelIcon.png" alt="Airtel">
-                                    </span>
-                                    <span class="network-option" onclick="selectNetwork(this)">
-                                        <input type="radio" name="network" value="Glo" hidden>
-                                        <img src="images/GLOIcon.png" alt="Glo">
-                                    </span>
-                                    <span class="network-option" onclick="selectNetwork(this)">
-                                        <input type="radio" name="network" value="9mobile" hidden>
-                                        <img src="images/9mobileIcon.png" alt="9mobile">
-                                    </span>
-                                </div>
-                            </div>
-                            <span>
-                                <label for="">Phone Number</label>
-                                <input type="number" name="amount" id="amount" placeholder="Enter phone number " required>
-                            </span>
-                            <span>
-                                <label for="data-plan">Select Data Plan:</label>
-                                <select id="data-plan" name="data-plan" required>
-                                    <option value="1GB">1GB</option>
-                                    <option value="2GB">2GB</option>
-                                    <option value="5GB">5GB</option>
-                                    <option value="10GB">10GB</option>
-                                </select>
-                            </span>
-                        </div>
-                        <div class="input_section_2">
-                            <span>
-                                <label for="">Enter Amount (₦) </label>
-                                <input type="number" name="amount" id="amount" placeholder="Enter Amount" required>
-                            </span>
-                            <span>
-                                <label for="port-number">Do you port your number</label>
-                                <select id="port-number" name="port-number" required>
-                                    <option value="no">No</option>
-                                    <option value="yes">Yes</option>
-                                </select>
-                            </span>
-                            <span>
-                                <label for="pin">Enter Pin</label>
-                                <input type="password" name="pin" id="pin" placeholder="Enter Pin" required>
-                            </span>
-                        </div>
-                    </div>
-                    <div class="submit_button">
-                        <a href="#">
-                                <button type="submit" class="primary_action_button spinner-button"  id="spinnerButton"><span class="button-text">Proceed to pay →</span>
-                                <div class="spinner"></div>
-                            </button>
-                        </a>
-                    </div>
-                </form>
-
+        <h4>Price List</h4>
+        <div class="transaction_table">
+            <div class="filter-buttons">
+                <button onclick="filterTransactions('all', this)" class="active">All</button>
+                <button onclick="filterTransactions('data-plan', this)">Data Plan</button>
+                <button onclick="filterTransactions('airtime', this)">Airtime</button>
+                <button onclick="filterTransactions('cable-tv', this)">Cable TV</button>
+                <button onclick="filterTransactions('electricity', this)">Electricity</button>
+                <button onclick="filterTransactions('sports-betting', this)">Sports Betting</button>
             </div>
+            <table id="transactionTable">
+                <thead>
+                    <tr>
+                        <th>SVG</th>
+                        <th>Date</th>
+                        <th>Service</th>
+                        <th>Transaction ID</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-01</td>
+                        <td>Data Plan</td>
+                        <td>TXN123456</td>
+                        <td>Monthly Data Plan</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦10</td>
+                    </tr>
+                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-02</td>
+                        <td>Airtime</td>
+                        <td>TXN123457</td>
+                        <td>Mobile Airtime</td>
+                        <td><span class="status failed">Failed</span></td>
+                        <td>₦5</td>
+                    </tr>
+                    <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-03</td>
+                        <td>Cable TV</td>
+                        <td>TXN123458</td>
+                        <td>Monthly Subscription</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦20</td>
+                    </tr>
+                    <tr class="electricity" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-04</td>
+                        <td>Electricity</td>
+                        <td>TXN123459</td>
+                        <td>Electricity Bill</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦30</td>
+                    </tr>
+                    <tr class="sports-betting" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-05</td>
+                        <td>Sports Betting</td>
+                        <td>TXN123460</td>
+                        <td>Betting</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>₦15</td>
+                    </tr>
+                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-06</td>
+                        <td>Data Plan</td>
+                        <td>TXN123461</td>
+                        <td>Weekly Data Plan</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>₦5</td>
+                    </tr>
+                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-07</td>
+                        <td>Airtime</td>
+                        <td>TXN123462</td>
+                        <td>Mobile Airtime</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦10</td>
+                    </tr>
+                    <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-08</td>
+                        <td>Cable TV</td>
+                        <td>TXN123463</td>
+                        <td>Monthly Subscription</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦25</td>
+                    </tr>
+                    <tr class="electricity" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-09</td>
+                        <td>Electricity</td>
+                        <td>TXN123464</td>
+                        <td>Electricity Bill</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>₦35</td>
+                    </tr>
+                    <tr class="sports-betting" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-10</td>
+                        <td>Sports Betting</td>
+                        <td>TXN123465</td>
+                        <td>Betting</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦20</td>
+                    </tr>
+                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-11</td>
+                        <td>Data Plan</td>
+                        <td>TXN123466</td>
+                        <td>Monthly Data Plan</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦15</td>
+                    </tr>
+                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-12</td>
+                        <td>Airtime</td>
+                        <td>TXN123467</td>
+                        <td>Mobile Airtime</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦5</td>
+                    </tr>
+                </tbody>
+            </table>
         </div>
     </div>
 
@@ -613,27 +667,53 @@
             overlay.classList.remove('active');
         });
     </script>
-    <!-- Script controlling the selection of NETWORK in the form -->
+    <!-- Transaction for controlling the Transaction History Table -->
     <script>
-        function selectNetwork(element) {
-            const options = document.querySelectorAll('.network-option');
-            options.forEach(option => option.classList.remove('selected'));
-            element.classList.add('selected');
-            element.querySelector('input[type="radio"]').checked = true;
+        function filterTransactions(service, button) {
+            var rows = document.querySelectorAll('#transactionTable tbody tr');
+            rows.forEach(row => {
+                if (service === 'all') {
+                    row.style.display = '';
+                } else {
+                    if (row.classList.contains(service)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+
+            var buttons = document.querySelectorAll('.filter-buttons button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        function openTransaction(transactionId) {
+            window.location.href = `transactionDetails.html?transactionId=${transactionId}`;
         }
     </script>
-    <!-- Script for button spinning/ button Loader -->
+    <!-- Search Function -->
     <script>
-        document.getElementById('spinnerButton').addEventListener('click', function() {
-            var button = this;
-            button.classList.add('spinning');
-            button.disabled = true;
-
-            setTimeout(function() {
-                button.classList.remove('spinning');
-                button.disabled = false;
-            }, 30000); // 30 seconds
+        function searchTransactions() {
+        var input = document.getElementById('searchInput');
+        var filter = input.value.toLowerCase();
+        var rows = document.querySelectorAll("tbody tr");
+        rows.forEach(row => {
+            var cells = row.getElementsByTagName("td");
+            var match = false;
+            for (var i = 0; i < cells.length; i++) {
+                if (cells[i].innerText.toLowerCase().indexOf(filter) > -1) {
+                    match = true;
+                    break;
+                }
+            }
+            if (match) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
         });
+    }
     </script>
 </body>
 </html>
