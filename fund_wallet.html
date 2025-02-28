@@ -147,6 +147,21 @@
         .hamburger {
             display: none;
         }
+                /* Styling the Scrollbar   */
+                ::-webkit-scrollbar {
+            width: 4px; /* Makes the scrollbar thinner */
+            height: 4px; /* Makes horizontal scrollbar thinner */
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--grey_Stroke); /* Light gray background */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--inactive_icon); /* Dark gray color */
+            border-radius: 10px; /* Rounded edges */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--inactive_Link); /* Darker gray when hovered */
+        }
         /* Stylinf the Left SideBar for Main Menu */
         .sideBar_Menu {
             position: fixed;
@@ -192,15 +207,6 @@
             text-decoration: none;
             margin-left: 10px;
             font-size: 14px;
-        }
-        .sideBar_Menu_items .active-link {
-            border-left: 3px solid var(--pryColor);
-            padding-left: -20px;
-            margin-left: -20px;
-        }
-        .sideBar_Menu_items .active-link a{
-            padding-left: 20px;
-            color: var(--black);
         }
         .close-btn {
                 display: none;
@@ -499,8 +505,8 @@
                 <a href="dashboard.html">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 9V4H20v5zM4 12V4h6.5v8zm9.5 8v-8H20v8zM4 20v-5h6.5v5zm1-9h4.5V5H5zm9.5 8H19v-6h-4.5zm0-11H19V5h-4.5zM5 19h4.5v-3H5zm4.5-3"/></svg>Overview </a>
             </div>
-            <div class="sideBar_Menu_item active-link">
-                <a href="#">
+            <div class="sideBar_Menu_item" id="fund_wallet">
+                <a href="#" id="fund_wallet_link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                 Fund Wallet
                 
@@ -778,6 +784,16 @@
             // Add active class to the clicked button
             button.classList.add('active');
         }
+    </script>
+    <script>
+
+        let fund_wallet = document.getElementById('fund_wallet');
+        let fund_wallet_link = document.getElementById('fund_wallet_link');
+        let primary_color = '#2376F3';  
+
+        fund_wallet.style.borderLeft = '3px solid ' + primary_color;
+
+
     </script>
 </body>
 </html>
