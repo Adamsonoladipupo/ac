@@ -198,14 +198,7 @@
             margin-left: 5px;
             font-size: 14px;
         }
-        .sideBar_Menu_items .active-link {
-            border-left: 3px solid var(--pryColor);
-            margin-left: -10px;
-        }
-        .sideBar_Menu_items .active-link a{
-            padding-left: 10px;
-            color: var(--black);
-        }
+
         .close-btn {
                 display: none;
                 
@@ -525,12 +518,12 @@
             </span>
         </div>
         <div class="sideBar_Menu_items">
-            <div class="sideBar_Menu_item active-link">
-                <a href="#">
+            <div class="sideBar_Menu_item" id="overview">
+                <a href="#" id="overview_link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M13.5 9V4H20v5zM4 12V4h6.5v8zm9.5 8v-8H20v8zM4 20v-5h6.5v5zm1-9h4.5V5H5zm9.5 8H19v-6h-4.5zm0-11H19V5h-4.5zM5 19h4.5v-3H5zm4.5-3"/></svg>Overview </a>
             </div>
-            <div class="sideBar_Menu_item">
-                <a href="fund_wallet.html">
+            <div class="sideBar_Menu_item" id="fund_wallet">
+                <a href="fund_wallet.html" id="fund_wallet_link">
                 <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                 Fund Wallet
                 
@@ -589,7 +582,7 @@
             </div>
             <div class="sideBar_Menu_item">
                 <a href="API.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4m-5 13.362v10.276" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M23.972 29.138V18.862h3.364c1.902 0 3.444 1.545 3.444 3.451s-1.542 3.451-3.444 3.451h-3.364m-3.792-.03h-4.553M14.5 29.138l3.404-10.276l3.404 10.276" stroke-width="2"/></svg>Setup</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4m-5 13.362v10.276" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M23.972 29.138V18.862h3.364c1.902 0 3.444 1.545 3.444 3.451s-1.542 3.451-3.444 3.451h-3.364m-3.792-.03h-4.553M14.5 29.138l3.404-10.276l3.404 10.276" stroke-width="2"/></svg>Documentation</a>
             </div>
             <h5>Tools</h5>
             <div class="sideBar_Menu_item">
@@ -618,7 +611,7 @@
                         <a href="fund_wallet.html"><button style="background-color: var(--pryColor); color: #ffffff; ">Fund your Wallet</button></a>
                     </div>
                     <div>
-                        <a href="#"><button style="background-color: transparent; color: var(--black); border: 1px solid var(--black);">Filter Transactions <svg xmlns="http://www.w3.org/2000/svg" width="15" height="15" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="m10 5l7 7l-7 7"/></svg></button></a>
+                        <a href="#"><button style="background-color: transparent; color: var(--black); border: 1px solid var(--black);">Airtime to Cash</button></a>
                     </div>
                 </div>
                 <div class="Dashbaord_Content_wallets">
@@ -903,6 +896,17 @@
             },
         
         });
+    </script>
+
+    <script>
+
+        let overview = document.getElementById('overview');
+        let overview_link = document.getElementById('overview_link');
+        let primary_color = '#2376F3';  
+
+        overview.style.borderLeft = '3px solid ' + primary_color;
+
+
     </script>
 
 </body>

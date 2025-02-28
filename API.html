@@ -149,6 +149,21 @@
         .hamburger {
             display: none;
         }
+                /* Styling the Scrollbar   */
+                ::-webkit-scrollbar {
+            width: 4px; /* Makes the scrollbar thinner */
+            height: 4px; /* Makes horizontal scrollbar thinner */
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--grey_Stroke); /* Light gray background */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--inactive_icon); /* Dark gray color */
+            border-radius: 10px; /* Rounded edges */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--inactive_Link); /* Darker gray when hovered */
+        }
         /* Stylinf the Left SideBar for Main Menu */
         .sideBar_Menu {
             position: fixed;

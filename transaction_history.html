@@ -160,6 +160,21 @@
         .hamburger {
             display: none;
         }
+                /* Styling the Scrollbar   */
+                ::-webkit-scrollbar {
+            width: 4px; /* Makes the scrollbar thinner */
+            height: 4px; /* Makes horizontal scrollbar thinner */
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--grey_Stroke); /* Light gray background */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--inactive_icon); /* Dark gray color */
+            border-radius: 10px; /* Rounded edges */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--inactive_Link); /* Darker gray when hovered */
+        }
         /* Stylinf the Left SideBar for Main Menu */
         .sideBar_Menu {
             position: fixed;
@@ -271,18 +286,22 @@
             font-weight: 600;
         }
         .filter-buttons {
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--grey_Stroke);
+            display: block;
+            background-color: #ffffff;
+            padding: 5px;
+            border: 1px solid var(--grey_Stroke);
+            border-radius: 12px;
         }
         .filter-buttons button {
-            margin-right: 10px;
-            padding: 10px;
-            background-color: #ffffff;
+            padding: 15px 25px;
+            cursor: pointer;
             border: none;
+            border-radius: 10px;
             color: var(--inactive_Link);
+            background-color: #ffffff;
         }
         .filter-buttons button.active {
-            border-bottom: 2px solid var(--pryColor);
+            background-color: var(--backgroung_Color);
             color: var(--black);
             font-weight: 500;
         }
