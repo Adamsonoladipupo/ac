@@ -244,81 +244,61 @@
             padding: 100px 20px 0 240px;
             font-size: 14px;
         }
-        /* Styling of the Transaction History Table */
-        .transaction_table {
+        /* Styling of the price list section */
+        .button-container {
+            display: block;
             background-color: #ffffff;
-            padding: 20px;
+            padding: 5px;
+            border: 1px solid var(--grey_Stroke);
             border-radius: 12px;
             margin-top: 20px;
         }
-        table {
-            width: 100%;
-            border-collapse: collapse;
-        }
-        table td:nth-child(1) {
-            display: none;
-        }
-        table th:nth-child(1){
-            display: none;
-        }
-        table td SVG {
-            background-color: var(--pryColor);
-            padding: 3px;
-            border-radius: 100%;
-            color: #ffffff;
-        }
-        th, td {
-            padding: 12px;
-        }
-        th {
-            background-color: #ffffff;
-            text-align: left;
-            font-weight: 600;
-        }
-        .filter-buttons {
-            margin-bottom: 20px;
-            border-bottom: 1px solid var(--grey_Stroke);
-        }
-        .filter-buttons button {
-            margin-right: 10px;
-            padding: 10px;
-            background-color: #ffffff;
+        .button-container button {
+            padding: 15px 25px;
+            cursor: pointer;
             border: none;
+            border-radius: 10px;
             color: var(--inactive_Link);
+            background-color: #ffffff;
         }
-        .filter-buttons button.active {
-            border-bottom: 2px solid var(--pryColor);
+        button.active {
+            background-color: var(--backgroung_Color);
             color: var(--black);
             font-weight: 500;
         }
-        tr {
-            cursor: pointer;
+        .content {
+            display: none;
         }
-        .status.success {
-            color: var(--success) ;
+        .content-container {
+            width: 100%;
+            height: auto;
+            background-color: #ffffff;
+            border-radius: 12px;
+            padding: 20px;
+            margin: 20px 0;
+            border: 1px solid var(--grey_Stroke);
         }
-        .status.failed {
-            color: var(--failed);
+        .content.active {
+            display: block;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            
+            
         }
-        .status.pending {
-            color: var(--pending);
+        .data_prices {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid var(--grey_Stroke);
+            padding: 20px;
+            border-radius: 12px;
         }
         @media screen and (max-width: 1111px){
             
         }
         @media screen and (max-width: 900px){
-            thead {
-                display: none;
-            }
-            table td:nth-child(1) {
-                display: block;
-            }
-            table th:nth-child(1) {
-                display: block;
-            }
-            table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
-                display: none;
-            }
+
         }
         @media (max-width: 750px) {
             .sidebar {
@@ -478,163 +458,66 @@
     </div>
     <div class="Dashbaord_Content">
         <h4>Price List</h4>
-        <div class="transaction_table">
-            <div class="filter-buttons">
-                <!-- <button onclick="filterTransactions('all', this)" class="active">All</button> -->
-                <button onclick="filterTransactions('data-plan', this)">Data Plan</button>
-                <button onclick="filterTransactions('airtime', this)">Airtime</button>
-                <button onclick="filterTransactions('cable-tv', this)">Cable TV</button>
-                <button onclick="filterTransactions('electricity', this)">Electricity</button>
-                <button onclick="filterTransactions('sports-betting', this)">Sports Betting</button>
+        <div class="price_list-container">
+            <div class="button-container">
+                <button class="active" onclick="showContent(0)">Data Plan</button>
+                <button onclick="showContent(1)">Airtime</button>
+                <button onclick="showContent(2)">Airtime to Cash</button>
+                <button onclick="showContent(3)">Electricity Bill</button>
+                <button onclick="showContent(4)">Cable TV</button>
+                <button onclick="showContent(5)">Sport Betting</button>
+                <button onclick="showContent(6)">Gift Funding</button>
             </div>
-            <table id="transactionTable">
-                <thead>
-                    <tr>
-                        <th>SVG</th>
-                        <th>Date</th>
-                        <th>Service</th>
-                        <th>Transaction ID</th>
-                        <th>Description</th>
-                        <th>Status</th>
-                        <th>Amount</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-01</td>
-                        <td>Data Plan</td>
-                        <td>TXN123456</td>
-                        <td>Monthly Data Plan</td>
-                        <td><span class="status success">Success</span></td>
-                        <td>₦10</td>
-                    </tr>
-                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-02</td>
-                        <td>Airtime</td>
-                        <td>TXN123457</td>
-                        <td>Mobile Airtime</td>
-                        <td><span class="status failed">Failed</span></td>
-                        <td>₦5</td>
-                    </tr>
-                    <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-03</td>
-                        <td>Cable TV</td>
-                        <td>TXN123458</td>
-                        <td>Monthly Subscription</td>
-                        <td><span class="status success">Success</span></td>
-                        <td>₦20</td>
-                    </tr>
-                    <tr class="electricity" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-04</td>
-                        <td>Electricity</td>
-                        <td>TXN123459</td>
-                        <td>Electricity Bill</td>
-                        <td><span class="status success">Success</span></td>
-                        <td>₦30</td>
-                    </tr>
-                    <tr class="sports-betting" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-05</td>
-                        <td>Sports Betting</td>
-                        <td>TXN123460</td>
-                        <td>Betting</td>
-                        <td><span class="status pending">Pending</span></td>
-                        <td>₦15</td>
-                    </tr>
-                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-06</td>
-                        <td>Data Plan</td>
-                        <td>TXN123461</td>
-                        <td>Weekly Data Plan</td>
-                        <td><span class="status pending">Pending</span></td>
-                        <td>₦5</td>
-                    </tr>
-                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-07</td>
-                        <td>Airtime</td>
-                        <td>TXN123462</td>
-                        <td>Mobile Airtime</td>
-                        <td><span class="status success">Success</span></td>
-                        <td>₦10</td>
-                    </tr>
-                    <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-08</td>
-                        <td>Cable TV</td>
-                        <td>TXN123463</td>
-                        <td>Monthly Subscription</td>
-                        <td><span class="status success">Success</span></td>
-                        <td>₦25</td>
-                    </tr>
-                    <tr class="electricity" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-09</td>
-                        <td>Electricity</td>
-                        <td>TXN123464</td>
-                        <td>Electricity Bill</td>
-                        <td><span class="status pending">Pending</span></td>
-                        <td>₦35</td>
-                    </tr>
-                    <tr class="sports-betting" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-10</td>
-                        <td>Sports Betting</td>
-                        <td>TXN123465</td>
-                        <td>Betting</td>
-                        <td><span class="status success">Success</span></td>
-                        <td>₦20</td>
-                    </tr>
-                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-11</td>
-                        <td>Data Plan</td>
-                        <td>TXN123466</td>
-                        <td>Monthly Data Plan</td>
-                        <td><span class="status success">Success</span></td>
-                        <td>₦15</td>
-                    </tr>
-                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
-                        <td>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
-                        </td>
-                        <td>2023-10-12</td>
-                        <td>Airtime</td>
-                        <td>TXN123467</td>
-                        <td>Mobile Airtime</td>
-                        <td><span class="status success">Success</span></td>
-                        <td>₦5</td>
-                    </tr>
-                </tbody>
-            </table>
+            <div class="content-container">
+                <div class="content active">
+                    Content for Data Plan
+                    <div class="data_prices">
+                        <span>MTN</span>
+                        <span>Prices</span>
+                    </div>
+                    <div class="data_prices">
+                        <span>Airtel</span>
+                        <span>Prices</span>
+                    </div>
+                    <div class="data_prices">
+                        <span>GLO</span>
+                        <span>Prices</span>
+                    </div>
+                    <div class="data_prices">
+                        <span>9mobile</span>
+                        <span>Prices</span>
+                    </div>
+                    <div class="data_prices">
+                        <span>MTN</span>
+                        <span>Prices</span>
+                    </div>
+                </div>
+                <div class="content">
+                    Content for Airtime
+                </div>
+                <div class="content">
+                    Content for Airtime to Cash
+
+                </div>
+                <div class="content">
+                    Content for Electricity Bill
+
+                </div>
+                <div class="content">
+                    Content for Cable TV
+
+                </div>
+                <div class="content">
+                    Content for Sport Betting
+
+                </div>
+                <div class="content">
+                    Content for Gift Funding
+
+                </div>
+            </div>
         </div>
+
     </div>
 
 
@@ -674,29 +557,27 @@
             overlay.classList.remove('active');
         });
     </script>
-    <!-- Transaction for controlling the Transaction History Table -->
+    <!-- Script for controlling the price list of the products/services -->
     <script>
-        function filterTransactions(service, button) {
-            var rows = document.querySelectorAll('#transactionTable tbody tr');
-            rows.forEach(row => {
-                if (service === 'all') {
-                    row.style.display = '';
-                } else {
-                    if (row.classList.contains(service)) {
-                        row.style.display = '';
-                    } else {
-                        row.style.display = 'none';
-                    }
-                }
-            });
-
-            var buttons = document.querySelectorAll('.filter-buttons button');
-            buttons.forEach(btn => btn.classList.remove('active'));
+        function showContent(index) {
+        const buttons = document.querySelectorAll('.button-container button');
+        const contents = document.querySelectorAll('.content-container .content');
+    
+        buttons.forEach((button, i) => {
+            if (i === index) {
             button.classList.add('active');
-        }
-
-        function openTransaction(transactionId) {
-            window.location.href = `transactionDetails.html?transactionId=${transactionId}`;
+            } else {
+            button.classList.remove('active');
+            }
+        });
+    
+        contents.forEach((content, i) => {
+            if (i === index) {
+            content.classList.add('active');
+            } else {
+            content.classList.remove('active');
+            }
+        });
         }
     </script>
     <!-- Search Function -->
