@@ -500,6 +500,8 @@
                 <button onclick="filterTransactions('cable-tv', this)">Cable TV</button>
                 <button onclick="filterTransactions('electricity', this)">Electricity</button>
                 <button onclick="filterTransactions('sports-betting', this)">Sports Betting</button>
+                <button onclick="filterTransactions('buy-funds', this)">Buy Funds</button>
+                <button onclick="filterTransactions('fund-wallet', this)">Fund Wallet</button>
             </div>
             <table id="transactionTable">
                 <thead>
@@ -591,12 +593,34 @@
                         <td><span class="status success">Success</span></td>
                         <td>₦10</td>
                     </tr>
+                    <tr class="buy-funds" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-07</td>
+                        <td>Buy Funds</td>
+                        <td>TXN123462</td>
+                        <td>Mobile Airtime</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦10</td>
+                    </tr>
                     <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
                         <td>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
                         </td>
                         <td>2023-10-08</td>
                         <td>Cable TV</td>
+                        <td>TXN123463</td>
+                        <td>Monthly Subscription</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦25</td>
+                    </tr>
+                    <tr class="fund-wallet" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-08</td>
+                        <td>Fund Wallet</td>
                         <td>TXN123463</td>
                         <td>Monthly Subscription</td>
                         <td><span class="status success">Success</span></td>
