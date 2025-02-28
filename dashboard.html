@@ -155,7 +155,7 @@
             background-color: #ffffff;
             width: 220px;
             border-right: solid 1px var(--grey_Stroke);
-            padding: 20px 0px 20px 0px;
+            padding: 20px 0px 0px 0px;
             top: 0;
             left: 0;
             transition: transform 0.3s ease;
@@ -569,7 +569,7 @@
             <h5>Gifting Portal</h5>
             <div class="sideBar_Menu_item">
                 <a href="API.html">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4m-5 13.362v10.276" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M23.972 29.138V18.862h3.364c1.902 0 3.444 1.545 3.444 3.451s-1.542 3.451-3.444 3.451h-3.364m-3.792-.03h-4.553M14.5 29.138l3.404-10.276l3.404 10.276" stroke-width="2"/></svg>Fund Wallet</a>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4m-5 13.362v10.276" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M23.972 29.138V18.862h3.364c1.902 0 3.444 1.545 3.444 3.451s-1.542 3.451-3.444 3.451h-3.364m-3.792-.03h-4.553M14.5 29.138l3.404-10.276l3.404 10.276" stroke-width="2"/></svg>Buy Funds</a>
             </div>
             <h5>API</h5>
             <div class="sideBar_Menu_item">
@@ -760,13 +760,13 @@
 
     <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
         <script>
-        const sidebar = document.getElementById('sidebar');
-        const hamburger = document.getElementById('hamburger');
-        const closeBtn = document.getElementById('close-btn');
-        const overlay = document.getElementById('overlay');
-        const notificationIcon = document.getElementById('notification-icon');
-        const notificationMenu = document.getElementById('notification-menu');
-        const notificationCloseBtn = document.getElementById('notification-close-btn');
+    let sidebar = document.getElementById('sidebar');
+    let hamburger = document.getElementById('hamburger');
+    let closeBtn = document.getElementById('close-btn');
+    let overlay = document.getElementById('overlay');
+    let notificationIcon = document.getElementById('notification-icon');
+    let notificationMenu = document.getElementById('notification-menu');
+    let notificationCloseBtn = document.getElementById('notification-close-btn');
 
         hamburger.addEventListener('click', () => {
             sidebar.classList.toggle('active');
@@ -897,16 +897,33 @@
         
         });
     </script>
-
+    <style>
+                .sideBar_Menu_items .active-link {
+            border-left: 3px solid var(--pryColor);
+            padding-left: -20px;
+            margin-left: -20px;
+        }
+        .sideBar_Menu_items .active-link a{
+            padding-left: 20px;
+            color: var(--black);
+        }
+    </style>
+    <!-- Script for showing the current/ active link on the Sidebar -->
     <script>
-
         let overview = document.getElementById('overview');
         let overview_link = document.getElementById('overview_link');
         let primary_color = '#2376F3';  
+        let black_color = '#353535';  
 
-        overview.style.borderLeft = '3px solid ' + primary_color;
-
-
+        Object.assign(overview.style,{
+            borderLeft: '3px solid ' + primary_color,
+            marginLeft: '-10px',
+            paddingLeft: '0px',
+        });
+        Object.assign(overview_link.style, {
+            color: black_color,
+            paddingLeft: '15px'
+        });
     </script>
 
 </body>

@@ -785,13 +785,22 @@
             button.classList.add('active');
         }
     </script>
+    <!-- Script for showing the current/ active link on the Sidebar -->
     <script>
-
         let fund_wallet = document.getElementById('fund_wallet');
         let fund_wallet_link = document.getElementById('fund_wallet_link');
         let primary_color = '#2376F3';  
+        let black_color = '#353535';  
 
-        fund_wallet.style.borderLeft = '3px solid ' + primary_color;
+        Object.assign(fund_wallet.style,{
+            borderLeft: '3px solid ' + primary_color,
+            marginLeft: '-10px',
+            paddingLeft: '0px',
+        });
+        Object.assign(fund_wallet_link.style, {
+            color: black_color,
+            paddingLeft: '15px'
+        });
 
 
     </script>

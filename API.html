@@ -210,15 +210,6 @@
             margin-left: 10px;
             font-size: 14px;
         }
-        .sideBar_Menu_items .active-link {
-            border-left: 3px solid var(--pryColor);
-            padding-left: -20px;
-            margin-left: -20px;
-        }
-        .sideBar_Menu_items .active-link a{
-            padding-left: 20px;
-            color: var(--black);
-        }
         .close-btn {
                 display: none;
                 
@@ -463,8 +454,8 @@
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 512 512"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="M403.29 32H280.36a14.46 14.46 0 0 0-10.2 4.2L24.4 281.9a28.85 28.85 0 0 0 0 40.7l117 117a28.86 28.86 0 0 0 40.71 0L427.8 194a14.46 14.46 0 0 0 4.2-10.2v-123A28.66 28.66 0 0 0 403.29 32"/><path fill="currentColor" d="M352 144a32 32 0 1 1 32-32a32 32 0 0 1-32 32"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="32" d="m230 480l262-262a13.8 13.8 0 0 0 4-10V80"/></svg>Price list</a>
             </div>
             <h5>Tools</h5>
-            <div class="sideBar_Menu_item active-link">
-                <a href="#">
+            <div class="sideBar_Menu_item" id="api">
+                <a href="#" id="api_link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4m-5 13.362v10.276" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M23.972 29.138V18.862h3.364c1.902 0 3.444 1.545 3.444 3.451s-1.542 3.451-3.444 3.451h-3.364m-3.792-.03h-4.553M14.5 29.138l3.404-10.276l3.404 10.276" stroke-width="2"/></svg>API</a>
             </div>
             <div class="sideBar_Menu_item">
@@ -627,5 +618,22 @@
         });
 
     </script>
+        <!-- Script for showing the current/ active link on the Sidebar -->
+        <script>
+            let api = document.getElementById('api');
+            let api_link = document.getElementById('api_link')
+            let primary_color = '#2376F3';  
+            let black_color = '#353535';  
+    
+            Object.assign(api.style,{
+                borderLeft: '3px solid ' + primary_color,
+                marginLeft: '-10px',
+                paddingLeft: '0px',
+            });
+            Object.assign(api_link.style, {
+                color: black_color,
+                paddingLeft: '15px'
+            });
+        </script>
 </body>
 </html>

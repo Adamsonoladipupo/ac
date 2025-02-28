@@ -145,6 +145,21 @@
         .hamburger {
             display: none;
         }
+                /* Styling the Scrollbar   */
+                ::-webkit-scrollbar {
+            width: 4px; /* Makes the scrollbar thinner */
+            height: 4px; /* Makes horizontal scrollbar thinner */
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--grey_Stroke); /* Light gray background */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--inactive_icon); /* Dark gray color */
+            border-radius: 10px; /* Rounded edges */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--inactive_Link); /* Darker gray when hovered */
+        }
         /* Stylinf the Left SideBar for Main Menu */
         .sideBar_Menu {
             position: fixed;
@@ -190,15 +205,6 @@
             text-decoration: none;
             margin-left: 10px;
             font-size: 14px;
-        }
-        .sideBar_Menu_items .active-link {
-            border-left: 3px solid var(--pryColor);
-            padding-left: -20px;
-            margin-left: -20px;
-        }
-        .sideBar_Menu_items .active-link a{
-            padding-left: 20px;
-            color: var(--black);
         }
         .close-btn {
                 display: none;
@@ -437,8 +443,8 @@
                 <a href="API.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4m-5 13.362v10.276" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M23.972 29.138V18.862h3.364c1.902 0 3.444 1.545 3.444 3.451s-1.542 3.451-3.444 3.451h-3.364m-3.792-.03h-4.553M14.5 29.138l3.404-10.276l3.404 10.276" stroke-width="2"/></svg>API</a>
             </div>
-            <div class="sideBar_Menu_item active-link">
-                <a href="#">
+            <div class="sideBar_Menu_item" id="profile">
+                <a href="#" id="profile_link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><path stroke-linejoin="round" d="M4 18a4 4 0 0 1 4-4h8a4 4 0 0 1 4 4a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2Z"/><circle cx="12" cy="7" r="3"/></g></svg>Profile</a>
             </div>
             <div class="sideBar_Menu_item">
@@ -552,5 +558,22 @@
         // Set the first button as active on page load
         document.getElementById('button1').classList.add('active');
     </script>
+        <!-- Script for showing the current/ active link on the Sidebar -->
+        <script>
+            let profile = document.getElementById('profile');
+            let profile_link = document.getElementById('profile_link')
+            let primary_color = '#2376F3';  
+            let black_color = '#353535';  
+    
+            Object.assign(profile.style,{
+                borderLeft: '3px solid ' + primary_color,
+                marginLeft: '-10px',
+                paddingLeft: '0px',
+            });
+            Object.assign(profile_link.style, {
+                color: black_color,
+                paddingLeft: '15px'
+            });
+        </script>
 </body>
 </html>

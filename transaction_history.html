@@ -223,15 +223,6 @@
             margin-left: 10px;
             font-size: 14px;
         }
-        .sideBar_Menu_items .active-link {
-            border-left: 3px solid var(--pryColor);
-            padding-left: -20px;
-            margin-left: -20px;
-        }
-        .sideBar_Menu_items .active-link a{
-            padding-left: 20px;
-            color: var(--black);
-        }
         .close-btn {
                 display: none;
                 
@@ -460,8 +451,8 @@
                 <a href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 48 48"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M38.5 5.5h-29a4 4 0 0 0-4 4v29a4 4 0 0 0 4 4h29a4 4 0 0 0 4-4v-29a4 4 0 0 0-4-4" stroke-width="3"/><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="M32.164 32.946V15.148M38 22.964l-5.835-7.91l-5.836 7.91m-10.493-7.91v17.798m5.835-7.816l-5.835 7.91L10 25.036" stroke-width="3"/></svg>Internet</a>
             </div>
-            <div class="sideBar_Menu_item active-link">
-                <a href="#">
+            <div class="sideBar_Menu_item" id="history">
+                <a href="#" id="history_link">
                     <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="currentColor" d="M11.962 20q-3.046 0-5.311-1.99q-2.264-1.989-2.62-5.01h1.011q.408 2.58 2.351 4.29T11.962 19q2.925 0 4.962-2.037T18.962 12t-2.038-4.963T11.962 5q-1.553 0-2.918.656q-1.365.655-2.41 1.805h2.481v1H4.962V4.309h1v2.388q1.16-1.273 2.718-1.984T11.962 4q1.663 0 3.118.626t2.542 1.714t1.714 2.542t.626 3.118t-.626 3.118t-1.714 2.542t-2.542 1.714t-3.118.626m3.204-4.146l-3.647-3.646V7h1v4.792l3.354 3.354z" /></svg>History</a>
             </div>
             <div class="sideBar_Menu_item">
@@ -500,8 +491,8 @@
                 <button onclick="filterTransactions('cable-tv', this)">Cable TV</button>
                 <button onclick="filterTransactions('electricity', this)">Electricity</button>
                 <button onclick="filterTransactions('sports-betting', this)">Sports Betting</button>
-                <button onclick="filterTransactions('buy-funds', this)">Buy Funds</button>
                 <button onclick="filterTransactions('fund-wallet', this)">Fund Wallet</button>
+                <button onclick="filterTransactions('gifting-funding', this)">Gifting Funding</button>
             </div>
             <table id="transactionTable">
                 <thead>
@@ -593,12 +584,12 @@
                         <td><span class="status success">Success</span></td>
                         <td>₦10</td>
                     </tr>
-                    <tr class="buy-funds" onclick="openTransaction('transcation_ID')">
+                    <tr class="gifting-funding" onclick="openTransaction('transcation_ID')">
                         <td>
                             <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
                         </td>
                         <td>2023-10-07</td>
-                        <td>Buy Funds</td>
+                        <td>Gifting Funding</td>
                         <td>TXN123462</td>
                         <td>Mobile Airtime</td>
                         <td><span class="status success">Success</span></td>
@@ -760,5 +751,22 @@
         });
     }
     </script>
+        <!-- Script for showing the current/ active link on the Sidebar -->
+        <script>
+            let history = document.getElementById('history');
+            let history_link = document.getElementById('history_link')
+            let primary_color = '#2376F3';  
+            let black_color = '#353535';  
+    
+            Object.assign(history.style,{
+                borderLeft: '3px solid ' + primary_color,
+                marginLeft: '-10px',
+                paddingLeft: '0px',
+            });
+            Object.assign(history_link.style, {
+                color: black_color,
+                paddingLeft: '15px'
+            });
+        </script>
 </body>
 </html>
