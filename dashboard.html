@@ -127,11 +127,26 @@
         .notification-message span {
             font-size: 12px;
             font-weight: 600;
-
         }
         #hamburger {
             display: none;
         }
+        /* Styling the Scrollbar   */
+        ::-webkit-scrollbar {
+            width: 4px; /* Makes the scrollbar thinner */
+            height: 4px; /* Makes horizontal scrollbar thinner */
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--grey_Stroke); /* Light gray background */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--inactive_icon); /* Dark gray color */
+            border-radius: 10px; /* Rounded edges */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--inactive_Link); /* Darker gray when hovered */
+        }
+
         /* Stylinf the Left SideBar for Main Menu */
         .sideBar_Menu {
             position: fixed;
@@ -140,7 +155,7 @@
             background-color: #ffffff;
             width: 220px;
             border-right: solid 1px var(--grey_Stroke);
-            padding: 20px 0px 0px 0px;
+            padding: 20px 0px 20px 0px;
             top: 0;
             left: 0;
             transition: transform 0.3s ease;
@@ -149,7 +164,8 @@
             height: 100vh;
         }
         .sideBar_Menu div {
-            padding: 0 20px;
+            padding: 0 10px 0 10px;
+            
         }
         .sideBar_Menu_header {
             display: flex;
@@ -157,11 +173,14 @@
             justify-content: space-between;
             font-size: 14px;
             font-weight: 500;
-            padding: 10px 0 20px 0px;
+            padding: 10px 0 10px 0px;
+            margin: 10px ;
+            
         }
         .sideBar_Menu_items {
             margin-top: 20px;
             overflow-y: auto;
+            border-top: 1px solid var(--pryColor);
         }
         .sideBar_Menu_items h5 {
             font-size: 10px;
@@ -174,18 +193,18 @@
             align-items: center;
             color: var(--inactive_Link);
             gap: 10px;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
+            margin-top: 15px;
             text-decoration: none;
-            margin-left: 10px;
+            margin-left: 5px;
             font-size: 14px;
         }
         .sideBar_Menu_items .active-link {
             border-left: 3px solid var(--pryColor);
-            padding-left: -20px;
-            margin-left: -20px;
+            margin-left: -10px;
         }
         .sideBar_Menu_items .active-link a{
-            padding-left: 20px;
+            padding-left: 10px;
             color: var(--black);
         }
         .close-btn {
@@ -526,6 +545,10 @@
             <div class="sideBar_Menu_item">
                 <a href="buy_airtime.html">
                     <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>Buy Airtime</a>
+            </div>
+            <div class="sideBar_Menu_item">
+                <a href="#">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 7.027a6.044 6.044 0 0 1 12 1.016A6.044 6.044 0 0 1 16.973 14M8 22a6 6 0 1 0 0-12a6 6 0 0 0 0 12M2 9c0-3.317 2.683-6 6-6l-.857 1.714M22 15c0 3.317-2.683 6-6 6l.857-1.714" color="currentColor"/></svg>Airtime to Cash</a>
             </div>
             <div class="sideBar_Menu_item">
                 <a href="electricity_bill.html">
