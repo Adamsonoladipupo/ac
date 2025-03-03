@@ -308,7 +308,7 @@
             border-radius: 100%;
         }
         .submit_button {
-            margin: 0 0 ;
+            margin: 0 0 ;   
         }
 
 
@@ -321,6 +321,32 @@
         }
         .hidden-text span{
             visibility: hidden; /* Hides the text */
+        }
+
+        /* Styling the sweet alert */
+        .swal2-popup {
+            width: 300px;
+            padding: 10px;
+            padding-top: 0px;
+            border-radius: 20px;
+        }
+        .swal2-popup .swal2-actions button {
+            padding: 10px 30px;
+            width: 150px;
+            font-size: 14px;
+            background-color: var(--pryColor);
+            border-radius: 10px;
+        }
+        .swal2-title {
+            margin-bottom: 0px;
+            padding: 0px;
+            font-size: 24px;
+        }
+        .swal2-text {
+            font-size: 2px;
+        }
+        .swal2-icon.swal2-success {
+            font-size: 10px; 
         }
 
 
@@ -544,7 +570,7 @@
                         </div>
                     </div>
                     <div class="submit_button">
-                        <a href="#" id="alertButton">
+                        <a href="#">
                                 <button type="submit" class="primary_action_button"  id="loadButton"><span>Proceed to pay →</span>
                             </button>
                         </a>
@@ -662,16 +688,16 @@
         });
     </script>
 
+
     <!-- SweetAlert JS -->
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script>
-        document.getElementById('alertButton').addEventListener('click', function() {
+        document.getElementById('loadButton').addEventListener('click', function() {
             Swal.fire({
-            position: "middle",
             icon: "success",
-            title: "Your transaction is successful",
+            title: "This is for testing",
+            text:"This is a message",
             showConfirmButton: true,
-            timer: 5000
             });
         });
     </script>
