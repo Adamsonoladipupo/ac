@@ -279,21 +279,40 @@
             cursor: pointer;
         }
         .receipt_boby {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
             margin-top: 20px;
         }
+        .receipt_transaction table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 10px;
+        }
         .receipt_transaction {
-            background-color: red;
+            background-color: var(--backgroung_Color);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .receipt_transaction table th{
+            text-align: left;
+            font-weight: 600;
+        }
+        .receipt_transaction table th:nth-child(2){
+            text-align: right;
+        }
+        .receipt_transaction table td{
+            text-align: left;
+            padding: 10px 0;
+        }
+        .receipt_transaction table td:nth-child(2){
+            text-align: right;
         }
         .close_receipt_menu_icon {
             position: absolute;
             top: 20px;
             right: 20px;
             cursor: pointer;
-            font-size: 24px;
         }
+
         /* Styling of the Transaction History Table */
         .transaction_table {
             background-color: #ffffff;
@@ -301,26 +320,29 @@
             border-radius: 12px;
             margin-top: 20px;
         }
-        table {
+        .transaction_table table {
             width: 100%;
             border-collapse: collapse;
         }
-        table td:nth-child(1) {
+        .transaction_table table td:nth-child(1) {
             display: none;
         }
-        table th:nth-child(1){
+        .transaction_table table th:nth-child(1){
             display: none;
         }
-        table td SVG {
+        .transaction_table table td SVG {
             background-color: var(--pryColor);
             padding: 3px;
             border-radius: 100%;
             color: #ffffff;
         }
-        th, td {
+        .transaction_table th {
             padding: 12px;
         }
-        th {
+        .transaction_table td {
+            padding: 12px;
+        }
+        .transaction_table th {
             background-color: #ffffff;
             text-align: left;
             font-weight: 600;
@@ -345,7 +367,7 @@
             color: var(--black);
             font-weight: 500;
         }
-        tr {
+        .transaction_table tr {
             cursor: pointer;
         }
         .status.success {
@@ -361,16 +383,16 @@
             
         }
         @media screen and (max-width: 900px){
-            thead {
+            .transaction_table thead {
                 display: none;
             }
-            table td:nth-child(1) {
+            .transaction_table table td:nth-child(1) {
                 display: block;
             }
-            table th:nth-child(1) {
+            .transaction_table table th:nth-child(1) {
                 display: block;
             }
-            table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
+            .transaction_table table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
                 display: none;
             }
         }
@@ -462,9 +484,37 @@
         </div>
         <div class="receipt_boby">
             <div class="receipt_transaction">
-                <p>Item 1: $10</p>
-                <p>Item 2: $20</p>
-                <p>Item 3: $30</p>
+                <h2>Transaction Receipt</h2> 
+                    <table>
+                        <tr>
+                            <th>Item</th>
+                            <th>Details</th>
+                        </tr>
+                        <tr>
+                            <td>Date</td>
+                            <td>2023-10-01</td>
+                        </tr>
+                        <tr>
+                            <td>Services</td>
+                            <td>Data Plan</td>
+                        </tr>
+                        <tr>
+                            <td>Transaction ID</td>
+                            <td>TXN123456</td>
+                        </tr>
+                        <tr>
+                            <td>Description</td>
+                            <td>Monthly Data Plan</td>
+                        </tr>
+                        <tr>
+                            <td>Status</td>
+                            <td>Success</td>
+                        </tr>
+                        <tr>
+                            <td>Amount</td>
+                            <td>₦100</td>
+                        </tr>
+                    </table>
             </div>
         </div>
     </div>
