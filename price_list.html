@@ -160,8 +160,8 @@
         .hamburger {
             display: none;
         }
-                /* Styling the Scrollbar   */
-                ::-webkit-scrollbar {
+            /* Styling the Scrollbar   */
+            ::-webkit-scrollbar {
             width: 4px; /* Makes the scrollbar thinner */
             height: 4px; /* Makes horizontal scrollbar thinner */
         }
@@ -269,7 +269,7 @@
         .content {
             display: none;
         }
-        .content-container {
+        .content_container {
             width: 100%;
             height: auto;
             background-color: #ffffff;
@@ -278,11 +278,15 @@
             margin: 20px 0;
             border: 1px solid var(--grey_Stroke);
         }
+        .content_container hr {
+            border-top: 1px solid #ffffff;
+            border-bottom: 1px solid var(--grey_Stroke);
+        }
         .content.active {
             display: block;
             display: flex;
             flex-direction: column;
-            gap: 20px;
+            gap: 5px;
             
             
         }
@@ -291,8 +295,44 @@
             align-items: center;
             justify-content: space-between;
             border: 1px solid var(--grey_Stroke);
-            padding: 20px;
+            padding: 10px;
             border-radius: 12px;
+        }
+        .network-title {
+            cursor: pointer;
+            padding: 5px;
+            margin: 1px 0;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .network_price {
+            max-height: 0;
+            overflow: hidden;
+            padding: 0 15px;
+            transition: 0.5s ease;
+            color: var(--black);
+            
+        }
+        .network_price li{
+            list-style: inside;
+        }
+        .network_price.open {
+            max-height: 800px;
+            padding: 0 15px 15px 15px;
+            margin: -1px 0 0 0;
+        }
+
+        .arrow {
+            transition: transform 0.5s;
+        }
+        .arrow.down {
+            transform: rotate(0deg);
+            color: black;
+        }
+        .arrow.up {
+            transform: rotate(180deg);
+            color: var(--pryColor);
         }
         @media screen and (max-width: 1111px){
             
@@ -468,28 +508,74 @@
                 <button onclick="showContent(5)">Sport Betting</button>
                 <button onclick="showContent(6)">Gift Funding</button>
             </div>
-            <div class="content-container">
+            <div class="content_container">
                 <div class="content active">
-                    Content for Data Plan
-                    <div class="data_prices">
-                        <span>MTN</span>
-                        <span>Prices</span>
+                    <div class="">
+                        <div class="network-title" onclick="toggleAnswer(this)">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <img src="images/MTNIcon.png" alt="" width="50px">
+                            <p>MTN </p>
+                        </div>
+                        <span>
+                            <svg class="arrow down" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="non-zero" d="M13.069 5.157L8.384 9.768a.546.546 0 0 1-.768 0L2.93 5.158a.55.55 0 0 0-.771 0a.53.53 0 0 0 0 .759l4.684 4.61a1.65 1.65 0 0 0 2.312 0l4.684-4.61a.53.53 0 0 0 0-.76a.55.55 0 0 0-.771 0"/></svg>
+                        </span>
+                        </div>
+                        <div class="network_price">
+                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <p>lkasniahfiqowjfioh iofh  i</p>
+                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                        </div>
                     </div>
-                    <div class="data_prices">
-                        <span>Airtel</span>
-                        <span>Prices</span>
+                    <hr>
+                    <div class="">
+                        <div class="network-title" onclick="toggleAnswer(this)">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <img src="images/AirtelIcon.png" alt="" width="50px">
+                            <p>Airtel </p>
+                        </div>
+                        <span>
+                            <svg class="arrow down" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="non-zero" d="M13.069 5.157L8.384 9.768a.546.546 0 0 1-.768 0L2.93 5.158a.55.55 0 0 0-.771 0a.53.53 0 0 0 0 .759l4.684 4.61a1.65 1.65 0 0 0 2.312 0l4.684-4.61a.53.53 0 0 0 0-.76a.55.55 0 0 0-.771 0"/></svg>
+                        </span>
+                        </div>
+                        <div class="network_price">
+                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <p>lkasniahfiqowjfioh iofh  i</p>
+                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                        </div>
                     </div>
-                    <div class="data_prices">
-                        <span>GLO</span>
-                        <span>Prices</span>
+                    <hr>
+                    <div class="">
+                        <div class="network-title" onclick="toggleAnswer(this)">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <img src="images/GLOIcon.png" alt="" width="50px">
+                            <p>GLO </p>
+                        </div>
+                        <span>
+                            <svg class="arrow down" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="non-zero" d="M13.069 5.157L8.384 9.768a.546.546 0 0 1-.768 0L2.93 5.158a.55.55 0 0 0-.771 0a.53.53 0 0 0 0 .759l4.684 4.61a1.65 1.65 0 0 0 2.312 0l4.684-4.61a.53.53 0 0 0 0-.76a.55.55 0 0 0-.771 0"/></svg>
+                        </span>
+                        </div>
+                        <div class="network_price">
+                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <p>lkasniahfiqowjfioh iofh  i</p>
+                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                        </div>
                     </div>
-                    <div class="data_prices">
-                        <span>9mobile</span>
-                        <span>Prices</span>
-                    </div>
-                    <div class="data_prices">
-                        <span>MTN</span>
-                        <span>Prices</span>
+                    <hr>
+                    <div class="">
+                        <div class="network-title" onclick="toggleAnswer(this)">
+                        <div style="display: flex; align-items: center; gap: 20px;">
+                            <img src="images/9mobileIcon.png" alt="" width="50px">
+                            <p>9mobile </p>
+                        </div>
+                        <span>
+                            <svg class="arrow down" xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 16 16"><path fill="currentColor" fill-rule="non-zero" d="M13.069 5.157L8.384 9.768a.546.546 0 0 1-.768 0L2.93 5.158a.55.55 0 0 0-.771 0a.53.53 0 0 0 0 .759l4.684 4.61a1.65 1.65 0 0 0 2.312 0l4.684-4.61a.53.53 0 0 0 0-.76a.55.55 0 0 0-.771 0"/></svg>
+                        </span>
+                        </div>
+                        <div class="network_price">
+                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <p>lkasniahfiqowjfioh iofh  i</p>
+                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                        </div>
                     </div>
                 </div>
                 <div class="content">
@@ -561,7 +647,7 @@
     <script>
         function showContent(index) {
         const buttons = document.querySelectorAll('.button-container button');
-        const contents = document.querySelectorAll('.content-container .content');
+        const contents = document.querySelectorAll('.content_container .content');
     
         buttons.forEach((button, i) => {
             if (i === index) {
@@ -603,22 +689,41 @@
         });
     }
     </script>
-        <!-- Script for showing the current/ active link on the Sidebar -->
-        <script>
-            let price_list = document.getElementById('price_list');
-            let data_plan_link = document.getElementById('price_list_link')
-            let primary_color = '#2376F3';  
-            let black_color = '#353535';  
-    
-            Object.assign(price_list.style,{
-                borderLeft: '3px solid ' + primary_color,
-                marginLeft: '-10px',
-                paddingLeft: '0px',
-            });
-            Object.assign(price_list_link.style, {
-                color: black_color,
-                paddingLeft: '15px'
-            });
-        </script>
+    <!-- Script for showing the current/ active link on the Sidebar -->
+    <script>
+        let price_list = document.getElementById('price_list');
+        let data_plan_link = document.getElementById('price_list_link')
+        let primary_color = '#2376F3';  
+        let black_color = '#353535';  
+
+        Object.assign(price_list.style,{
+            borderLeft: '3px solid ' + primary_color,
+            marginLeft: '-10px',
+            paddingLeft: '0px',
+        });
+        Object.assign(price_list_link.style, {
+            color: black_color,
+            paddingLeft: '15px'
+        });
+    </script>
+    <!-- The Script for controlling the dropdown of the pricing  -->
+    <script>
+        function toggleAnswer(element) {
+            const answer = element.nextElementSibling;
+            const arrow = element.querySelector(".arrow");
+
+            if (answer.classList.contains("open")) {
+                // Collapse the answer
+                answer.classList.remove("open");
+                arrow.classList.remove("up");
+                arrow.classList.add("down");
+            } else {
+                // Expand the answer
+                answer.classList.add("open");
+                arrow.classList.remove("down");
+                arrow.classList.add("up");
+            }
+        }
+    </script>
 </body>
 </html>
