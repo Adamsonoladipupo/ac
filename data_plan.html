@@ -10,6 +10,8 @@
     
     <!-- Spin.Js Library -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/spin.js/2.3.2/spin.min.js"></script>
+    <!-- SweetAlert CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
 
     <title>Data Plan</title>
     <style>
@@ -542,7 +544,7 @@
                         </div>
                     </div>
                     <div class="submit_button">
-                        <a href="#">
+                        <a href="#" id="alertButton">
                                 <button type="submit" class="primary_action_button"  id="loadButton"><span>Proceed to pay →</span>
                             </button>
                         </a>
@@ -633,13 +635,13 @@
         //   Hide button text
         button.classList.add('hidden-text');
     
-          // After 10 seconds, stop the spinner (you can replace this with an actual action like an API call)
+        // After 10 seconds, stop the spinner (you can replace this with an actual action like an API call)
         setTimeout(function () {
             spinner.stop(); // Stop the spinner
     
             // Show button text
             button.classList.remove('hidden-text');
-          }, 5000); // 10000ms = 10 seconds (spinner runs for 10 seconds)
+          }, 1000); // 1000ms = 10 seconds (spinner runs for 10 seconds)
         });
     </script>
     <!-- Script for showing the current/ active link on the Sidebar -->
@@ -657,6 +659,20 @@
         Object.assign(data_plan_link.style, {
             color: black_color,
             paddingLeft: '15px'
+        });
+    </script>
+
+    <!-- SweetAlert JS -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.getElementById('alertButton').addEventListener('click', function() {
+            Swal.fire({
+            position: "middle",
+            icon: "success",
+            title: "Your transaction is successful",
+            showConfirmButton: true,
+            timer: 5000
+            });
         });
     </script>
 </body>

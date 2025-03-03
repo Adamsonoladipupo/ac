@@ -245,6 +245,55 @@
             padding: 100px 20px 0 240px;
             font-size: 14px;
         }
+        /* Styling Receipt Menu */
+        .receipt_menu {
+            position: fixed;
+            top: 0;
+            right: -350px;
+            width: 300px;
+            height: 100%;
+            background-color: #ffffff;
+            transition: right 0.3s ease;
+            padding: 20px;
+            z-index: 12000;
+            transition: 0.5s ease;
+        }
+        .receipt_menu_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px 30px 20px;
+            background-color: #ffffff;
+            border-bottom: solid 1px var(--grey_Stroke);
+        }
+        .receipt_menu h2 {
+            font-size: 14px;
+        }
+        .receipt_menu.active {
+            transform: translateX(-350px);
+        }
+        .receipt_menu_header svg {
+            background-color: var(--backgroung_Color);
+            border-radius: 20px;
+            padding: 3px;
+            cursor: pointer;
+        }
+        .receipt_boby {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 20px;
+        }
+        .receipt_transaction {
+            background-color: red;
+        }
+        .close_receipt_menu_icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+            font-size: 24px;
+        }
         /* Styling of the Transaction History Table */
         .transaction_table {
             background-color: #ffffff;
@@ -371,7 +420,6 @@
     <header>
         <div class="Dashboard_header">
             <span class="hamburger" id="hamburger">
-                <!-- &#9776; -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
             </span>
             <div class="Dashboard_header_item1 search-bar">
@@ -403,7 +451,21 @@
                 <p>Hi there, Use this promo code “HYJTNJYM” to get free 500 on your first transaction with Prestmit. Are you motivated now?</p>
                 <span class="date&time">October 6, 2024 12:17 PM</span>
             </div>
-
+        </div>
+    </div>
+    <div class="receipt_menu" id="receipt_menu">
+        <div class="receipt_menu_header">
+            <h2>Receipt Menu</h2>
+            <span class="close_receipt_menu_icon" id="close_receipt_menu_icon"">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/></svg>
+            </span>
+        </div>
+        <div class="receipt_boby">
+            <div class="receipt_transaction">
+                <p>Item 1: $10</p>
+                <p>Item 2: $20</p>
+                <p>Item 3: $30</p>
+            </div>
         </div>
     </div>
 
@@ -677,6 +739,10 @@
         const notificationMenu = document.getElementById('notification-menu');
         const notificationCloseBtn = document.getElementById('notification-close-btn');
 
+        const receipt_menu = document.getElementById('receipt_menu');
+        const receipt_icon = document.getElementById('receipt_icon');
+        const close_receipt = document.getElementById('close_receipt_menu_icon');
+
         hamburger.addEventListener('click', () => {
             sidebar.classList.toggle('active');
             overlay.classList.toggle('active');
@@ -691,6 +757,7 @@
             sidebar.classList.remove('active');
             overlay.classList.remove('active');
             notificationMenu.classList.remove('active');
+            receipt_menu.classList.remove('active');
         });
 
         notificationIcon.addEventListener('click', () => {
@@ -702,8 +769,18 @@
             notificationMenu.classList.remove('active');
             overlay.classList.remove('active');
         });
+
+        close_receipt.addEventListener('click', () => {
+            receipt_menu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        function openTransaction(transactionId) {
+            receipt_menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
     </script>
-    <!-- Transaction for controlling the Transaction History Table -->
+    <!-- Script for controlling the Transaction History Table -->
     <script>
         function filterTransactions(service, button) {
             var rows = document.querySelectorAll('#transactionTable tbody tr');
@@ -724,10 +801,12 @@
             button.classList.add('active');
         }
 
-        function openTransaction(transactionId) {
-            window.location.href = `transactionDetails.html?transactionId=${transactionId}`;
-        }
+        // function openTransaction(transactionId) {
+        //     window.location.href = `transactionDetails.html?transactionId=${transactionId}`;
+        // }
     </script>
+
+
     <!-- Search Function -->
     <script>
         function searchTransactions() {
