@@ -249,14 +249,15 @@
         .receipt_menu {
             position: fixed;
             top: 0;
-            right: -350px;
-            width: 300px;
+            right: -650px;
+            width: 600px;
             height: 100%;
             background-color: #ffffff;
             transition: right 0.3s ease;
             padding: 20px;
             z-index: 12000;
             transition: 0.5s ease;
+            overflow-y: scroll;
         }
         .receipt_menu_header {
             display: flex;
@@ -270,7 +271,7 @@
             font-size: 14px;
         }
         .receipt_menu.active {
-            transform: translateX(-350px);
+            transform: translateX(-650px);
         }
         .receipt_menu_header svg {
             background-color: var(--backgroung_Color);
@@ -302,6 +303,18 @@
         .receipt_transaction table td{
             text-align: left;
             padding: 10px 0;
+        }
+        .receipt_menu button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 30px;
+            border-radius: 10px;
+            border: none;
+            background-color: var(--pryColor);
+            color: #ffffff;
+            margin: 20px 0;
+
         }
         .receipt_transaction table td:nth-child(2){
             text-align: right;
@@ -430,6 +443,13 @@
                 width: 100%;
                 margin: 0 10px;
             }
+            .receipt_menu {
+                right: -100%;
+                width: 100%;
+            }
+            .receipt_menu.active {
+                transform: translateX(-100%);
+            }
 
         }
         @media screen and (max-width: 500px){
@@ -485,37 +505,39 @@
         <div class="receipt_boby">
             <div class="receipt_transaction">
                 <h2>Transaction Receipt</h2> 
-                    <table>
-                        <tr>
-                            <th>Item</th>
-                            <th>Details</th>
-                        </tr>
-                        <tr>
-                            <td>Date</td>
-                            <td>2023-10-01</td>
-                        </tr>
-                        <tr>
-                            <td>Services</td>
-                            <td>Data Plan</td>
-                        </tr>
-                        <tr>
-                            <td>Transaction ID</td>
-                            <td>TXN123456</td>
-                        </tr>
-                        <tr>
-                            <td>Description</td>
-                            <td>Monthly Data Plan</td>
-                        </tr>
-                        <tr>
-                            <td>Status</td>
-                            <td>Success</td>
-                        </tr>
-                        <tr>
-                            <td>Amount</td>
-                            <td>₦100</td>
-                        </tr>
-                    </table>
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>2023-10-01</td>
+                    </tr>
+                    <tr>
+                        <td>Services</td>
+                        <td>Data Plan</td>
+                    </tr>
+                    <tr>
+                        <td>Transaction ID</td>
+                        <td>TXN123456</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>Monthly Data Plan</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>Success</td>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                        <td>₦100</td>
+                    </tr>
+                </table>
             </div>
+            <button>Downlaod <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2l.117.007a1 1 0 0 1 .876.876L13 3v4l.005.15a2 2 0 0 0 1.838 1.844L15 9h4l.117.007a1 1 0 0 1 .876.876L20 10v9a3 3 0 0 1-2.824 2.995L17 22H7a3 3 0 0 1-2.995-2.824L4 19V5a3 3 0 0 1 2.824-2.995L7 2zm0 8a1 1 0 0 0-1 1v3.585l-.793-.792a1 1 0 0 0-1.32-.083l-.094.083a1 1 0 0 0 0 1.414l2.5 2.5l.044.042l.068.055l.11.071l.114.054l.105.035l.15.03L12 18l.117-.007l.117-.02l.108-.033l.081-.034l.098-.052l.092-.064l.094-.083l2.5-2.5a1 1 0 0 0 0-1.414l-.094-.083a1 1 0 0 0-1.32.083l-.793.791V11a1 1 0 0 0-.883-.993zm2.999-7.001L19 7h-4z"/></svg>
+            </button>
         </div>
     </div>
 
