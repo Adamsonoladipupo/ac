@@ -315,12 +315,80 @@
 
 
         /* Styling the spinning of the Proceed to pay button /button loading */
-        #loadButton {
-            position: relative;
-            cursor: pointer;
+        /* --------------------------------------------- */
+        @-webkit-keyframes ball-scale-multiple {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                opacity: 0; 
+            }
+            5% {
+                opacity: 1;     
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 0; 
+            } 
         }
-        .hidden-text span{
-            visibility: hidden; /* Hides the text */
+        @keyframes ball-scale-multiple {
+            0% {
+                -webkit-transform: scale(0);
+                transform: scale(0);
+                opacity: 0; 
+            }
+            5% {
+                opacity: 1; 
+            }
+            100% {
+                -webkit-transform: scale(1);
+                transform: scale(1);
+                opacity: 0; 
+            } 
+        }
+
+        .ball-scale-multiple {
+            display: none;
+            position: relative;
+            -webkit-transform: translateY(-30px);
+            transform: translateY(-30px); 
+        }
+        .ball-scale-multiple > div:nth-child(2) {
+            -webkit-animation-delay: -0.1s;
+            animation-delay: -0.4s; 
+        }
+        .ball-scale-multiple > div:nth-child(3) {
+            -webkit-animation-delay: -0.05s;
+            animation-delay: -0.2s; 
+        }
+        .ball-scale-multiple > div {
+            background-color: #ffffff;
+            width: 15px;
+            height: 15px;
+            border-radius: 100%;
+            margin: 2px;
+            -webkit-animation-fill-mode: both;
+            animation-fill-mode: both;
+            position: absolute;
+            left: -30px;
+            top: 0px;
+            opacity: 0;
+            margin: 0;
+            width: 60px;
+            height: 60px;
+            -webkit-animation: ball-scale-multiple 1s 0s linear infinite;
+            animation: ball-scale-multiple 1s 0s linear infinite; 
+        }
+        /* --------------------------------------------- */
+        .leader_button.loading .ball-scale-multiple {
+            display: block;
+            transition: 0.1s ease-in;
+        }
+        /* .button.loading .button-text {
+            visibility: hidden;
+        } */
+        .leader_button:disabled {
+            cursor: not-allowed;
         }
 
         /* Styling the sweet alert */
@@ -586,7 +654,12 @@
                     </div>
                     <div class="submit_button">
                         <a href="#">
-                                <button type="submit" class="primary_action_button"  id="loadButton"><span>Proceed to pay →</span>
+                            <button type="submit" class="leader_button primary_action_button" id="loadButton">
+                                <span class="button-text">Proceed to pay →</span>
+                                <div class="loader-inner ball-scale-multiple">
+                                    <div></div>
+                                    <div></div>
+                                </div>
                             </button>
                         </a>
                     </div>
@@ -651,44 +724,15 @@
 
     <!-- Script for button spinning/ button Loader -->
     <script>
-        // Get the button element
-        var button = document.getElementById('loadButton');
-    
-        // Create a spinner
-        var spinner = new Spinner({
-          lines: 10,           // Number of lines to draw
-          length: 0.5,           // Length of each line
-          width: 5,            // Line thickness
-          radius: 9,          // Radius of the inner circle
-          scale: 1,            // Scales the size of the spinner
-          corners: 5,          // Rounds the corners of the lines
-          color: '#ffffff',       // Color of the spinner
-          fadeColor: 'transparent', // Fades the spinner color
-          speed: 6,            // Speed of the spinner
-          trail: 60,           // How much of the spinner trail to show
-        //   shadow: '0 0 10px rgba(0, 0, 0, 0.5)',  // Spinner shadow
-          hwaccel: false,      // Use hardware acceleration for smoother animation
-          className: 'spinner', // Class to add to the spinner element
-          zIndex: 2e9,         // Z-index to place the spinner above other content
-          top: '50%',          // Position the spinner
-          left: '50%'          // Position the spinner
-        });
-    
-        // Trigger the spinner on button click
-        button.addEventListener('click', function () {
-          // Start the spinner inside the button
-        spinner.spin(button);
-    
-        //   Hide button text
-        button.classList.add('hidden-text');
-    
-        // After 10 seconds, stop the spinner (you can replace this with an actual action like an API call)
-        setTimeout(function () {
-            spinner.stop(); // Stop the spinner
-    
-            // Show button text
-            button.classList.remove('hidden-text');
-          }, 1000); // 1000ms = 10 seconds (spinner runs for 10 seconds)
+        document.getElementById('loadButton').addEventListener('click', function() {
+            let button = this;
+            button.classList.add('loading');
+            button.disabled = true;
+
+            setTimeout(function() {
+                button.classList.remove('loading');
+                button.disabled = false;
+            }, 5000);
         });
     </script>
     <!-- Script for showing the current/ active link on the Sidebar -->
