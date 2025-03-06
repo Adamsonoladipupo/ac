@@ -7,225 +7,11 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="main_style_sheet.css">
 
     <title>Settings</title>
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: "Inter", serif;
-        }
-        
-        :root {
-            --pryColor : #2376F3;
-            --pryColorLight40 : #BDD4F1;
-            --black : #353535;
-            --backgroung_Color : #F6F6F6;
-            --grey_Stroke: #DDDDDD;
-            --inactive_Link: #656565;
-            --inactive_icon: #B5B5B5;
-        }
-        body{
-            background-color: var(--backgroung_Color);
-            color: var(--black);    
-        }
-        a {
-            text-decoration: none;
-        }
-        a button {
-            padding: 12px 15px;
-            border-radius: 10px;
-            border: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            cursor: pointer;
-        }
-        .primary_action_button {
-            background-color: var(--pryColor);
-            color: #ffffff;
-            padding: 15px 20px;
-            border-radius: 10px;
-        }
-        input:focus {
-            outline: none;
-            }
-        select:focus {
-            outline: none;
-            }
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.308);
-            z-index: 100;
-        }
-        
-        .overlay.active {
-            display: block;
-        }
-        .Dashboard_header {
-            position: fixed;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            width: 100%;
-            height: 80px;
-            border-bottom: solid 1px var(--grey_Stroke);
-            padding: 20px 20px 20px 240px;
-            background-color: #ffffff;
-            z-index: 5;
-        }
-        .Dashboard_header_item1 {
-            display: flex;
-            align-items: center;
-            gap: 100px;
-        }
-        .Dashboard_header_item2 {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-        }
-        .notification-menu {
-            width: 300px;
-            background-color: #ffffff;
-            color: var(--black);
-            height: 100vh;
-            padding: 15px;
-            position: fixed;
-            top: 0;
-            right: -300px;
-            transition: transform 0.3s ease;
-            z-index: 100;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        .notification-menu.active {
-            transform: translateX(-300px);
-        }
-        .notification-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px 20px 20px;
-            background-color: #ffffff;
-            border-bottom: solid 1px var(--grey_Stroke);
-        }
-        .notification-header h2{
-            font-size: 14px;
-        }
-        .notification-header svg {
-            background-color: var(--backgroung_Color);
-            border-radius: 20px;
-            padding: 3px;
-            cursor: pointer;
-        }
-        .notification-body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 50px;
-        }
-        .notification-message {
-            background-color: var(--backgroung_Color);
-            border-radius: 12px;
-            width: 100%;
-            height: inherit;
-            padding: 20px;
-        }
-        .notification-message span {
-            font-size: 12px;
-            font-weight: 600;
-
-        }
-        .hamburger {
-            display: none;
-        }
-                /* Styling the Scrollbar   */
-                ::-webkit-scrollbar {
-            width: 4px; /* Makes the scrollbar thinner */
-            height: 4px; /* Makes horizontal scrollbar thinner */
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--grey_Stroke); /* Light gray background */
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: var(--inactive_icon); /* Dark gray color */
-            border-radius: 10px; /* Rounded edges */
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: var(--inactive_Link); /* Darker gray when hovered */
-        }
-        /* Stylinf the Left SideBar for Main Menu */
-        .sideBar_Menu {
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            background-color: #ffffff;
-            width: 220px;
-            border-right: solid 1px var(--grey_Stroke);
-            padding: 20px 0px 0px 0px;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s ease;
-            z-index: 99;
-            border-left: 1px solid var(--grey_Stroke) ;
-            height: 100vh;
-        }
-        .sideBar_Menu div {
-            padding: 0 10px 0 10px;
-            
-        }
-        .sideBar_Menu_header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 10px 0 10px 0px;
-            margin: 10px ;
-        }
-        .sideBar_Menu_items {
-            margin-top: 20px;
-            overflow-y: auto;
-        }
-        .sideBar_Menu_items h5 {
-            font-size: 10px;
-            font-weight: 400;
-            margin: 30px 0 0px 0;
-            text-transform: uppercase;
-        }
-        .sideBar_Menu_item a {
-            display: flex;
-            align-items: center;
-            color: var(--inactive_Link);
-            gap: 10px;
-            margin-bottom: 8px;
-            margin-top: 8px;
-            text-decoration: none;
-            margin-left: 5px;
-            font-size: 14px;
-        }
-        .close-btn {
-                display: none;
-                
-            }
-        .sideBar_Menu_item a:hover {
-            color: var(--black);
-        }
-        .sideBar_Menu_item a svg {
-            fill: var(--inactive_Link);
-            width: 20px;
-        }
-        .logout-link {
-            background-color: #ffffff;
-            border-top: 1px solid var(--grey_Stroke);
-        }
-
         .Dashbaord_Content {
             padding: 100px 20px 0 240px;
             font-size: 14px;
@@ -237,19 +23,20 @@
         .button-container {
             display: block;
             background-color: #ffffff;
-            padding: 0 15px;
+            padding: 5px;
             border: 1px solid var(--grey_Stroke);
             border-radius: 12px;
         }
         .button-container button {
-            padding: 20px 20px;
+            padding: 15px 25px;
             cursor: pointer;
             border: none;
             color: var(--inactive_Link);
             background-color: #ffffff;
+            border-radius: 10px;
         }
         button.active {
-            border-bottom: 2px solid var(--pryColor);
+            background-color: var(--backgroung_Color);
             color: var(--black);
             font-weight: 500;
         }
@@ -324,26 +111,6 @@
             }
         }
         @media (max-width: 750px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            .sidebar.active {
-                transform: translateX(0);
-            }
-            .sideBar_Menu{
-                z-index: 100;
-            }
-            .content {
-                margin-left: 0;
-            }
-            .hamburger {
-                display: block;
-                cursor: pointer;
-            }
-            .close-btn {
-                display: block;
-                cursor: pointer;
-            }
             .Dashboard_header {
                 padding: 20px 20px 20px 20px;
             }

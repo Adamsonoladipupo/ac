@@ -6,213 +6,16 @@
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google font -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
-
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="main_style_sheet.css">
     <!-- Load Chart.js into the DOM -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 
 
     <title>Dashboard</title>
     <style>
-        *{
-            padding: 0;
-            margin: 0;
-            box-sizing: border-box;
-            font-family: "Inter", serif;
-        }
-        
-        :root {
-            --pryColor : #2376F3;
-            --pryColorLight40 : #BDD4F1;
-            --black : #353535;
-            --backgroung_Color : #F6F6F6;
-            --grey_Stroke: #DDDDDD;
-            --inactive_Link: #656565;
-            --inactive_icon: #B5B5B5;
-        }
-        body{
-            background-color: var(--backgroung_Color);
-            color: var(--black);    
-        }
-        a {
-            text-decoration: none;
-        }
-        
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.308);
-            z-index: 100;
-        }
-        
-        .overlay.active {
-            display: block;
-        }
-        .Dashboard_header {
-            position: fixed;
-            top: 0;
-            right: 0;
-            left: 220px;
-            height: 80px;
-            background-color: #ffffff;
-            border-bottom: solid 1px var(--grey_Stroke);
-            z-index: 5;
-        }
-        #dashboard_header_content {
-            display: flex;
-            justify-content: space-between;           
-            padding: 20px 20px 20px 20px;
-        }
-        .Dashboard_header_item1 {
-            display: flex;
-            align-items: center;
-            gap: 100px;
-        }
-        .Dashboard_header_item2 {
-            display: flex;
-            flex-direction: row;
-            gap: 10px;
-        }
-        .notification-menu {
-            width: 300px;
-            background-color: #ffffff;
-            color: var(--black);
-            height: 100vh;
-            padding: 15px;
-            position: fixed;
-            top: 0;
-            right: -300px;
-            transition: transform 0.3s ease;
-            z-index: 100;
-            height: 100vh;
-            overflow-y: auto;
-        }
-        .notification-menu.active {
-            transform: translateX(-300px);
-        }
-        .notification-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px 20px 20px;
-            background-color: #ffffff;
-            border-bottom: solid 1px var(--grey_Stroke);
-        }
-        .notification-header h2{
-            font-size: 14px;
-        }
-        .notification-header svg {
-            background-color: var(--backgroung_Color);
-            border-radius: 20px;
-            padding: 3px;
-            cursor: pointer;
-        }
-        .notification-body {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 50px;
-        }
-        .notification-message {
-            background-color: var(--backgroung_Color);
-            border-radius: 12px;
-            width: auto;
-            height: inherit;
-            padding: 20px;
-        }
-        .notification-message span {
-            font-size: 12px;
-            font-weight: 600;
-        }
-        #hamburger {
-            display: none;
-        }
-        /* Styling the Scrollbar   */
-        ::-webkit-scrollbar {
-            width: 4px; /* Makes the scrollbar thinner */
-            height: 4px; /* Makes horizontal scrollbar thinner */
-        }
-        ::-webkit-scrollbar-track {
-            background: var(--grey_Stroke); /* Light gray background */
-        }
-        ::-webkit-scrollbar-thumb {
-            background-color: var(--inactive_icon); /* Dark gray color */
-            border-radius: 10px; /* Rounded edges */
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background-color: var(--inactive_Link); /* Darker gray when hovered */
-        }
-
-        /* Stylinf the Left SideBar for Main Menu */
-        .sideBar_Menu {
-            position: fixed;
-            display: flex;
-            flex-direction: column;
-            background-color: #ffffff;
-            width: 220px;
-            border-right: solid 1px var(--grey_Stroke);
-            padding: 20px 0px 0px 0px;
-            top: 0;
-            left: 0;
-            transition: transform 0.3s ease;
-            z-index: 99;
-            border-left: 1px solid var(--grey_Stroke) ;
-            height: 100vh;
-        }
-        .sideBar_Menu div {
-            padding: 0 10px 0 10px;
-            
-        }
-        .sideBar_Menu_header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            font-size: 14px;
-            font-weight: 500;
-            padding: 10px 0 10px 0px;
-            margin: 10px ;
-        }
-        .sideBar_Menu_items {
-            margin-top: 20px;
-            overflow-y: auto;
-        }
-        .sideBar_Menu_items h5 {
-            font-size: 10px;
-            font-weight: 400;
-            margin: 30px 0 0px 0;
-            text-transform: uppercase;
-        }
-        .sideBar_Menu_item a {
-            display: flex;
-            align-items: center;
-            color: var(--inactive_Link);
-            gap: 10px;
-            margin-bottom: 8px;
-            margin-top: 8px;
-            text-decoration: none;
-            margin-left: 5px;
-            font-size: 14px;
-        }
-
-        .close-btn {
-                display: none;
-                
-            }
-        .sideBar_Menu_item a:hover {
-            color: var(--black);
-        }
-        .sideBar_Menu_item a svg {
-            fill: var(--inactive_Link);
-            width: 20px;
-        }
-        .logout-link {
-            background-color: #ffffff;
-            border-top: 1px solid var(--grey_Stroke);
-        }
         .Dashbaord_Content_Container {
             position: absolute;
             top: 80px;
@@ -419,36 +222,10 @@
             }
         }
         @media (max-width: 750px) {
-            .sidebar {
-                transform: translateX(-100%);
-            }
-            .sidebar.active {
-                transform: translateX(0);
-            }
-            .sideBar_Menu{
-                z-index: 100;
-            }
-            .content {
-                margin-left: 0;
-            }
-            #hamburger {
-                display: block;
-                cursor: pointer;
-            }
-            .close-btn {
-                display: block;
-                cursor: pointer;
-            }
-
-            .Dashboard_header {
-                left: 0;
-                /* padding: 20px 20px 20px 20px; */
-            }
             .Dashbaord_Content_Container {
                 left: 0;
-                /* padding: 100px 20px 0 20px; */
             }
-             .Dashbaord_Content_wallets {
+            .Dashbaord_Content_wallets {
                 gap: 8px;
             }
     
@@ -471,23 +248,22 @@
     <div class="overlay" id="overlay"></div>
     <header>
         <div class="Dashboard_header">
-            <div id="dashboard_header_content">
-                <div id="hamburger">
-                    <!-- &#9776; -->
-                    <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
+            <span class="hamburger" id="hamburger">
+                <!-- &#9776; -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
+            </span>
+            <div class="Dashboard_header_item1">
+                <p>Hello, Mr. User! 👋</p>
+            </div>
+            
+            <div class="Dashboard_header_item2">
+                <div>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
                 </div>
-                <div class="Dashboard_header_item1">
-                    <p>Hello, Mr. User! 👋</p>
-                </div>
-                <div class="Dashboard_header_item2">
-                    <div>
-                        <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
-                    </div>
-                    <div>
-                        <span class="notification-icon" id="notification-icon">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="18" cy="6" r="3" fill="red"/><path fill="#B5B5B5" d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A5 5 0 0 1 18 11a5 5 0 0 1-5-5"/></svg>
-                        </span>
-                    </div>
+                <div>
+                    <span class="notification-icon" id="notification-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="18" cy="6" r="3" fill="red"/><path fill="#B5B5B5" d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A5 5 0 0 1 18 11a5 5 0 0 1-5-5"/></svg>
+                    </span>
                 </div>
             </div>
         </div>
