@@ -323,7 +323,20 @@
             padding: 0 15px 15px 15px;
             margin: -1px 0 0 0;
         }
-
+        .network_price table {
+            width: 100%;
+            /* border-collapse: collapse; */
+            /* border: 1px solid var(--grey_Stroke); */
+            border-radius: 10px;
+            text-align: left;
+        }
+        .network_price th, td {
+            padding: 10px;
+            border-bottom: 1px solid var(--grey_Stroke);
+        }
+        .network_price table th {
+            background-color: var(--backgroung_Color);
+        }
         .arrow {
             transition: transform 0.5s;
         }
@@ -334,6 +347,19 @@
         .arrow.up {
             transform: rotate(180deg);
             color: var(--pryColor);
+        }
+
+        /* Styling Airtime Purchase section */
+        .airtime_percentage {
+            display: flex;
+            flex-direction: column;
+        }
+        .airtime_percentage .airtime_percentage_item {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid var(--grey_Stroke);
+            padding: 10px;
         }
         @media screen and (max-width: 1111px){
             
@@ -537,9 +563,42 @@
                             </span>
                         </div>
                         <div class="network_price">
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
-                            <p>lkasniahfiqowjfioh iofh  i</p>
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data Plan</th>
+                                        <th>Price</th>
+                                        <th>Validity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>500MB</td>
+                                        <td>₦2</td>
+                                        <td>7 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.5GB</td>
+                                        <td>₦5</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3GB</td>
+                                        <td>₦10</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5GB</td>
+                                        <td>₦15</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10GB</td>
+                                        <td>₦25</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <hr>
@@ -554,9 +613,42 @@
                         </span>
                         </div>
                         <div class="network_price">
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
-                            <p>lkasniahfiqowjfioh iofh  i</p>
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data Plan</th>
+                                        <th>Price</th>
+                                        <th>Validity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>500MB</td>
+                                        <td>₦2</td>
+                                        <td>7 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.5GB</td>
+                                        <td>₦5</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3GB</td>
+                                        <td>₦10</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5GB</td>
+                                        <td>₦15</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10GB</td>
+                                        <td>₦25</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <hr>
@@ -571,9 +663,42 @@
                         </span>
                         </div>
                         <div class="network_price">
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
-                            <p>lkasniahfiqowjfioh iofh  i</p>
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data Plan</th>
+                                        <th>Price</th>
+                                        <th>Validity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>500MB</td>
+                                        <td>₦2</td>
+                                        <td>7 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.5GB</td>
+                                        <td>₦5</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3GB</td>
+                                        <td>₦10</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5GB</td>
+                                        <td>₦15</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10GB</td>
+                                        <td>₦25</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <hr>
@@ -588,24 +713,144 @@
                         </span>
                         </div>
                         <div class="network_price">
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
-                            <p>lkasniahfiqowjfioh iofh  i</p>
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data Plan</th>
+                                        <th>Price</th>
+                                        <th>Validity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>500MB</td>
+                                        <td>₦2</td>
+                                        <td>7 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.5GB</td>
+                                        <td>₦5</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3GB</td>
+                                        <td>₦10</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5GB</td>
+                                        <td>₦15</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10GB</td>
+                                        <td>₦25</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <div class="content ">
+                    <!-- Content for Airtime purchase -->
+                    <div class="airtime_percentage">
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/MTNIcon.png" alt="" width="50px"></span>
+                            <span>80%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/AirtelIcon.png" alt="" width="50px"></span>
+                            <span>80%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/GLOIcon.png" alt="" width="50px"></span>
+                            <span>80%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/9mobileIcon.png" alt="" width="50px"></span>
+                            <span>80%</span>
                         </div>
                     </div>
                 </div>
                 <div class="content">
-                    Content for Airtime
-                </div>
-                <div class="content">
-                    Content for Airtime to Cash
+                    <!-- Content for Airtime to Cash -->
+                    <div class="airtime_percentage">
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/MTNIcon.png" alt="" width="50px"></span>
+                            <span>80%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/AirtelIcon.png" alt="" width="50px"></span>
+                            <span>82%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/GLOIcon.png" alt="" width="50px"></span>
+                            <span>70%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/9mobileIcon.png" alt="" width="50px"></span>
+                            <span>73%</span>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="content">
-                    Content for Electricity Bill
+                    <!-- Content for Electricity Bill -->
+                    <div class="airtime_percentage">
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/AEDCicon.png" alt="" width="100px"></span>
+                            <span>80%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/IEDCicon.png" alt="" width="100px"></span>
+                            <span>82%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/IBEDCicon.png" alt="" width="100px"></span>
+                            <span>70%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/BEDCicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/EEDCicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/EKEDCicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/IEDCicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/JEDCicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/KEDCicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/KEDCOicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/PHEDCicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                        <div class="airtime_percentage_item">
+                            <span><img src="images/YEDCicon.png" alt="" width="100px"></span>
+                            <span>73%</span>
+                        </div>
+                    </div>
 
                 </div>
                 <div class="content">
+                <!-- Content for Cable TV -->
                     <div class="">
                         <div class="network-title" onclick="toggleAnswer(this)">
                             <div style="display: flex; align-items: center; gap: 20px;">
@@ -617,9 +862,42 @@
                             </span>
                         </div>
                         <div class="network_price">
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
-                            <p>lkasniahfiqowjfioh iofh  i</p>
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data Plan</th>
+                                        <th>Price</th>
+                                        <th>Validity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>500MB</td>
+                                        <td>₦2</td>
+                                        <td>7 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.5GB</td>
+                                        <td>₦5</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3GB</td>
+                                        <td>₦10</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5GB</td>
+                                        <td>₦15</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10GB</td>
+                                        <td>₦25</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                     <hr>
@@ -634,9 +912,42 @@
                             </span>
                         </div>
                         <div class="network_price">
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
-                            <p>lkasniahfiqowjfioh iofh  i</p>
-                            <p>Log into your gosub account (Ensure your gosub wallet is funded.)</p>
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>Data Plan</th>
+                                        <th>Price</th>
+                                        <th>Validity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>500MB</td>
+                                        <td>₦2</td>
+                                        <td>7 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>1.5GB</td>
+                                        <td>₦5</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>3GB</td>
+                                        <td>₦10</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>5GB</td>
+                                        <td>₦15</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                    <tr>
+                                        <td>10GB</td>
+                                        <td>₦25</td>
+                                        <td>30 Days</td>
+                                    </tr>
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
