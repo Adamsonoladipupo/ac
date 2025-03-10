@@ -16,7 +16,9 @@
 }
 body{
     background-color: var(--backgroung_Color);
-    color: var(--black);    
+    color: var(--black);  
+    font-family: "Inter", sans-serif;
+
 }
 a {
     text-decoration: none;
@@ -44,7 +46,7 @@ a button {
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.308);
-    z-index: 100;
+    z-index: 99;
 }
 input:focus {
     outline: none;
@@ -155,70 +157,73 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 
 /* Stylinf the Left SideBar for Main Menu */
-.sideBar_Menu {
+#sidebar_container {
+    background-color: #ffffff;
+    width: 220px;
+    height: 100vh;
+    left: 0;
+    top: 0;
     position: fixed;
     display: flex;
     flex-direction: column;
-    background-color: #ffffff;
-    width: 220px;
     border-right: solid 1px var(--grey_Stroke);
-    padding: 20px 0px 0px 0px;
-    top: 0;
-    left: 0;
+    z-index: 98;
     transition: transform 0.3s ease;
-    z-index: 99;
-    border-left: 1px solid var(--grey_Stroke) ;
-    height: 100vh;
 }
-.sideBar_Menu div {
-    padding: 0 10px 0 10px;
-    
+#sidebar_container a svg {
+    width: 20px;
 }
-.sideBar_Menu_header {
+#sidebar_container a:hover {
+    color: var(--black);
+}
+#sidebar_header {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 10px 0 10px 0;
+    color: var(--black);
+    margin: 10px;
+}
+#sidebar_header h3 {
     font-size: 14px;
+    margin: 10px 10px;
+}
+#close-btn {
+    display: none;
+    margin-right: 10px;
+}
+#sidebar_items {
+    color: #fff;
+    padding: 0 20px;
+    overflow-y: auto ;
+
+}
+#sidebar_items h5 {
+    color: var(--black);
     font-weight: 500;
-    padding: 10px 0 10px 0px;
-    margin: 10px ;
+    margin-top: 30px;
 }
-.sideBar_Menu_items {
-    margin-top: 20px;
-    overflow-y: auto;
-}
-.sideBar_Menu_items h5 {
-    font-size: 10px;
-    font-weight: 400;
-    margin: 30px 0 0px 0;
-    text-transform: uppercase;
-}
-.sideBar_Menu_item a {
+#sidebar_items a {
+    color: var(--inactive_Link);
+    text-decoration: none;
     display: flex;
     align-items: center;
-    color: var(--inactive_Link);
     gap: 10px;
-    margin-bottom: 8px;
-    margin-top: 8px;
-    text-decoration: none;
-    margin-left: 5px;
+    margin: 10px 10px;
     font-size: 14px;
 }
-
-.close-btn {
-        display: none;
-        
-    }
-.sideBar_Menu_item a:hover {
-    color: var(--black);
-}
-.sideBar_Menu_item a svg {
-    fill: var(--inactive_Link);
-    width: 20px;
-}
-.logout-link {
-    background-color: #ffffff;
+#sidebar_footer {
     border-top: 1px solid var(--grey_Stroke);
+    padding: 20px;
+
+}
+#sidebar_footer a {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--inactive_Link);
+    font-size: 14px;
 }
 
 /* Styling the Progress Bar */
@@ -239,14 +244,20 @@ input[type="number"]::-webkit-inner-spin-button {
 }
 /* ----------------------------------------------------- */
 @media screen and (max-width: 750px){
+    #sidebar_container {
+        z-index: 101;
+    }
     .sidebar {
         transform: translateX(-100%);
     }
     .sidebar.active {
         transform: translateX(0);
     }
-    .sideBar_Menu{
-        z-index: 100;
+    .page_content {
+        margin: 20px 20px 20px 20px;
+    }
+    #close-btn {
+        display: block;
     }
     .content {
         margin-left: 0;
