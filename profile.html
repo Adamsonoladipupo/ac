@@ -116,7 +116,9 @@
 </head>
 <body>
     <!-- progress-bar -->
-    <div id="progress-bar"><div></div></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
+    </div>
     <script src="progress_bar.js"></script>
 
     <div class="overlay" id="overlay"></div>
@@ -272,16 +274,17 @@
             let profile_link = document.getElementById('profile_link')
             let primary_color = '#2376F3';  
             let black_color = '#353535';  
-    
-            Object.assign(profile.style,{
-                borderLeft: '3px solid ' + primary_color,
-                marginLeft: '-10px',
-                paddingLeft: '0px',
-            });
-            Object.assign(profile_link.style, {
-                color: black_color,
-                paddingLeft: '15px'
-            });
+            
+            console.log(profile);
+            // Object.assign(profile.style,{
+            //     borderLeft: '3px solid ' + primary_color,
+            //     marginLeft: '-10px',
+            //     paddingLeft: '0px',
+            // });
+            // Object.assign(profile_link.style, {
+            //     color: black_color,
+            //     paddingLeft: '15px'
+            // });
         </script>
 </body>
 </html>
