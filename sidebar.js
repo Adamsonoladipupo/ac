@@ -50,14 +50,15 @@ function create_sidebar () {
 
     // add title name, icon and link to the sidebar items
     const items_menu = [
-        {name: 'Overview', icon:overview_icon, link:'dashboard.html'},
-        {name: 'Fund Wallet', icon:fund_wallet_icon, link:'fund_wallet.html'},
+        {name: 'Overview', icon:overview_icon, link:'dashboard.html', id:'overview'},
+        {name: 'Fund Wallet', icon:fund_wallet_icon, link:'fund_wallet.html', id:'fund_wallet'},
     ];
 
     // add href to each items menu
     items_menu.forEach(item => {
         const link = document.createElement('a');
         link.href = item.link;
+        link.id = item.id; // Assign the ID here
         // add SVGs icons
         link.innerHTML = `
             ${item.icon}
@@ -83,21 +84,22 @@ function create_sidebar () {
 
     // add title name, icon and link to the sidebar items
     const services_menu = [
-        {name: 'Data Plan', icon:data_plan_icon, link:'data_plan.html'},
-        {name: 'Airtime Cash', icon:airtime_cash_icon, link:'#'},
-        {name: 'Buy Airtime', icon:buy_airtime_icon, link:'buy_airtime.html'},
-        {name: 'Electricity', icon:electrity_icon, link:'electricity_bill.html'},
-        {name: 'Cable TV', icon:cable_tv_icon, link:'#'},
-        {name: 'Sport Betting', icon:sport_betting_icon, link:'#'},
-        {name: 'Internet', icon:internet_icon, link:'#'},
-        {name: 'History', icon:history_icon, link:'transaction_history.html'},
-        {name: 'Price List', icon:price_list_icon, link:'price_list.html'},
+        {name: 'Data Plan', icon:data_plan_icon, link:'data_plan.html', id:'data_plan'},
+        {name: 'Airtime Cash', icon:airtime_cash_icon, link:'#', id:'airtime_cash'},
+        {name: 'Buy Airtime', icon:buy_airtime_icon, link:'buy_airtime.html', id:'buy_airtime'},
+        {name: 'Electricity', icon:electrity_icon, link:'electricity_bill.html', id:'electricity'},
+        {name: 'Cable TV', icon:cable_tv_icon, link:'#', id:'cable_tv'},
+        {name: 'Sport Betting', icon:sport_betting_icon, link:'#', id:'sport_betting'},
+        {name: 'Internet', icon:internet_icon, link:'#', id:'internet'},
+        {name: 'History', icon:history_icon, link:'transaction_history.html', id:'history'},
+        {name: 'Price List', icon:price_list_icon, link:'price_list.html', id:'price_list'},
     ];
 
     // add href to each items menu
     services_menu.forEach(item => {
         const link = document.createElement('a');
         link.href = item.link;
+        link.id = item.id; // Assign the ID here
         // add SVGs icons
         link.innerHTML = `
             ${item.icon}
@@ -125,13 +127,14 @@ function create_sidebar () {
 
     // add title name, icon and link to the sidebar items
     const gifting_menu = [
-        {name: 'Buy Funds', icon:buy_funds_icon, link:'#'},
+        {name: 'Buy Funds', icon:buy_funds_icon, link:'#', id:'buy_funds'},
     ];
 
     // add href to each items menu
     gifting_menu.forEach(item => {
         const link = document.createElement('a');
         link.href = item.link;
+        link.id = item.id; // Assign the ID here
         // add SVGs icons
         link.innerHTML = `
             ${item.icon}
@@ -159,15 +162,16 @@ function create_sidebar () {
 
     // add title name, icon and link to the sidebar items
     const API_menu = [
-        {name: 'Pricing', icon:pricing_icon, link:'#'},
-        {name: 'Setup', icon:setup_icon, link:'API.html'},
-        {name: 'Documentation', icon:documentation_icon, link:'API.html'},
+        {name: 'Pricing', icon:pricing_icon, link:'#', id:'pricing'},
+        {name: 'Setup', icon:setup_icon, link:'API.html', id:'api'},
+        {name: 'Documentation', icon:documentation_icon, link:'#', id:'documentation'},
     ];
 
     // add href to each items menu
     API_menu.forEach(item => {
         const link = document.createElement('a');
         link.href = item.link;
+        link.id = item.id; // Assign the ID here
         // add SVGs icons
         link.innerHTML = `
             ${item.icon}
@@ -195,7 +199,7 @@ function create_sidebar () {
 
     // add title name, icon and link to the sidebar items
     const tools_menu = [
-        {name: 'Profile', icon:profile_icon, link:'profile.html'},
+        {name: 'Profile', icon:profile_icon, link:'profile.html', id:'profile'},
         {name: 'Setting', icon:settings_icon, link:'settings.html', id:'setting'},
     ];
 
@@ -203,6 +207,7 @@ function create_sidebar () {
     tools_menu.forEach(item => {
         const link = document.createElement('a');
         link.href = item.link;
+        link.id = item.id; // Assign the ID here
         // add SVGs icons
         link.innerHTML = `
             ${item.icon}

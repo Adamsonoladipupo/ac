@@ -288,23 +288,16 @@
     <!-- Script for showing the current/ active link on the Sidebar -->
     <script>
         let setting = document.getElementById('setting');
-        // let setting_link = document.getElementById('setting_link')
         let primary_color = '#2376F3';  
         let black_color = '#353535';  
-        
-        console.log(setting);
-        setting.style.backgroundColor = 'blue';
 
-        // Object.assign(setting.style,{
-        //     borderLeft: '3px solid ' + primary_color,
-        //     marginLeft: '-10px',
-        //     paddingLeft: '0px',
-        //     border: '5px solid red',
-        // });
-        // Object.assign(setting_link.style, {
-        //     color: black_color,
-        //     paddingLeft: '15px'
-        // });
+        Object.assign(setting.style,{
+            borderLeft: '3px solid ' + primary_color,
+            marginLeft: '-20px',
+            paddingLeft: '0px',
+            color: black_color,
+            paddingLeft: '20px'
+        });
     </script>
 </body>
 </html>

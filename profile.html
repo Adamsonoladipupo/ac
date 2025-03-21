@@ -268,23 +268,22 @@
         // Set the first button as active on page load
         document.getElementById('button1').classList.add('active');
     </script>
-        <!-- Script for showing the current/ active link on the Sidebar -->
-        <script>
-            let profile = document.getElementById('profile');
-            let profile_link = document.getElementById('profile_link')
-            let primary_color = '#2376F3';  
-            let black_color = '#353535';  
-            
-            console.log(profile);
-            // Object.assign(profile.style,{
-            //     borderLeft: '3px solid ' + primary_color,
-            //     marginLeft: '-10px',
-            //     paddingLeft: '0px',
-            // });
-            // Object.assign(profile_link.style, {
-            //     color: black_color,
-            //     paddingLeft: '15px'
-            // });
-        </script>
+    <!-- Script for showing the current/ active link on the Sidebar -->
+    <script>
+        let profile = document.getElementById('profile');
+        // let profile_link = document.getElementById('profile_link')
+        let primary_color = '#2376F3';  
+        let black_color = '#353535';  
+        
+        console.log('profile');
+
+        Object.assign(profile.style,{
+            borderLeft: '3px solid ' + primary_color,
+            marginLeft: '-20px',
+            paddingLeft: '0px',
+            color: black_color,
+            paddingLeft: '20px'
+        });
+    </script>
 </body>
 </html>
