@@ -9,15 +9,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
     <!-- Main Style Sheet -->
     <link rel="stylesheet" href="main-style-sheet.css">
+    <!-- Toastr CSS -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet" />
 
-    <title>Settings</title>
+
+    <title>Airtime Cabal | API</title>
     <style>
         .Dashbaord_Content {
             padding: 100px 20px 0 240px;
             font-size: 14px;
         }
-        /* Styling the API content */
-        .settings_container {
+        .API_container {
             margin-top: 20px;
         }
         .button-container {
@@ -31,9 +33,9 @@
             padding: 15px 25px;
             cursor: pointer;
             border: none;
+            border-radius: 10px;
             color: var(--inactive_Link);
             background-color: #ffffff;
-            border-radius: 10px;
         }
         button.active {
             background-color: var(--backgroung_Color);
@@ -48,48 +50,16 @@
             display: block;
         }
         .content-header {
-            display: flex;
-            flex-direction: row;
-            align-items:start ;
-            justify-content: space-between;
-            gap: 20px;
-        }
-        .content-header-items {
             background-color: #ffffff;
             padding: 20px;
             border: 1px solid var(--grey_Stroke);
             border-radius: 12px;
+        }
+        .content_header_title {
             display: flex;
-            flex-direction: column;
-            width: 100%;
-            flex: 0 0 60%; 
-        }
-        .content-header-items hr {
-            border-width: 0.1px;
-            margin: 10px -20px;
-            border-top: 1px solid var(--grey_Stroke);
-            border-bottom: 1px solid #fff;
-            
-        }
-        .content-header-item p {
-            margin-top: 5px;
-            color: var(--inactive_Link);
-        }
-        .content-header-item span {
-            font-weight: 500;
-        }
-        .caution_box {
-            background-color: #ffffff;
-            border: 1px solid var(--grey_Stroke);
-            padding: 20px ;
-            border-radius: 12px;
-            display: flex;
-            flex-direction: column;
             align-items: center;
-            justify-content: center;
-            text-align: center;
-            gap: 20px;
-            flex: 1;
+            justify-content: space-between;
+            margin-bottom: 10px;
         }
         .content-body {
             background-color: #ffffff;
@@ -98,17 +68,49 @@
             margin-top: 20px;
             border-radius: 12px;
         }
+
+        /* Styling the Toggle On and Off button  */
+        .toggle_container {
+            width: 50px;
+            height: 25px;
+            background-color: #ffffff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .toggle_switch {
+            background-color: var(--inactive_icon);
+            width: 50px;
+            height: 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            position: relative;
+            transition: 0.3s ease-in-out;
+        }
+        .toggle_switch::before {
+            position: absolute;
+            content: '';
+            background-color: #ffffff;
+            width: 20px;
+            height: 20px;
+            border-radius: 10px;
+            margin: 2.5px;
+            transition: 0.3s ease-in-out;
+        }
+        input:checked + .toggle_switch {
+            background-color: var(--pryColor);
+        }
+        input:checked + .toggle_switch::before {
+            transform: translateX(25px);
+        }
+        .toggle_container input {
+            display: none;
+        }
         @media screen and (max-width: 1111px){
             
         }
         @media screen and (max-width: 900px){
-            .content-header {
-                flex-direction: column;
-            }
-            .caution_box {
-                flex-direction: row;
-                text-align: left;
-            }
+
         }
         @media (max-width: 750px) {
             .Dashboard_header {
@@ -134,6 +136,7 @@
     <header>
         <div class="Dashboard_header">
             <span class="hamburger" id="hamburger">
+                <!-- &#9776; -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
             </span>
             <div class="Dashboard_header_item1">
@@ -168,51 +171,48 @@
 
         </div>
     </div>
+
     <!-- Sidebar DOM Script -->
     <script src="sidebar.js" id="sidebar"></script>
-    
+
     <div class="Dashbaord_Content">
-        <h4>Settings</h4>
-        <div class="settings_container">
+        <h4>Application Programming Interface API</h4>
+        <div class="API_container">
             <div class="button-container">
-                <button id="button1" onclick="showContent('content1')">Change Password</button>
-                <button id="button2" onclick="showContent('content2')">Manage Pin</button>
-                <button id="button3" onclick="showContent('content3')">Extra Button</button>
+                <button id="button1" onclick="showContent('content1')">Configuration</button>
+                <button id="button2" onclick="showContent('content2')">Documentation</button>
+                <button id="button3" onclick="showContent('content3')">Pricing</button>
             </div>
             <div class="content_container">
                 <div id="content1" class="content active">
                     <div class="content-header ">
-                        <div class="content-header-items">
-                            <div class="content-header-item">
-                                <span>Settings</span>
-                                <p>Manage and view your settings information</p>
-                            </div>
-                            <hr>
-                            <div class="content-header-item">
-                                <span>Security</span>
-                                <p>Manage your security information and secure your account</p>
-                            </div>
-                            
+                        <div class="content_header_title">
+                            <span><strong>Airtime Cabal API </strong></span>
+                            <span>
+                                <div class="toggle_container" >
+                                    <input type="checkbox" name="toggle" id="toggleButton" class="toggleButton">
+                                    <label for="toggleButton" class="toggle_switch" id="toggleButton"></label>
+                                </div>
+                            </span>
                         </div>
-                        <div class="caution_box">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
-                            <p>Kindly ensure that the information you provide is accurate and precise, that way it's easy for Airtime Cabal keep up with you. </p>
-                        </div>
+                        <span>Airtime Cabal API is currently enable</span>
+                        <p>When enabled users will be required to sign in in other to access or create an API key</p>
+                    </div>
+                    <div class="content-body">
+                        Other content
                     </div>
                 </div>
                 <div id="content2" class="content">
                     <div class="content-body">
-                        <p>Business Details</p>
+                        <p>Documentation</p>
                     </div>
                 </div>
                 <div id="content3" class="content">
                     <div class="content-body">
-                        <p>KYC Settings</p>
+                        <p>Pricing</p>
                     </div>
                 </div>
             </div>
-        </div>
-
         </div>
     </div>
 
@@ -259,6 +259,7 @@
             notificationMenu.classList.remove('active');
         });
     </script>
+
     <!-- Script for Dynamic Buttons -->
     <script>
         function showContent(contentId) {
@@ -285,19 +286,57 @@
         // Set the first button as active on page load
         document.getElementById('button1').classList.add('active');
     </script>
-    <!-- Script for showing the current/ active link on the Sidebar -->
-    <script>
-        let setting = document.getElementById('setting');
-        let primary_color = '#2376F3';  
-        let black_color = '#353535';  
 
-        Object.assign(setting.style,{
-            borderLeft: '3px solid ' + primary_color,
-            marginLeft: '-20px',
-            paddingLeft: '0px',
-            color: black_color,
-            paddingLeft: '20px'
+    <!-- Toastr Script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
+    <script>
+        // Customizable toastr options
+        toastr.options = {
+        "closeButton": true,  // Display a close button
+        "debug": false,
+        "newestOnTop": true,
+        "progressBar": false,  // Display progress bar
+        "positionClass": "toast-top-right", // Position of the toast
+        "preventDuplicates": true,
+        "onclick": null,
+        "showDuration": "300",  // Show duration in ms
+        "hideDuration": "1000",  // Hide duration in ms
+        "timeOut": "5000",  // Time before toast disappears (5 seconds)
+        "extendedTimeOut": "1000",  // Time for which toast stays after mouse hover
+        "showEasing": "swing",  // Easing function for showing toast
+        "hideEasing": "linear",  // Easing function for hiding toast
+        "showMethod": "fadeIn",  // Show method for toast
+        "hideMethod": "fadeOut"  // Hide method for toast
+        };
+
+        // Get the toggle button element
+        const toggleButton = document.getElementById('toggleButton');
+
+        // Event listener to show Toastr notification on toggle change
+        toggleButton.addEventListener('change', function() {
+        if (toggleButton.checked) {
+            toastr.success('Your API is now active');
+        } else {
+            toastr.error('Your API has been disabled');
+        }
         });
+
     </script>
+        <!-- Script for showing the current/ active link on the Sidebar -->
+        <script>
+            let api = document.getElementById('api');
+            let primary_color = '#2376F3';  
+            let black_color = '#353535';  
+    
+            Object.assign(api.style,{
+                borderLeft: '3px solid ' + primary_color,
+                marginLeft: '-20px',
+                paddingLeft: '0px',
+                color: black_color,
+                paddingLeft: '20px'
+            });
+        </script>
 </body>
 </html>

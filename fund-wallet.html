@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="main-style-sheet.css">
+
+    <title>Fund Wallet</title>
+    <style>
+        .Dashbaord_Content {
+            padding: 100px 20px 0 240px;
+            font-size: 14px;
+        }
+        /* Styling the page content PAYMENT OPTIONS */
+        .payment_method_options {
+            margin-top: 20px;
+        }
+        .button-container {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            flex-direction: row;
+            flex-wrap: wrap;
+            margin: 20px 0;
+            gap: 10px;
+        }
+        .button-container button {
+            padding: 5px 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            border: 1px solid var(--black);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+        }
+        .button-container button.active {
+            background-color: var(--black);
+            color: #ffffff;
+            border: none;
+        }
+        .content {
+            display: none;
+        }
+        .content.active {
+            display: block;
+        }
+
+        /* Styling the page content payment options BANK TRANSFER */
+        .bank_transfer {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
+            gap: 20px;
+        }
+        .bank_transfer div {
+            background-color: #ffffff;
+            border-radius: 10px;
+            border: 1px solid var(--grey_Stroke);
+            padding: 20px;
+            height: 255px;
+        }
+        .bank_details {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            flex: 0 0 70%; /* Left div takes 70% of the width */
+        }
+        .caution_box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            gap: 20px;
+            flex: 1; /* Right div takes the remaining space */
+        }
+        .calculator {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            width: 100%;
+        }
+        .calculator span {
+            margin: 10px 0 30px 0;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+        }
+        .calculator span input{
+            background-color: #ffffff;
+            border: 1px solid var(--grey_Stroke);
+            border-radius: 10px;
+            padding: 20px;
+            width: 380px;
+            height: 60px;
+            margin-top: 10px;
+        }
+        .other_payment {
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .other_payment .caution_box {
+            background-color: #ffffff;
+            border-radius: 10px;
+            flex: 1;
+            border: 1px solid var(--grey_Stroke);
+            padding: 20px;
+        }
+        .input_amount {
+            margin-top: 20px;
+            display: flex;
+            flex-direction: column;
+            flex: 0 0 65%;
+        }
+        .input_amount input {
+            background-color: #ffffff;
+            border: 1px solid var(--grey_Stroke);
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            height: 60px;
+            margin: 10px 0 20px 0;
+        }
+        .submit_button {
+            margin: 0 0;
+        }
+        @media screen and (max-width: 1111px){
+            .bank_transfer div {
+                padding: 20px;
+                height: 330px;
+            }
+            .calculator span {
+                display: flex;
+                flex-direction: column;
+                align-items: start;
+                justify-content: space-between;
+            }
+            .calculator span input{
+                width: 100%;
+                flex: 1;
+                height: 60px;
+                margin-top: 10px;
+            }
+        }
+        @media (max-width: 900px) {
+            .bank_transfer {
+                flex-direction: column;
+                align-items: center;
+                justify-content: space-between;
+            }
+            .bank_transfer div {
+                height: 100%;
+            }
+            .bank_details {
+                flex: 1;
+            }
+            .caution_box {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+                text-align: left;
+                gap: 20px;
+                flex: 1;
+            }
+            .calculator span {
+                margin: 10px 0 30px 0;
+                display: flex;
+                flex-direction: column;
+            }
+            .calculator span input{
+                width: 100%;
+                height: auto;
+                margin-top: 10px;
+                flex: 1;
+            }
+            .other_payment {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                margin-top: 20px;
+            }
+            .submit_button {
+                margin: 20px 0;
+            }
+        }
+        @media (max-width: 750px) {
+            .sidebar {
+                transform: translateX(-100%);
+            }
+            .sidebar.active {
+                transform: translateX(0);
+            }
+            .sideBar_Menu{
+                z-index: 100;
+            }
+            .content {
+                margin-left: 0;
+            }
+            .hamburger {
+                display: block;
+                cursor: pointer;
+            }
+            .close-btn {
+                display: block;
+                cursor: pointer;
+            }
+            .Dashbaord_Content {
+                padding: 100px 20px 0 20px;
+            }
+        }
+        @media screen and (max-width: 900px){
+
+        }
+        @media screen and (max-width: 750px){
+            
+        }
+        @media screen and (max-width: 500px){
+            .button-container {
+                justify-content: flex-start;
+            }
+            .button-container button {
+                padding: 5px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- progress-bar -->
+    <div id="progress_container">
+        <div id="progress_bar"></div>
+    </div>
+    <script src="progress-bar.js"></script>
+
+    <div class="overlay" id="overlay"></div>
+    <header>
+        <div class="Dashboard_header">
+            <span class="hamburger" id="hamburger">
+                <!-- &#9776; -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
+            </span>
+            <div class="Dashboard_header_item1">
+                <p>Hello, Mr. User! 👋</p>
+            </div>
+            
+            <div class="Dashboard_header_item2">
+                <div>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
+                </div>
+                <div>
+                    <span class="notification-icon" id="notification-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="18" cy="6" r="3" fill="red"/><path fill="#B5B5B5" d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A5 5 0 0 1 18 11a5 5 0 0 1-5-5"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="notification-menu" id="notification-menu">
+        <div class="notification-header">
+            <h2>Notifications</h2>
+            <span class="notification-close-btn" id="notification-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/></svg>
+            </span>
+        </div>
+        <div class="notification-body">
+            <div class="notification-message">
+                <h4>Promo Code just for you!</h4>
+                <p>Hi there, Use this promo code “HYJTNJYM” to get free 500 on your first transaction with Prestmit. Are you motivated now?</p>
+                <span class="date&time">October 6, 2024 12:17 PM</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Sidebar DOM Script -->
+    <script src="sidebar.js" id="sidebar"></script>
+
+    <div class="Dashbaord_Content">
+        <h4>Fund Wallet</h4>
+        <div class="payment_method_options">
+            <p>Payment Method: Select a payment method</p>
+        </div>
+        <div class="button-container">
+            <button onclick="showContent('content1', this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M11.5 1L2 6v2h19V6m-5 4v7h3v-7M2 22h19v-3H2m8-9v7h3v-7m-9 0v7h3v-7z"/></svg>
+                Bank Transfer →
+            </button>
+            <button onclick="showContent('content2', this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path fill="currentColor" d="M18 15h-2v2h2m0-6h-2v2h2m2 6h-8v-2h2v-2h-2v-2h2v-2h-2V9h8M10 7H8V5h2m0 6H8V9h2m0 6H8v-2h2m0 6H8v-2h2M6 7H4V5h2m0 6H4V9h2m0 6H4v-2h2m0 6H4v-2h2m6-10V3H2v18h20V7z"/></svg>
+                Monnify →
+
+            </button>
+            <button onclick="showContent('content3', this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18 15h-2v2h2m0-6h-2v2h2m2 6h-8v-2h2v-2h-2v-2h2v-2h-2V9h8M10 7H8V5h2m0 6H8V9h2m0 6H8v-2h2m0 6H8v-2h2M6 7H4V5h2m0 6H4V9h2m0 6H4v-2h2m0 6H4v-2h2m6-10V3H2v18h20V7z"/></svg>
+                Nobank →
+            </button>
+            <button onclick="showContent('content4', this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M18 15h-2v2h2m0-6h-2v2h2m2 6h-8v-2h2v-2h-2v-2h2v-2h-2V9h8M10 7H8V5h2m0 6H8V9h2m0 6H8v-2h2m0 6H8v-2h2M6 7H4V5h2m0 6H4V9h2m0 6H4v-2h2m0 6H4v-2h2m6-10V3H2v18h20V7z"/></svg>
+                Squad →
+            </button>
+            <button onclick="showContent('content5', this)">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M8 5H4V2h4zM4 22h4v-3H4zM14 2h-4v3h4zm-4 20h4v-3h-4zm6-20v3h4V2zm1 9h-4V7h-2v4H7V7H5v10h2v-4h4v4h2v-4h6V7h-2z"/></svg>
+                Manual Funding →
+            </button>
+        </div>
+        <div id="content1" class="content">
+            <p>Bank Transfer</p>
+            <div class="bank_transfer">
+                <div class="bank_details">
+                    <span>
+                        <p><strong>Bank Account Details 1:</strong></p>
+                        <p>Bank Name: Moniepoint Microfinance Bank</p>
+                        <p>Account Name: Gosub Limited-Abd</p>
+                        <p>Account No: 3550741054</p>
+                    </span>
+                    <span>
+                        <p><strong>Account Limit</strong></p>
+                        <p>Tier: Tier 1</p>
+                        <p>Daily Funding Limit: ₦20,000.00</p>
+                        <p>No of Transfer per day: 20</p>
+                    </span>
+                    <span>
+                        <p><strong>Note</strong></p>
+                        <p>To increase your daily funding limit, send an email to tech_support@gosub.ng for account evaluation.</p>
+                    </span>
+                    
+                </div>
+                <div class="caution_box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
+                    <p>Transfer any amount to the bank account details above, your wallet will be funded immediately with the corresponding amount (minus 1.613% as bank charges).Kindly use the calculator below to know how much you will receive</p>
+                </div>
+            </div>
+            <p>Calculator</p>
+            <div class="calculator">
+                <span>
+                    <label for="">I am transferring (₦): </label>
+                    <input type="number" name="amount" id="amount" placeholder="Enter Amount" required>
+                </span>
+                <span>
+                    <label for="">You will receive (₦):  </label>
+                    <input type="none" name="amount" id="" placeholder="..." required>
+                </span>
+                
+
+            </div>
+        </div>
+        <div id="content2" class="content">
+            <p>Monnify: Card/USSD/ Phone</p>
+            <div class="Monnify other_payment">
+                <div class="input_amount">
+                    <span>
+                        <label for="">Amount (₦): </label>
+                        <input type="number" name="amount" id="amount" placeholder="Amount (₦): " required>
+                    </span>
+                    <span>
+                        <label for="">PIN</label>
+                        <input type="password" name="pin" id="" placeholder="..." required>
+                    </span>
+                </div>
+                <div class="caution_box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
+                    <p>Note:A third party payment fee of 1.613% applies. <br> <br>If you are having challenges adding funds to your wallet click on contact us on the left menu</p>
+                </div>
+            </div>
+            <div class="submit_button">
+                <a href="#"><button class="primary_action_button">Proceed to pay →</button></a>
+            </div>
+        </div>
+        <div id="content3" class="content">
+            <p>Nobank: Card/USSD/ Phone</p>
+            <div class="Nobank other_payment">
+                <div class="input_amount">
+                    <span>
+                        <label for="">Amount (₦): </label>
+                        <input type="number" name="amount" id="amount" placeholder="Amount (₦): " required>
+                    </span>
+                    <span>
+                        <label for="">PIN</label>
+                        <input type="password" name="pin" id="" placeholder="..." required>
+                    </span>
+                </div>
+                <div class="caution_box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
+                    <p>Note:A third party payment fee of 1.613% applies. <br> <br>If you are having challenges adding funds to your wallet click on contact us on the left menu</p>
+                </div>
+            </div>
+            <div class="submit_button">
+                <a href="#"><button class="primary_action_button">Proceed to pay →</button></a>
+            </div>
+        </div>
+        <div id="content4" class="content">
+            <p>Squad: Card/USSD/ Phone</p>
+            <div class="Squad other_payment">
+                <div class="input_amount">
+                    <span>
+                        <label for="">Amount (₦): </label>
+                        <input type="number" name="amount" id="amount" placeholder="Amount (₦): " required>
+                    </span>
+                    <span>
+                        <label for="">PIN</label>
+                        <input type="password" name="pin" id="" placeholder="..." required>
+                    </span>
+                </div>
+                <div class="caution_box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
+                    <p>Note:A third party payment fee of 1.613% applies. <br> <br>If you are having challenges adding funds to your wallet click on contact us on the left menu</p>
+                </div>
+            </div>
+            <div class="submit_button">
+                <a href="#"><button class="primary_action_button">Proceed to pay →</button></a>
+            </div>
+        </div>
+        <div id="content5" class="content">
+            <p>Manual Funding: Fund your account Manually</p>
+            <div class="Manual_funding other_payment">
+                <div class="input_amount">
+                    <span>
+                        <label for="">Amount (₦): </label>
+                        <input type="number" name="amount" id="amount" placeholder="Amount (₦): " required>
+                    </span>
+                    <span>
+                        <label for="">PIN</label>
+                        <input type="password" name="pin" id="" placeholder="..." required>
+                    </span>
+                </div>
+                <div class="caution_box">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
+                    <p>Note:A third party payment fee of 1.613% applies. <br> <br>If you are having challenges adding funds to your wallet click on contact us on the left menu</p>
+                </div>
+            </div>
+            <div class="submit_button">
+                <a href="#"><button class="primary_action_button">Proceed to pay →</button></a>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
+        <script>
+        const sidebar = document.getElementById('sidebar_container');
+        const hamburger = document.getElementById('hamburger');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+        const notificationIcon = document.getElementById('notification-icon');
+        const notificationMenu = document.getElementById('notification-menu');
+        const notificationCloseBtn = document.getElementById('notification-close-btn');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            notificationMenu.classList.remove('active');
+        });
+
+        notificationIcon.addEventListener('click', () => {
+            notificationMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        notificationCloseBtn.addEventListener('click', () => {
+            notificationMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        window.addEventListener('resize', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            notificationMenu.classList.remove('active');
+        });
+    </script>
+    <!-- Script for Controlling the dynamic changing of each content buttons -->
+    <script>
+        function showContent(contentId, button) {
+            // Hide all content
+            var contents = document.querySelectorAll('.content');
+            contents.forEach(function(content) {
+                content.classList.remove('active');
+            });
+
+            // Remove active class from all buttons
+            var buttons = document.querySelectorAll('.button-container button');
+            buttons.forEach(function(btn) {
+                btn.classList.remove('active');
+            });
+
+            // Show the clicked content
+            document.getElementById(contentId).classList.add('active');
+
+            // Add active class to the clicked button
+            button.classList.add('active');
+        }
+    </script>
+    <!-- Script for showing the current/ active link on the Sidebar -->
+    <script>
+        let fund_wallet = document.getElementById('fund_wallet');
+
+        let primary_color = '#2376F3';  
+        let black_color = '#353535';  
+
+        Object.assign(fund_wallet.style,{
+            borderLeft: '3px solid ' + primary_color,
+            marginLeft: '-20px',
+            paddingLeft: '0px',
+            color: black_color,
+            paddingLeft: '20px'
+        });
+    </script>
+</body>
+</html>
