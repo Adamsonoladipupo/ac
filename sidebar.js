@@ -51,7 +51,7 @@ function create_sidebar () {
     // add title name, icon and link to the sidebar items
     const items_menu = [
         {name: 'Overview', icon:overview_icon, link:'dashboard.html', id:'overview'},
-        {name: 'Fund Wallet', icon:fund_wallet_icon, link:'fund_wallet.html', id:'fund_wallet'},
+        {name: 'Fund Wallet', icon:fund_wallet_icon, link:'fund-wallet.html', id:'fund_wallet'},
     ];
 
     // add href to each items menu
@@ -84,15 +84,15 @@ function create_sidebar () {
 
     // add title name, icon and link to the sidebar items
     const services_menu = [
-        {name: 'Data Plan', icon:data_plan_icon, link:'data_plan.html', id:'data_plan'},
+        {name: 'Data Plan', icon:data_plan_icon, link:'data-plan.html', id:'data_plan'},
         {name: 'Airtime Cash', icon:airtime_cash_icon, link:'#', id:'airtime_cash'},
-        {name: 'Buy Airtime', icon:buy_airtime_icon, link:'buy_airtime.html', id:'buy_airtime'},
-        {name: 'Electricity', icon:electrity_icon, link:'electricity_bill.html', id:'electricity'},
-        {name: 'Cable TV', icon:cable_tv_icon, link:'#', id:'cable_tv'},
-        {name: 'Sport Betting', icon:sport_betting_icon, link:'#', id:'sport_betting'},
+        {name: 'Buy Airtime', icon:buy_airtime_icon, link:'buy-airtime.html', id:'buy_airtime'},
+        {name: 'Electricity', icon:electrity_icon, link:'electricity-bill.html', id:'electricity'},
+        {name: 'Cable TV', icon:cable_tv_icon, link:'#', id:'cable-tv'},
+        {name: 'Sport Betting', icon:sport_betting_icon, link:'#', id:'sport-betting'},
         {name: 'Internet', icon:internet_icon, link:'#', id:'internet'},
-        {name: 'History', icon:history_icon, link:'transaction_history.html', id:'history'},
-        {name: 'Price List', icon:price_list_icon, link:'price_list.html', id:'price_list'},
+        {name: 'History', icon:history_icon, link:'transaction-history.html', id:'history'},
+        {name: 'Price List', icon:price_list_icon, link:'price-list.html', id:'price_list'},
     ];
 
     // add href to each items menu
@@ -163,7 +163,7 @@ function create_sidebar () {
     // add title name, icon and link to the sidebar items
     const API_menu = [
         {name: 'Pricing', icon:pricing_icon, link:'#', id:'pricing'},
-        {name: 'Setup', icon:setup_icon, link:'API.html', id:'api'},
+        {name: 'Setup', icon:setup_icon, link:'api.html', id:'api'},
         {name: 'Documentation', icon:documentation_icon, link:'#', id:'documentation'},
     ];
 
@@ -228,7 +228,7 @@ function create_sidebar () {
 
     // 2b... add link and name to the items
     const logout_link = [
-        {name: 'Logout', icon:logour_icon, link:'signin.html'},
+        {name: 'Logout', icon:logour_icon, link:'sign-in.html'},
     ];
     // 2b... add href to each items menu
     logout_link.forEach(item => {
