@@ -12,12 +12,12 @@
 
     <title>Profile</title>
     <style>
-        .Dashbaord_Content {
+        .dashbaord-content {
             padding: 100px 20px 0 240px;
             font-size: 14px;
         }
         /* Styling the API content */
-        .profile_container {
+        .profile-container {
             margin-top: 20px;
         }
         .button-container {
@@ -64,7 +64,7 @@
             width: 100%;
             flex: 0 0 60%;
         }
-        .caution_box {
+        .caution-box {
             background-color: #ffffff;
             border: 1px solid var(--grey_Stroke);
             padding: 20px ;
@@ -95,17 +95,17 @@
             .content-header-item {
                 flex: 1;
             }
-            .caution_box {
+            .caution-box {
                 flex-direction: row;
                 text-align: left;
                 flex: 1;
             }
         }
         @media (max-width: 750px) {
-            .Dashboard_header {
+            .dashboard-header {
                 padding: 20px 20px 20px 20px;
             }
-            .Dashbaord_Content {
+            .dashbaord-content {
                 padding: 100px 20px 0 20px;
             }
         }
@@ -116,23 +116,23 @@
 </head>
 <body>
     <!-- progress-bar -->
-    <div id="progress_container">
-        <div id="progress_bar"></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
     </div>
     <script src="progress-bar.js"></script>
 
     <div class="overlay" id="overlay"></div>
     <header>
-        <div class="Dashboard_header">
+        <div class="dashboard-header">
             <span class="hamburger" id="hamburger">
                 <!-- &#9776; -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
             </span>
-            <div class="Dashboard_header_item1">
+            <div class="dashboard-header-item1">
                 <p>Hello, Mr. User! 👋</p>
             </div>
             
-            <div class="Dashboard_header_item2">
+            <div class="dashboard-header-item2">
                 <div>
                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
                 </div>
@@ -164,22 +164,22 @@
     <!-- Sidebar DOM Script -->
     <script src="sidebar.js" id="sidebar"></script>
     
-    <div class="Dashbaord_Content">
+    <div class="dashbaord-content">
         <h4>Profile</h4>
-        <div class="profile_container">
+        <div class="profile-container">
             <div class="button-container">
                 <button id="button1" onclick="showContent('content1')">Personal Details</button>
                 <button id="button2" onclick="showContent('content2')">Business Details</button>
                 <button id="button3" onclick="showContent('content3')">KYC Settings</button>
             </div>
-            <div class="content_container">
+            <div class="content-container">
                 <div id="content1" class="content active">
                     <div class="content-header ">
                         <div class="content-header-item ">
                             <span>Profile</span>
                             <span><p>Manage and View your profile settings</p></span>
                         </div>
-                        <div class="caution_box">
+                        <div class="caution-box">
                             <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 50 50"><g fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="#353535" stroke-width="3" d="M24.896 34.375h.208"/><path stroke="#353535" stroke-width="2" d="M43.75 25c0-10.355-8.395-18.75-18.75-18.75S6.25 14.645 6.25 25S14.645 43.75 25 43.75S43.75 35.355 43.75 25"/><path stroke="#353535" stroke-width="2" d="M25 25V14.583"/></g></svg>
                             <p>Kindly ensure that the information you provide is accurate and precise, that way it's easy for Airtime Cabal keep up with you. </p>
                         </div>
@@ -202,7 +202,7 @@
 
     <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
         <script>
-        const sidebar = document.getElementById('sidebar_container');
+        const sidebar = document.getElementById('sidebar-container');
         const hamburger = document.getElementById('hamburger');
         const closeBtn = document.getElementById('close-btn');
         const overlay = document.getElementById('overlay');
@@ -272,16 +272,16 @@
     <script>
         let profile = document.getElementById('profile');
         // let profile_link = document.getElementById('profile_link')
-        let primary_color = '#2376F3';  
-        let black_color = '#353535';  
+        let primaryColor = '#2376F3';  
+        let blackColor = '#353535';  
         
         console.log('profile');
 
         Object.assign(profile.style,{
-            borderLeft: '3px solid ' + primary_color,
+            borderLeft: '3px solid ' + primaryColor,
             marginLeft: '-20px',
             paddingLeft: '0px',
-            color: black_color,
+            color: blackColor,
             paddingLeft: '20px'
         });
     </script>

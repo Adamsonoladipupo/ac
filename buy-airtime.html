@@ -16,18 +16,18 @@
 
     <title>Buy Airtime</title>
     <style>
-        .Dashbaord_Content {
+        .dashbaord-content {
             padding: 100px 20px 0 240px;
             font-size: 14px;
         }
-        .Dashbaord_Content_item{
+        .Dashbaord-content-item{
             margin-top: 20px;
         }
-        .form_container form {
+        .form-container form {
             display: flex;
             flex-direction: column;
         }
-        .input_fields {
+        .input-fields {
             display: flex;
             flex-direction: row;
             align-items: center;
@@ -35,14 +35,14 @@
             gap: 20px;
             margin-bottom: 20px;
         }
-        .input_fields span {
+        .input-fields span {
             margin: 10px 0 10px 0;
             display: grid;
         }
-        .input_fields span label {
+        .input-fields span label {
             margin: 0 0 15px 0;
         }
-        .input_fields span select {
+        .input-fields span select {
             border: 1px solid var(--grey_Stroke);
             background-color: #ffffff;
             border-radius: 10px;
@@ -51,7 +51,7 @@
             width: 100%;
             height: 60px;
         }
-        .input_fields input {
+        .input-fields input {
             border: 1px solid var(--grey_Stroke);
             background-color: #ffffff;
             border-radius: 10px;
@@ -59,7 +59,7 @@
             width: 100%;
             height: 60px;
         }
-        .input_fields div {
+        .input-fields div {
             width: 100%;
         }
         input[type="number"]::-webkit-outer-spin-button,
@@ -67,7 +67,7 @@
         -webkit-appearance: none;
         margin: 0;
         }
-        .Networks {
+        .networks {
             display: flex;
             gap: 20px;
             margin: 12px 0;
@@ -85,19 +85,19 @@
             border-color: var(--pryColor);
             border-radius: 100%;
         }
-        .submit_button {
+        .submit-button {
             margin: 0 0 0 0;
         }
         @media screen and (max-width: 1111px){
             
         }
         @media screen and (max-width: 900px){
-            .input_fields {
+            .input-fields {
                 display: flex;
                 flex-direction: column;
                 gap: 0px;
             }
-            .submit_button {
+            .submit-button {
                 margin: 0 0 20px 0;
             }
         }
@@ -108,7 +108,7 @@
             .sidebar.active {
                 transform: translateX(0);
             }
-            .sideBar_Menu{
+            .sideBar-Menu{
                 z-index: 100;
             }
             .content {
@@ -122,10 +122,10 @@
                 display: block;
                 cursor: pointer;
             }
-            .Dashboard_header {
+            .dashboard-header {
                 padding: 20px 20px 20px 20px;
             }
-            .Dashbaord_Content {
+            .dashbaord-content {
                 padding: 100px 20px 0 20px;
             }
         }
@@ -136,23 +136,23 @@
 </head>
 <body>
     <!-- progress-bar -->
-    <div id="progress_container">
-        <div id="progress_bar"></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
     </div>
     <script src="progress-bar.js"></script>
     
     <div class="overlay" id="overlay"></div>
     <header>
-        <div class="Dashboard_header">
+        <div class="dashboard-header">
             <span class="hamburger" id="hamburger">
                 <!-- &#9776; -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
             </span>
-            <div class="Dashboard_header_item1">
+            <div class="dashboard-header-item1">
                 <p>Hello, Mr. User! 👋</p>
             </div>
             
-            <div class="Dashboard_header_item2">
+            <div class="dashboard-header-item2">
                 <div>
                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
                 </div>
@@ -175,7 +175,7 @@
             <div class="notification-message">
                 <h4>Promo Code just for you!</h4>
                 <p>Hi there, Use this promo code “HYJTNJYM” to get free 500 on your first transaction with Prestmit. Are you motivated now?</p>
-                <span class="date&time">October 6, 2024 12:17 PM</span>
+                <span class="date-&-time">October 6, 2024 12:17 PM</span>
             </div>
 
         </div>
@@ -183,15 +183,15 @@
     <!-- Sidebar DOM Script -->
     <script src="sidebar.js" id="sidebar"></script>
 
-    <div class="Dashbaord_Content">
+    <div class="dashbaord-content">
         <h4>Buy Airtime</h4>
-        <div class="Dashbaord_Content_item">
-            <div class="form_container">
-                    <div class="input_fields">
-                        <div class="input_section_1">
-                            <div class="Network_selection">
+        <div class="dashbaord-content-item">
+            <div class="form-container">
+                    <div class="input-fields">
+                        <div class="input-section-1">
+                            <div class="network-selection">
                                 <label>Select Network:</label>
-                                <div class="Networks">
+                                <div class="networks">
                                     <span class="network-option" onclick="selectNetwork(this)">
                                         <input type="radio" name="network" value="MTN" hidden>
                                         <img src="images/MTNIcon.png" alt="MTN">
@@ -215,7 +215,7 @@
                                 <input type="number" name="amount" id="amount" placeholder="Enter phone number " required>
                             </span>
                         </div>
-                        <div class="input_section_2">
+                        <div class="input-section-2">
                             <span>
                                 <label for="">Enter Amount (₦) </label>
                                 <input type="number" name="amount" id="amount" placeholder="Enter Amount" required>
@@ -226,8 +226,8 @@
                             </span>
                         </div>
                     </div>
-                    <div class="submit_button">
-                        <a href="#"><button type="submit" class="primary_action_button">Proceed to pay →</button></a>
+                    <div class="submit-button">
+                        <a href="#"><button type="submit" class="primary-action-button">Proceed to pay →</button></a>
                     </div>
                     
                 </form>
@@ -239,7 +239,7 @@
 
     <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
         <script>
-        const sidebar = document.getElementById('sidebar_container');
+        const sidebar = document.getElementById('sidebar-container');
         const hamburger = document.getElementById('hamburger');
         const closeBtn = document.getElementById('close-btn');
         const overlay = document.getElementById('overlay');
@@ -290,16 +290,16 @@
     </script>
     <!-- Script for showing the current/ active link on the Sidebar -->
     <script>
-        let buy_airtime = document.getElementById('buy_airtime');
+        let buyAirtime = document.getElementById('buy-airtime');
 
-        let primary_color = '#2376F3';  
-        let black_color = '#353535';  
+        let primaryColor = '#2376F3';  
+        let blackColor = '#353535';  
 
-        Object.assign(buy_airtime.style,{
-            borderLeft: '3px solid ' + primary_color,
+        Object.assign(buyAirtime.style,{
+            borderLeft: '3px solid ' + primaryColor,
             marginLeft: '-20px',
             paddingLeft: '0px',
-            color: black_color,
+            color: blackColor,
             paddingLeft: '20px'
         });
     </script>

@@ -15,8 +15,8 @@ function getDeviceType() {
 
 // Function to update the progress bar during page load
 function updateProgressBar() {
-    const progressBar = document.getElementById('progress_bar');
-    const progressContainer = document.getElementById('progress_container');
+    const progressBar = document.getElementById('progress-bar');
+    const progressContainer = document.getElementById('progress-container');
 
     let lastProgress = 0;
     
@@ -55,10 +55,10 @@ function showProgressBarBasedOnDevice() {
     
     // Only show the progress bar on Desktop and Tablet, hide it on Mobile
     if (deviceType === 'Desktop' || deviceType === 'Tablet') {
-        document.getElementById('progress_container').style.display = 'block'; // Show progress bar
+        document.getElementById('progress-container').style.display = 'block'; // Show progress bar
         updateProgressBar();
     } else {
-        document.getElementById('progress_container').style.display = 'none'; // Hide progress bar on Mobile
+        document.getElementById('progress-container').style.display = 'none'; // Hide progress bar on Mobile
     }
 }
 

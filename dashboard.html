@@ -14,7 +14,6 @@
     <!-- Load Chart.js into the DOM -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
-
     <title>Dashboard</title>
     <style>
         .dashbaord-content-container {
@@ -60,7 +59,7 @@
             gap: 15px;
             width: 80%;
         }
-        .Dashbaord_Content_wallet_balance {
+        .dashbaord_content_wallet_balance {
             background-color: #ffffff;
             display: flex;
             flex-direction: column;
@@ -73,14 +72,14 @@
             height: 100px;
             box-shadow: 10px 10px 30px 0px rgba(0, 0, 0, 0.10);
         }
-        .Dashbaord_Content_wallet_balance div {
+        .dashbaord_content_wallet_balance div {
             display: grid;
             gap: 10px;
         }
-        .Dashbaord_Content_wallet_balance div span:nth-child(2) {
+        .dashbaord_content_wallet_balance div span:nth-child(2) {
             font-size: 12px;
         }
-        .Dashbaord_Content_wallet_balance svg {
+        .dashbaord_content_wallet_balance svg {
             background-color:#2376f33f ;
             width: 26px;
             height: 26px;
@@ -88,7 +87,7 @@
             border-radius: 20px;
             color: #fff;
         } 
-        .Data_Visualization {
+        .data-visualization {
             display: flex;
             align-items: center;
             flex-direction: row;
@@ -105,7 +104,7 @@
             width: 100%;
             height: 100%;
         }
-        .Data_Visualization div {
+        .data-visualization div {
             padding: 20px;
             border-radius: 12px;
             max-height: 100%;
@@ -113,10 +112,10 @@
             width: 100%;
             background-color: #ffffff;
         }
-        .Bar_graph {
+        .bar-graph {
             flex: 1 1 70%;
         }
-        .Pie_Chart {
+        .pie-chart {
             flex: 1 1 30%;
         }
         .transactions {
@@ -126,7 +125,7 @@
             border-radius: 12px;
             font-size: 14px;
         }
-        .div_title {
+        .div-title {
             font-size: 14px;
             font-weight: 600;
         }
@@ -165,7 +164,7 @@
             .dashbaord-Content-wallets {
                 width: 100%;
             }
-            .Dashbaord_Content_wallet_balance {
+            .dashbaord_content_wallet_balance {
                 width: 20%;
             }
         }
@@ -177,35 +176,35 @@
                 flex-direction: row;
                 gap: 15px;
             }
-            .Dashbaord_Content_wallet_balance {
+            .dashbaord_content_wallet_balance {
                 flex:1;
                 min-width: 250px;
             }
-            .Data_Visualization {
+            .data-visualization {
                 height: 300px; /* adjust height as needed */
             }
         }
         @media screen and (max-width: 980px) {
-            .Data_Visualization {
+            .data-visualization {
                 height: 260px; /* adjust height as needed */
             }
         }
         @media screen and (max-width: 900px){
-            .Data_Visualization {
+            .data-visualization {
                 flex-direction: column;
                 height: 100%;
             }
             canvas {
                 position: relative;
             }
-            .Data_Visualization div{
+            .data-visualization div{
                 height: 100%;
             }
-            .Bar_graph{
+            .bar-graph{
                 flex: 1;
                 height: 4400px;
             }
-            .Pie_Chart {
+            .pie-chart {
                 flex: 1;
             }
             
@@ -230,10 +229,10 @@
                 gap: 8px;
             }
     
-            .Data_Visualization {
+            .data-visualization {
                 width: 100%;
             }
-            .Data_Visualization div{
+            .data-visualization div{
                 height: auto;
             }
             table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
@@ -247,23 +246,23 @@
 </head>
 <body>
     <!-- progress-bar -->
-    <div id="progress_container">
-        <div id="progress_bar"></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
     </div>
     <script src="progress-bar.js"></script>
 
     <div class="overlay" id="overlay"></div>
     <header>
-        <div class="Dashboard_header">
+        <div class="dashboard-header">
             <span class="hamburger" id="hamburger">
                 <!-- &#9776; -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
             </span>
-            <div class="Dashboard_header_item1">
+            <div class="dashboard-header-item1">
                 <p>Hello, Mr. User! 👋</p>
             </div>
             
-            <div class="Dashboard_header_item2">
+            <div class="dashboard-header-item2">
                 <div>
                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
                 </div>
@@ -286,17 +285,15 @@
             <div class="notification-message">
                 <h4>Promo Code just for you!</h4>
                 <p>Hi there, Use this promo code “HYJTNJYM” to get free 500 on your first transaction with Prestmit. Are you motivated now?</p>
-                <span class="date&time">October 6, 2024 12:17 PM</span>
+                <span class="date-&-time">October 6, 2024 12:17 PM</span>
             </div>
-
         </div>
     </div>
 
     <!-- Sidebar DOM Script -->
     <script src="sidebar.js" id="sidebar"></script>
-
     <div class="dashbaord-content-container">
-        <div class="Dashbaord_Content">
+        <div class="dashbaord_content">
             <h4>Dashboard</h4>
             <div class="dashbaord-content-item">
                 <div class="dashbaord-content-top">
@@ -308,7 +305,7 @@
                     </div>
                 </div>
                 <div class="dashbaord-Content-wallets">
-                    <div class="Dashbaord_Content_wallet_balance">
+                    <div class="dashbaord_content_wallet_balance">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                         <div>
                             <span> <strong>₦570,000,000.00</strong></span>
@@ -316,7 +313,7 @@
                         </div>
                         
                     </div>
-                    <div class="Dashbaord_Content_wallet_balance">
+                    <div class="dashbaord_content_wallet_balance">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                         <div>
                             <span><strong>₦59,000,000.00</strong></span>
@@ -324,7 +321,7 @@
                         </div>
                         
                     </div>
-                    <div class="Dashbaord_Content_wallet_balance">
+                    <div class="dashbaord_content_wallet_balance">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                         <div>
                             <span><strong>₦100,000,000.00</strong></span>
@@ -332,14 +329,14 @@
                         </div>
                         
                     </div>
-                    <div class="Dashbaord_Content_wallet_balance">
+                    <div class="dashbaord_content_wallet_balance">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                         <div>
                             <span><strong>₦34,000,000.00</strong></span>
                             <span>Glo Gifting Balance</span>
                         </div>
                     </div>
-                    <div class="Dashbaord_Content_wallet_balance">
+                    <div class="dashbaord_content_wallet_balance">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                         <div>
                             <span><strong>₦100,000.00</strong></span>
@@ -349,18 +346,18 @@
                 </div>
             </div>
         </div>
-        <div class="Data_Visualization">
-            <div class="Bar_graph">
+        <div class="data-visualization">
+            <div class="bar-graph">
                 Revenue
-                <canvas id="myBarGraph"></canvas>
+                <canvas id="my-bar-graph"></canvas>
             </div>
-            <div class="Pie_Chart">
+            <div class="pie-chart">
                 Sales Volume
-                <canvas id="myChart" ></canvas>
+                <canvas id="my-chart" ></canvas>
             </div>
         </div>
         <div class="transactions">
-            <span class="div_title">Recent Transactions</span>
+            <span class="div-title">Recent Transactions</span>
             <table style="margin-top: 25px;">
                 <thead>
                     <tr>
@@ -447,19 +444,15 @@
             </table>
         </div>
     </div>
-
-
-
-
     <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
-        <script>
-    let sidebar = document.getElementById('sidebar_container');
-    let hamburger = document.getElementById('hamburger');
-    let closeBtn = document.getElementById('close-btn');
-    let overlay = document.getElementById('overlay');
-    let notificationIcon = document.getElementById('notification-icon');
-    let notificationMenu = document.getElementById('notification-menu');
-    let notificationCloseBtn = document.getElementById('notification-close-btn');
+    <script>
+        let sidebar = document.getElementById('sidebar-container');
+        let hamburger = document.getElementById('hamburger');
+        let closeBtn = document.getElementById('close-btn');
+        let overlay = document.getElementById('overlay');
+        let notificationIcon = document.getElementById('notification-icon');
+        let notificationMenu = document.getElementById('notification-menu');
+        let notificationCloseBtn = document.getElementById('notification-close-btn');
 
         hamburger.addEventListener('click', () => {
             sidebar.classList.toggle('active');
@@ -495,9 +488,9 @@
     </script>
     <!-- Script for Bar Graph Data Visualization -->
     <script>
-        const barG = document.getElementById('myBarGraph');
+        const barGraph = document.getElementById('my-bar-graph');
         
-            new Chart(barG, {
+            new Chart(barGraph, {
             type: 'bar',
             data: {
                 labels: ['Jan 1', 'Jan 2', 'Jan 3','Jan 4', 'Jan 5', 'Jan 6', 'Jan 7', 'Jan 8', 'Jan 9', 'Jan 10', 'Jan 11', 'Jan 12', 'Jan 13', 'Jan 14', 'Jan 15', 'Jan 16', 'Jan 17', 'Jan 18', 'Jan 19', 'Jan 20', 'Jan 21', 'Jan 22', 'Jan 23', 'Jan 24', 'Jan 25', 'Jan 26', 'Jan 27', 'Jan 28', 'Jan 29', 'Jan 30', 'Jan 31',],
@@ -543,9 +536,9 @@
     </script>
 
     <script>
-        const ctx = document.getElementById('myChart');
+        const chart = document.getElementById('my-chart');
     
-        new Chart(ctx, {
+        new Chart(chart, {
         type: 'doughnut',
         data: {
             labels: [
@@ -590,28 +583,17 @@
         
         });
     </script>
-    <style>
-                .sideBar_Menu_items .active-link {
-            border-left: 3px solid var(--pryColor);
-            padding-left: -20px;
-            margin-left: -20px;
-        }
-        .sideBar_Menu_items .active-link a{
-            padding-left: 20px;
-            color: var(--black);
-        }
-    </style>
     <!-- Script for showing the current/ active link on the Sidebar -->
     <script>
         let overview = document.getElementById('overview');
-        let primary_color = '#2376F3';  
-        let black_color = '#353535';  
+        let primaryColor = '#2376F3';  
+        let blackColor = '#353535';  
 
         Object.assign(overview.style,{
-            borderLeft: '3px solid ' + primary_color,
+            borderLeft: '3px solid ' + primaryColor,
             marginLeft: '-20px',
             paddingLeft: '0px',
-            color: black_color,
+            color: blackColor,
             paddingLeft: '20px'
         });
     </script>

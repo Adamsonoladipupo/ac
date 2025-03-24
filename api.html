@@ -15,11 +15,11 @@
 
     <title>Airtime Cabal | API</title>
     <style>
-        .Dashbaord_Content {
+        .dashbaord-content {
             padding: 100px 20px 0 240px;
             font-size: 14px;
         }
-        .API_container {
+        .API-container {
             margin-top: 20px;
         }
         .button-container {
@@ -55,7 +55,7 @@
             border: 1px solid var(--grey_Stroke);
             border-radius: 12px;
         }
-        .content_header_title {
+        .content-header-title {
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -70,7 +70,7 @@
         }
 
         /* Styling the Toggle On and Off button  */
-        .toggle_container {
+        .toggle-container {
             width: 50px;
             height: 25px;
             background-color: #ffffff;
@@ -78,7 +78,7 @@
             align-items: center;
             justify-content: center;
         }
-        .toggle_switch {
+        .toggle-switch {
             background-color: var(--inactive_icon);
             width: 50px;
             height: 25px;
@@ -87,7 +87,7 @@
             position: relative;
             transition: 0.3s ease-in-out;
         }
-        .toggle_switch::before {
+        .toggle-switch::before {
             position: absolute;
             content: '';
             background-color: #ffffff;
@@ -97,13 +97,13 @@
             margin: 2.5px;
             transition: 0.3s ease-in-out;
         }
-        input:checked + .toggle_switch {
+        input:checked + .toggle-switch {
             background-color: var(--pryColor);
         }
-        input:checked + .toggle_switch::before {
+        input:checked + .toggle-switch::before {
             transform: translateX(25px);
         }
-        .toggle_container input {
+        .toggle-container input {
             display: none;
         }
         @media screen and (max-width: 1111px){
@@ -113,10 +113,10 @@
 
         }
         @media (max-width: 750px) {
-            .Dashboard_header {
+            .dashboard-header {
                 padding: 20px 20px 20px 20px;
             }
-            .Dashbaord_Content {
+            .dashbaord-Content {
                 padding: 100px 20px 0 20px;
             }
         }
@@ -127,23 +127,23 @@
 </head>
 <body>
     <!-- progress-bar -->
-    <div id="progress_container">
-        <div id="progress_bar"></div>
+    <div id="progress-container">
+        <div id="progress-bar"></div>
     </div>
     <script src="progress-bar.js"></script>
 
     <div class="overlay" id="overlay"></div>
     <header>
-        <div class="Dashboard_header">
+        <div class="dashboard-header">
             <span class="hamburger" id="hamburger">
                 <!-- &#9776; -->
                 <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
             </span>
-            <div class="Dashboard_header_item1">
+            <div class="dashboard-header-item1">
                 <p>Hello, Mr. User! 👋</p>
             </div>
             
-            <div class="Dashboard_header_item2">
+            <div class="dashboard-header-item2">
                 <div>
                     <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
                 </div>
@@ -166,7 +166,7 @@
             <div class="notification-message">
                 <h4>Promo Code just for you!</h4>
                 <p>Hi there, Use this promo code “HYJTNJYM” to get free 500 on your first transaction with Prestmit. Are you motivated now?</p>
-                <span class="date&time">October 6, 2024 12:17 PM</span>
+                <span class="date-&-time">October 6, 2024 12:17 PM</span>
             </div>
 
         </div>
@@ -175,23 +175,23 @@
     <!-- Sidebar DOM Script -->
     <script src="sidebar.js" id="sidebar"></script>
 
-    <div class="Dashbaord_Content">
+    <div class="dashbaord-content">
         <h4>Application Programming Interface API</h4>
-        <div class="API_container">
+        <div class="API-container">
             <div class="button-container">
                 <button id="button1" onclick="showContent('content1')">Configuration</button>
                 <button id="button2" onclick="showContent('content2')">Documentation</button>
                 <button id="button3" onclick="showContent('content3')">Pricing</button>
             </div>
-            <div class="content_container">
+            <div class="content-container">
                 <div id="content1" class="content active">
                     <div class="content-header ">
-                        <div class="content_header_title">
+                        <div class="content-header-title">
                             <span><strong>Airtime Cabal API </strong></span>
                             <span>
-                                <div class="toggle_container" >
-                                    <input type="checkbox" name="toggle" id="toggleButton" class="toggleButton">
-                                    <label for="toggleButton" class="toggle_switch" id="toggleButton"></label>
+                                <div class="toggle-container" >
+                                    <input type="checkbox" name="toggle" id="toggle-button" class="toggle-button">
+                                    <label for="toggle-button" class="toggle-switch" id="toggle-button"></label>
                                 </div>
                             </span>
                         </div>
@@ -219,7 +219,7 @@
 
     <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
         <script>
-        const sidebar = document.getElementById('sidebar_container');
+        const sidebar = document.getElementById('sidebar-container');
         const hamburger = document.getElementById('hamburger');
         const closeBtn = document.getElementById('close-btn');
         const overlay = document.getElementById('overlay');
@@ -312,7 +312,7 @@
         };
 
         // Get the toggle button element
-        const toggleButton = document.getElementById('toggleButton');
+        const toggleButton = document.getElementById('toggle-button');
 
         // Event listener to show Toastr notification on toggle change
         toggleButton.addEventListener('change', function() {
@@ -327,14 +327,14 @@
         <!-- Script for showing the current/ active link on the Sidebar -->
         <script>
             let api = document.getElementById('api');
-            let primary_color = '#2376F3';  
-            let black_color = '#353535';  
+            let primaryColor = '#2376F3';  
+            let blackColor = '#353535';  
     
             Object.assign(api.style,{
-                borderLeft: '3px solid ' + primary_color,
+                borderLeft: '3px solid ' + primaryColor,
                 marginLeft: '-20px',
                 paddingLeft: '0px',
-                color: black_color,
+                color: blackColor,
                 paddingLeft: '20px'
             });
         </script>
