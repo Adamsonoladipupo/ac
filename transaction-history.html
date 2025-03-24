@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="main-style-sheet.css">
+
+
+    <title>Transaction History</title>
+    <style>
+        
+        .search-bar input {
+            padding: 10px;
+            width: 380px;
+            height: 40px;
+            background-color: var(--backgroung_Color);
+            border-radius: 20px;
+            padding-left: 30px;
+            border: none;
+        }
+        .Dashbaord_Content {
+            padding: 100px 20px 0 240px;
+            font-size: 14px;
+        }
+        .receipt_menu {
+            position: fixed;
+            top: 0;
+            right: -650px;
+            width: 600px;
+            height: 100%;
+            background-color: #ffffff;
+            transition: right 0.3s ease;
+            padding: 20px;
+            z-index: 12000;
+            transition: 0.5s ease;
+            overflow-y: scroll;
+        }
+        .receipt_menu_header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 10px 20px 30px 20px;
+            background-color: #ffffff;
+            border-bottom: solid 1px var(--grey_Stroke);
+        }
+        .receipt_menu h2 {
+            font-size: 14px;
+        }
+        .receipt_menu.active {
+            transform: translateX(-650px);
+        }
+        .receipt_menu_header svg {
+            background-color: var(--backgroung_Color);
+            border-radius: 20px;
+            padding: 3px;
+            cursor: pointer;
+        }
+        .receipt_boby {
+            margin-top: 20px;
+        }
+        .receipt_transaction table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 14px;
+            margin-top: 10px;
+        }
+        .receipt_transaction {
+            background-color: var(--backgroung_Color);
+            padding: 20px;
+            border-radius: 12px;
+        }
+        .receipt_transaction table th{
+            text-align: left;
+            font-weight: 600;
+        }
+        .receipt_transaction table th:nth-child(2){
+            text-align: right;
+        }
+        .receipt_transaction table td{
+            text-align: left;
+            padding: 10px 0;
+        }
+        .receipt_menu button {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 10px 30px;
+            border-radius: 10px;
+            border: none;
+            background-color: var(--pryColor);
+            color: #ffffff;
+            margin: 20px 0;
+
+        }
+        .receipt_transaction table td:nth-child(2){
+            text-align: right;
+        }
+        .close_receipt_menu_icon {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            cursor: pointer;
+        }
+        /* Styling of the Transaction History Table */
+        .transaction_table {
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+        }
+        .transaction_table table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .transaction_table table td:nth-child(1) {
+            display: none;
+        }
+        .transaction_table table th:nth-child(1){
+            display: none;
+        }
+        .transaction_table table td SVG {
+            background-color: var(--pryColor);
+            padding: 3px;
+            border-radius: 100%;
+            color: #ffffff;
+        }
+        .transaction_table th {
+            padding: 12px;
+        }
+        .transaction_table td {
+            padding: 12px;
+        }
+        .transaction_table th {
+            background-color: #ffffff;
+            text-align: left;
+            font-weight: 600;
+        }
+        .filter-buttons {
+            display: block;
+            background-color: #ffffff;
+            padding: 5px;
+            border: 1px solid var(--grey_Stroke);
+            border-radius: 12px;
+        }
+        .filter-buttons button {
+            padding: 15px 25px;
+            cursor: pointer;
+            border: none;
+            border-radius: 10px;
+            color: var(--inactive_Link);
+            background-color: #ffffff;
+        }
+        .filter-buttons button.active {
+            background-color: var(--backgroung_Color);
+            color: var(--black);
+            font-weight: 500;
+        }
+        .transaction_table tr {
+            cursor: pointer;
+        }
+        .status.success {
+            color: var(--success) ;
+        }
+        .status.failed {
+            color: var(--failed);
+        }
+        .status.pending {
+            color: var(--pending);
+        }
+        @media screen and (max-width: 1111px){
+            
+        }
+        @media screen and (max-width: 900px){
+            .transaction_table thead {
+                display: none;
+            }
+            .transaction_table table td:nth-child(1) {
+                display: block;
+            }
+            .transaction_table table th:nth-child(1) {
+                display: block;
+            }
+            .transaction_table table td:nth-child(2), td:nth-child(3), td:nth-child(5) {
+                display: none;
+            }
+        }
+        @media (max-width: 750px) {
+            .Dashboard_header {
+                padding: 20px 20px 20px 20px;
+            }
+            .Dashbaord_Content {
+                padding: 100px 20px 0 20px;
+            }
+            .Dashboard_header_item1 {
+                width: 100%;
+            }
+            .search-bar input {
+                width: 100%;
+                margin: 0 10px;
+            }
+            .receipt_menu {
+                right: -100%;
+                width: 100%;
+            }
+            .receipt_menu.active {
+                transform: translateX(-100%);
+            }
+        }
+        @media screen and (max-width: 500px){
+
+        }
+    </style>
+</head>
+<body>
+    <!-- progress-bar -->
+    <div id="progress_container">
+        <div id="progress_bar"></div>
+    </div>
+    <script src="progress-bar.js"></script>
+
+    <div class="overlay" id="overlay"></div>
+    <header>
+        <div class="Dashboard_header">
+            <span class="hamburger" id="hamburger">
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
+            </span>
+            <div class="Dashboard_header_item1 search-bar">
+                <input type="text" id="searchInput" onkeyup="searchTransactions()" placeholder="  Quick Search">
+            </div>
+            
+            <div class="Dashboard_header_item2">
+                <div>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
+                </div>
+                <div>
+                    <span class="notification-icon" id="notification-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="18" cy="6" r="3" fill="red"/><path fill="#B5B5B5" d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A5 5 0 0 1 18 11a5 5 0 0 1-5-5"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="notification-menu" id="notification-menu">
+        <div class="notification-header">
+            <h2>Notifications</h2>
+            <span class="notification-close-btn" id="notification-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/></svg>
+            </span>
+        </div>
+        <div class="notification-body">
+            <div class="notification-message">
+                <h4>Promo Code just for you!</h4>
+                <p>Hi there, Use this promo code “HYJTNJYM” to get free 500 on your first transaction with Prestmit. Are you motivated now?</p>
+                <span class="date&time">October 6, 2024 12:17 PM</span>
+            </div>
+        </div>
+    </div>
+    <div class="receipt_menu" id="receipt_menu">
+        <div class="receipt_menu_header">
+            <h2>Receipt Menu</h2>
+            <span class="close_receipt_menu_icon" id="close_receipt_menu_icon"">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/></svg>
+            </span>
+        </div>
+        <div class="receipt_boby">
+            <div class="receipt_transaction">
+                <h2>Transaction Receipt</h2> 
+                <table>
+                    <tr>
+                        <th>Item</th>
+                        <th>Details</th>
+                    </tr>
+                    <tr>
+                        <td>Date</td>
+                        <td>2023-10-01</td>
+                    </tr>
+                    <tr>
+                        <td>Services</td>
+                        <td>Data Plan</td>
+                    </tr>
+                    <tr>
+                        <td>Transaction ID</td>
+                        <td>TXN123456</td>
+                    </tr>
+                    <tr>
+                        <td>Description</td>
+                        <td>Monthly Data Plan</td>
+                    </tr>
+                    <tr>
+                        <td>Status</td>
+                        <td>Success</td>
+                    </tr>
+                    <tr>
+                        <td>Amount</td>
+                        <td>₦100</td>
+                    </tr>
+                </table>
+            </div>
+            <button>Downlaod <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="m12 2l.117.007a1 1 0 0 1 .876.876L13 3v4l.005.15a2 2 0 0 0 1.838 1.844L15 9h4l.117.007a1 1 0 0 1 .876.876L20 10v9a3 3 0 0 1-2.824 2.995L17 22H7a3 3 0 0 1-2.995-2.824L4 19V5a3 3 0 0 1 2.824-2.995L7 2zm0 8a1 1 0 0 0-1 1v3.585l-.793-.792a1 1 0 0 0-1.32-.083l-.094.083a1 1 0 0 0 0 1.414l2.5 2.5l.044.042l.068.055l.11.071l.114.054l.105.035l.15.03L12 18l.117-.007l.117-.02l.108-.033l.081-.034l.098-.052l.092-.064l.094-.083l2.5-2.5a1 1 0 0 0 0-1.414l-.094-.083a1 1 0 0 0-1.32.083l-.793.791V11a1 1 0 0 0-.883-.993zm2.999-7.001L19 7h-4z"/></svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Sidebar DOM Script -->
+    <script src="sidebar.js" id="sidebar"></script>
+
+    <div class="Dashbaord_Content">
+        <h4>Transaction History</h4>
+        <div class="transaction_table">
+            <div class="filter-buttons">
+                <button onclick="filterTransactions('all', this)" class="active">All</button>
+                <button onclick="filterTransactions('data-plan', this)">Data Plan</button>
+                <button onclick="filterTransactions('airtime', this)">Airtime</button>
+                <button onclick="filterTransactions('cable-tv', this)">Cable TV</button>
+                <button onclick="filterTransactions('electricity', this)">Electricity</button>
+                <button onclick="filterTransactions('sports-betting', this)">Sports Betting</button>
+                <button onclick="filterTransactions('fund-wallet', this)">Fund Wallet</button>
+                <button onclick="filterTransactions('gifting-funding', this)">Gifting Funding</button>
+            </div>
+            <table id="transactionTable">
+                <thead>
+                    <tr>
+                        <th>SVG</th>
+                        <th>Date</th>
+                        <th>Service</th>
+                        <th>Transaction ID</th>
+                        <th>Description</th>
+                        <th>Status</th>
+                        <th>Amount</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-01</td>
+                        <td>Data Plan</td>
+                        <td>TXN123456</td>
+                        <td>Monthly Data Plan</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦10</td>
+                    </tr>
+                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-02</td>
+                        <td>Airtime</td>
+                        <td>TXN123457</td>
+                        <td>Mobile Airtime</td>
+                        <td><span class="status failed">Failed</span></td>
+                        <td>₦5</td>
+                    </tr>
+                    <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-03</td>
+                        <td>Cable TV</td>
+                        <td>TXN123458</td>
+                        <td>Monthly Subscription</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦20</td>
+                    </tr>
+                    <tr class="electricity" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-04</td>
+                        <td>Electricity</td>
+                        <td>TXN123459</td>
+                        <td>Electricity Bill</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦30</td>
+                    </tr>
+                    <tr class="sports-betting" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-05</td>
+                        <td>Sports Betting</td>
+                        <td>TXN123460</td>
+                        <td>Betting</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>₦15</td>
+                    </tr>
+                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-06</td>
+                        <td>Data Plan</td>
+                        <td>TXN123461</td>
+                        <td>Weekly Data Plan</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>₦5</td>
+                    </tr>
+                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-07</td>
+                        <td>Airtime</td>
+                        <td>TXN123462</td>
+                        <td>Mobile Airtime</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦10</td>
+                    </tr>
+                    <tr class="gifting-funding" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-07</td>
+                        <td>Gifting Funding</td>
+                        <td>TXN123462</td>
+                        <td>Mobile Airtime</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦10</td>
+                    </tr>
+                    <tr class="cable-tv" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-08</td>
+                        <td>Cable TV</td>
+                        <td>TXN123463</td>
+                        <td>Monthly Subscription</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦25</td>
+                    </tr>
+                    <tr class="fund-wallet" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-08</td>
+                        <td>Fund Wallet</td>
+                        <td>TXN123463</td>
+                        <td>Monthly Subscription</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦25</td>
+                    </tr>
+                    <tr class="electricity" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-09</td>
+                        <td>Electricity</td>
+                        <td>TXN123464</td>
+                        <td>Electricity Bill</td>
+                        <td><span class="status pending">Pending</span></td>
+                        <td>₦35</td>
+                    </tr>
+                    <tr class="sports-betting" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-10</td>
+                        <td>Sports Betting</td>
+                        <td>TXN123465</td>
+                        <td>Betting</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦20</td>
+                    </tr>
+                    <tr class="data-plan" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-11</td>
+                        <td>Data Plan</td>
+                        <td>TXN123466</td>
+                        <td>Monthly Data Plan</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦15</td>
+                    </tr>
+                    <tr class="airtime" onclick="openTransaction('transcation_ID')">
+                        <td>
+                            <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 32 32"><circle cx="16" cy="25" r="2" fill="currentColor"/><path fill="currentColor" d="m10.47 19.233l1.414 1.413a5.97 5.97 0 0 1 8.223-.009l1.413-1.413a7.963 7.963 0 0 0-11.05.01Z"/><path fill="currentColor" d="m6.229 14.993l1.414 1.413a11.955 11.955 0 0 1 16.704-.01l1.413-1.413a13.95 13.95 0 0 0-19.531.01"/><path fill="currentColor" d="M30 10.741a19.94 19.94 0 0 0-28 0v.023l1.404 1.404a17.934 17.934 0 0 1 25.181-.01L30 10.743Z"/></svg>
+                        </td>
+                        <td>2023-10-12</td>
+                        <td>Airtime</td>
+                        <td>TXN123467</td>
+                        <td>Mobile Airtime</td>
+                        <td><span class="status success">Success</span></td>
+                        <td>₦5</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+
+    <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
+        <script>
+        const sidebar = document.getElementById('sidebar_container');
+        const hamburger = document.getElementById('hamburger');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+        const notificationIcon = document.getElementById('notification-icon');
+        const notificationMenu = document.getElementById('notification-menu');
+        const notificationCloseBtn = document.getElementById('notification-close-btn');
+
+        const receipt_menu = document.getElementById('receipt_menu');
+        const receipt_icon = document.getElementById('receipt_icon');
+        const close_receipt = document.getElementById('close_receipt_menu_icon');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            notificationMenu.classList.remove('active');
+            receipt_menu.classList.remove('active');
+        });
+
+        notificationIcon.addEventListener('click', () => {
+            notificationMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        notificationCloseBtn.addEventListener('click', () => {
+            notificationMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        window.addEventListener('resize', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            notificationMenu.classList.remove('active');
+            receipt_menu.classList.remove('active');
+        });
+
+        close_receipt.addEventListener('click', () => {
+            receipt_menu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        function openTransaction(transactionId) {
+            receipt_menu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        }
+    </script>
+    <!-- Script for controlling the Transaction History Table -->
+    <script>
+        function filterTransactions(service, button) {
+            var rows = document.querySelectorAll('#transactionTable tbody tr');
+            rows.forEach(row => {
+                if (service === 'all') {
+                    row.style.display = '';
+                } else {
+                    if (row.classList.contains(service)) {
+                        row.style.display = '';
+                    } else {
+                        row.style.display = 'none';
+                    }
+                }
+            });
+
+            var buttons = document.querySelectorAll('.filter-buttons button');
+            buttons.forEach(btn => btn.classList.remove('active'));
+            button.classList.add('active');
+        }
+
+        // function openTransaction(transactionId) {
+        //     window.location.href = `transactionDetails.html?transactionId=${transactionId}`;
+        // }
+    </script>
+
+
+    <!-- Search Function -->
+    <script>
+        function searchTransactions() {
+        var input = document.getElementById('searchInput');
+        var filter = input.value.toLowerCase();
+        var rows = document.querySelectorAll("tbody tr");
+        rows.forEach(row => {
+            var cells = row.getElementsByTagName("td");
+            var match = false;
+            for (var i = 0; i < cells.length; i++) {
+                if (cells[i].innerText.toLowerCase().indexOf(filter) > -1) {
+                    match = true;
+                    break;
+                }
+            }
+            if (match) {
+                row.style.display = '';
+            } else {
+                row.style.display = 'none';
+            }
+        });
+    }
+    </script>
+        <!-- Script for showing the current/ active link on the Sidebar -->
+        <script>
+            let history = document.getElementById('history');
+
+            let primary_color = '#2376F3';  
+            let black_color = '#353535';  
+    
+            Object.assign(history.style,{
+                borderLeft: '3px solid ' + primary_color,
+                marginLeft: '-20px',
+                paddingLeft: '0px',
+                color: black_color,
+                paddingLeft: '20px'
+            });
+        </script>
+</body>
+</html>
