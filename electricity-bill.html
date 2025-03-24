@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <!-- Main Style Sheet -->
+    <link rel="stylesheet" href="main-style-sheet.css">
+
+
+    <title>Electricity Bill</title>
+    <style>
+        .Dashbaord_Content {
+            padding: 100px 20px 0 240px;
+            font-size: 14px;
+        }
+
+        .electricity_bill_form label {
+            margin: 0 0 15px 0;
+        }
+        .electricity_bill_form span {
+            margin: 8px 0;
+            display: grid;
+        }
+        .EDC-options {
+            display: block;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .company-option {
+            border: 2px solid transparent;
+            cursor: pointer;
+            border-radius: 12px;
+            width: 100px;
+        }
+        .company-option.selected {
+            border-color: var(--pryColor);
+        }
+        .meter-options  {
+            display: flex;
+            flex-direction: row;
+            gap: 10px;
+            margin-bottom: 12px;
+        }
+        .meter-option {
+            padding: 20px 30px;
+            cursor: pointer;
+            display: inline-block;
+            background-color: #ffffff;
+            border-radius: 10px;
+
+        }
+        .meter-option.selected {
+            background-color: var(--pryColor);
+            color: #ffffff;
+        }
+        .input_electricity_details {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 10px;
+            gap: 20px;
+        }
+        .input_electricity_details input {
+            border: 1px solid var(--grey_Stroke);
+            background-color: #ffffff;
+            border-radius: 10px;
+            width: 100%;
+            height: 60px;
+            padding: 20px;
+        }
+        .input_electricity_details div {
+            width: 100%;
+        }
+        input[type="number"]::-webkit-outer-spin-button,
+        input[type="number"]::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+        }
+        .submit_button {
+            margin: 0px;
+        }
+
+        @media screen and (max-width: 1111px){
+            
+        }
+        @media screen and (max-width: 900px){
+
+        }
+        @media (max-width: 750px) {
+            .Dashboard_header {
+                padding: 20px 20px 20px 20px;
+            }
+            .Dashbaord_Content {
+                padding: 100px 20px 0 20px;
+            }
+            .input_electricity_details {
+                flex-direction: column;
+                gap: 0px;
+            }
+            .submit_button {
+                margin: 20px 0;
+            }
+        }
+        @media screen and (max-width: 500px){
+
+        }
+    </style>
+</head>
+<body>
+    <!-- progress-bar -->
+    <div id="progress_container">
+        <div id="progress_bar"></div>
+    </div>
+    <!-- <script src="progress-bar.js"></script> -->
+    <script src="testProgressbar.js"></script>
+
+    <div class="overlay" id="overlay"></div>
+    <header>
+        <div class="Dashboard_header">
+            <span class="hamburger" id="hamburger">
+                <!-- &#9776; -->
+                <svg xmlns="http://www.w3.org/2000/svg" width="25" height="24" viewBox="0 0 25 24"><path fill="currentColor" d="M3.563 6a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m0 12a.75.75 0 0 1 .75-.75h16a.75.75 0 0 1 0 1.5h-16a.75.75 0 0 1-.75-.75m.75-6.75a.75.75 0 0 0 0 1.5h16a.75.75 0 0 0 0-1.5z"/></svg>
+            </span>
+            <div class="Dashboard_header_item1">
+                <p>Hello, Mr. User! 👋</p>
+            </div>
+            
+            <div class="Dashboard_header_item2">
+                <div>
+                    <a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="#B5B5B5" d="M11.95 18q.525 0 .888-.363t.362-.887t-.362-.888t-.888-.362t-.887.363t-.363.887t.363.888t.887.362m-.9-3.85h1.85q0-.825.188-1.3t1.062-1.3q.65-.65 1.025-1.238T15.55 8.9q0-1.4-1.025-2.15T12.1 6q-1.425 0-2.312.75T8.55 8.55l1.65.65q.125-.45.563-.975T12.1 7.7q.8 0 1.2.438t.4.962q0 .5-.3.938t-.75.812q-1.1.975-1.35 1.475t-.25 1.825M12 22q-2.075 0-3.9-.787t-3.175-2.138T2.788 15.9T2 12t.788-3.9t2.137-3.175T8.1 2.788T12 2t3.9.788t3.175 2.137T21.213 8.1T22 12t-.788 3.9t-2.137 3.175t-3.175 2.138T12 22"/></svg></a>
+                </div>
+                <div>
+                    <span class="notification-icon" id="notification-icon">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><circle cx="18" cy="6" r="3" fill="red"/><path fill="#B5B5B5" d="M13 6c0-.712.153-1.387.422-2H6c-1.103 0-2 .897-2 2v12c0 1.103.897 2 2 2h12c1.103 0 2-.897 2-2v-7.422A5 5 0 0 1 18 11a5 5 0 0 1-5-5"/></svg>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <div class="notification-menu" id="notification-menu">
+        <div class="notification-header">
+            <h2>Notifications</h2>
+            <span class="notification-close-btn" id="notification-close-btn">
+                <svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6.758 17.243L12.001 12m5.243-5.243L12 12m0 0L6.758 6.757M12.001 12l5.243 5.243"/></svg>
+            </span>
+        </div>
+        <div class="notification-body">
+            <div class="notification-message">
+                <h4>Promo Code just for you!</h4>
+                <p>Hi there, Use this promo code “HYJTNJYM” to get free 500 on your first transaction with Prestmit. Are you motivated now?</p>
+                <span class="date&time">October 6, 2024 12:17 PM</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Sidebar DOM Script -->
+    <script src="sidebar.js" id="sidebar"></script>
+
+    <div class="Dashbaord_Content">
+        <h4>Electricity Bill</h4>
+        <div class="electricity_bill_form">
+            <form action="">
+                <div class="select_EDC">
+                    <span>Select Electricity Distribution Company:</span>
+                    <div id="company-options" class="EDC-options">
+                        <img src="images/AEDCicon.png" alt="Company 1" class="company-option">
+                        <img src="images/BEDCicon.png" alt="Company 2" class="company-option">
+                        <img src="images/EEDCicon.png" alt="Company 3" class="company-option">
+                        <img src="images/EKEDCicon.png" alt="Company 4" class="company-option">
+                        <img src="images/IBEDCicon.png" alt="Company 5" class="company-option">
+                        <img src="images/KEDCOicon.png" alt="Company 6" class="company-option">
+                        <img src="images/PHEDCicon.png" alt="Company 7" class="company-option">
+                        <img src="images/YEDCicon.png" alt="Company 8" class="company-option">
+                        <img src="images/JEDCicon.png" alt="Company 9" class="company-option">
+                        <img src="images/IEDCicon.png" alt="Company 10" class="company-option">
+                        <img src="images/KEDCicon.png" alt="Company 11" class="company-option">
+                    </div>
+                </div>
+                <div class="input_electricity_details">
+                    <div>
+                        <span>
+                            <label>Select Meter Option:</label>
+                            <div id="meter-options" class="meter-options">
+                                <div class="meter-option" data-value="prepaid">Prepaid</div>
+                                <div class="meter-option" data-value="postpaid">Postpaid</div>
+                            </div>
+                        </span>
+                        
+                        <span>
+                            <label for="meter-number">Meter Number:</label>
+                            <input type="number" id="meter-number" name="meter-number" placeholder="Enter meter number">
+                        </span>
+                        <span>
+                            <label for="amount">Amount (₦)</label>
+                            <input type="number" id="amount" name="amount" placeholder="...">
+                        </span>
+                    </div>
+                    <div>
+                        <span>
+                            <label for="customer-name">Customer's Name:</label>
+                            <input type="text" id="customer-name" name="customer-name" placeholder="...">
+                        </span>
+                        <span>
+
+                        </span>
+                        <span>
+                            <label for="customer-address">Customer's Address:</label>
+                            <input type="text" id="customer-address" name="customer-address" placeholder="...">
+                        </span>
+                        <span>
+                            <label for="pin">PIN:</label>
+                            <input type="password" id="pin" name="pin" placeholder="Enter pin">
+                        </span>
+                    </div>
+                </div>
+                <div class="submit_button">
+                    <a href="#"><button type="submit" class="primary_action_button">Proceed to pay →</button></a>
+                </div>
+                
+            </form>
+        </div>
+    </div>
+
+
+    <!-- Script for controlling the SideBar, Hamburger Menu icon and the Notification Menu -->
+        <script>
+        const sidebar = document.getElementById('sidebar_container');
+        const hamburger = document.getElementById('hamburger');
+        const closeBtn = document.getElementById('close-btn');
+        const overlay = document.getElementById('overlay');
+        const notificationIcon = document.getElementById('notification-icon');
+        const notificationMenu = document.getElementById('notification-menu');
+        const notificationCloseBtn = document.getElementById('notification-close-btn');
+
+        hamburger.addEventListener('click', () => {
+            sidebar.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        closeBtn.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        overlay.addEventListener('click', () => {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            notificationMenu.classList.remove('active');
+        });
+
+        notificationIcon.addEventListener('click', () => {
+            notificationMenu.classList.toggle('active');
+            overlay.classList.toggle('active');
+        });
+
+        notificationCloseBtn.addEventListener('click', () => {
+            notificationMenu.classList.remove('active');
+            overlay.classList.remove('active');
+        });
+
+        window.addEventListener('resize', function() {
+            sidebar.classList.remove('active');
+            overlay.classList.remove('active');
+            notificationMenu.classList.remove('active');
+        });
+    </script>
+    <!-- Script for controlling the EDC option selection -->
+    <script>
+        document.querySelectorAll('.company-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.company-option').forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+
+        document.querySelectorAll('.meter-option').forEach(option => {
+            option.addEventListener('click', () => {
+                document.querySelectorAll('.meter-option').forEach(opt => opt.classList.remove('selected'));
+                option.classList.add('selected');
+            });
+        });
+    </script>
+        <!-- Script for showing the current/ active link on the Sidebar -->
+        <script>
+            let electricity_bill = document.getElementById('electricity');
+
+            let primary_color = '#2376F3';  
+            let black_color = '#353535';  
+    
+            Object.assign(electricity_bill.style,{
+                borderLeft: '3px solid ' + primary_color,
+                marginLeft: '-20px',
+                paddingLeft: '0px',
+                color: black_color,
+                paddingLeft: '20px'
+            });
+        </script>
+</body>
+</html>

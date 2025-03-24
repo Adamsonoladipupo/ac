@@ -10,14 +10,14 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
 
     <!-- Main Style Sheet -->
-    <link rel="stylesheet" href="main_style_sheet.css">
+    <link rel="stylesheet" href="main-style-sheet.css">
     <!-- Load Chart.js into the DOM -->
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
 
     <title>Dashboard</title>
     <style>
-        .Dashbaord_Content_Container {
+        .dashbaord-content-container {
             position: absolute;
             top: 80px;
             left: 220px;
@@ -26,7 +26,7 @@
             padding: 20px;
         }
 
-        .Dashbaord_Content_item {
+        .dashbaord-content-item {
             display: flex;
             flex-wrap: wrap;
             flex-direction: row;
@@ -35,7 +35,7 @@
             width: 100%;
         }
 
-        .Dashbaord_Content_top {
+        .dashbaord-content-top {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
@@ -43,7 +43,7 @@
             height: 103px;
         }
 
-        .Dashbaord_Content_top a button {
+        .dashbaord-content-top a button {
             padding: 12px 0px;
             border-radius: 10px;
             border: none;
@@ -53,7 +53,7 @@
             cursor: pointer;
             width: 150px;
         }
-        .Dashbaord_Content_wallets {
+        .dashbaord-Content-wallets {
             display: flex;
             justify-content: space-between;
             flex-direction: row;
@@ -154,7 +154,7 @@
             display: none;
         }
         @media screen and (max-width: 1310px) {
-            .Dashbaord_Content_top {
+            .dashbaord-content-top {
                 flex-direction: row;
                 justify-content: space-between;
                 width: auto;
@@ -162,7 +162,7 @@
                 gap: 20px;
                 margin-bottom: 10px;
             }
-            .Dashbaord_Content_wallets {
+            .dashbaord-Content-wallets {
                 width: 100%;
             }
             .Dashbaord_Content_wallet_balance {
@@ -170,7 +170,7 @@
             }
         }
         @media screen and (max-width: 1111px){
-            .Dashbaord_Content_wallets {
+            .dashbaord-Content-wallets {
                 flex-wrap: wrap;
                 align-items: center;
                 justify-content:flex-start ;
@@ -223,10 +223,10 @@
             }
         }
         @media (max-width: 750px) {
-            .Dashbaord_Content_Container {
+            .dashbaord-content-container {
                 left: 0;
             }
-            .Dashbaord_Content_wallets {
+            .dashbaord-Content-wallets {
                 gap: 8px;
             }
     
@@ -247,10 +247,11 @@
 </head>
 <body>
     <!-- progress-bar -->
-    <div id="progress-container">
-        <div id="progress-bar"></div>
+    <div id="progress_container">
+        <div id="progress_bar"></div>
     </div>
-    <script src="progress_bar.js"></script>
+    <!-- <script src="progress-bar.js"></script> -->
+    <script src="testProgressbar.js"></script>
 
     <div class="overlay" id="overlay"></div>
     <header>
@@ -295,11 +296,11 @@
     <!-- Sidebar DOM Script -->
     <script src="sidebar.js" id="sidebar"></script>
 
-    <div class="Dashbaord_Content_Container">
+    <div class="dashbaord-content-container">
         <div class="Dashbaord_Content">
             <h4>Dashboard</h4>
-            <div class="Dashbaord_Content_item">
-                <div class="Dashbaord_Content_top">
+            <div class="dashbaord-content-item">
+                <div class="dashbaord-content-top">
                     <div>
                         <a href="fund_wallet.html"><button style="background-color: var(--pryColor); color: #ffffff; ">Fund your Wallet</button></a>
                     </div>
@@ -307,7 +308,7 @@
                         <a href="#"><button style="background-color: transparent; color: var(--black); border: 1px solid var(--black);">Airtime to Cash</button></a>
                     </div>
                 </div>
-                <div class="Dashbaord_Content_wallets">
+                <div class="dashbaord-Content-wallets">
                     <div class="Dashbaord_Content_wallet_balance">
                         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="currentColor" d="M19.5 7H18V6a3.003 3.003 0 0 0-3-3H4.5A2.5 2.5 0 0 0 2 5.5V18a3.003 3.003 0 0 0 3 3h14.5a2.5 2.5 0 0 0 2.5-2.5v-9A2.5 2.5 0 0 0 19.5 7m-15-3H15a2.003 2.003 0 0 1 2 2v1H4.5a1.5 1.5 0 1 1 0-3M21 16h-2a2 2 0 0 1 0-4h2zm0-5h-2a3 3 0 1 0 0 6h2v1.5a1.5 1.5 0 0 1-1.5 1.5H5a2.003 2.003 0 0 1-2-2V7.499c.432.326.959.502 1.5.501h15A1.5 1.5 0 0 1 21 9.5z"/></svg>
                         <div>
