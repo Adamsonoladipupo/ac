@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <title>Sign In</title>
+    <style>
+        :root {
+            --pryColor : #2376F3;
+            --pryColorDark : #17335e;
+            --pryColor90Per : #0061f3;
+            --grey : #9E9E9E;
+        }
+        *{
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Roboto", serif;
+        }
+        body{
+            background-color: var(--pryColorDark);
+        }
+        /* --- For fonts size --- */
+        p {
+            font-size: 14px;
+        }
+        a {
+            font-size: 12px;
+        }
+        .link_size_desk  a {
+            font-size: 12px;
+        }
+        .link_size_mobile
+        h1, h2, h3, h4 {
+            font-size: 24px;
+        }
+
+        .signin{
+            text-align: center;
+        }
+        .form{
+            background-color: #fff;
+            margin: 80px auto 0 auto;
+            padding: 20px 60px ;
+            align-items: center;
+            text-align: center;
+            border-radius: 30px;
+            width: 36%;
+        }
+        form p:nth-child(1){
+            font-size: 12px;
+        }
+        .form a{
+            color: var(--pryColor);
+            text-decoration: none;
+        }
+        h3 {
+            margin: 10px 0 0 0;
+        }
+        p {
+            margin: 10px;
+        }
+        .title_text {
+            font-size: 15px;
+        }
+        .input{
+            position: relative;
+
+        }
+        .input input{
+            border: 1px solid var(--grey);
+            width: 100%;
+            height: 60px;
+            margin: 10px 0 0px 0;
+            padding-left: 30px;
+            border-radius: 10px;
+            outline: none;
+        }
+        .fa-eye{
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            cursor: pointer;
+            color: var(--grey);
+        }
+        #eye-slash-pin {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            cursor: pointer;
+            color: var(--grey);
+        }
+        #eye-slash-password {
+            position: absolute;
+            top: 50%;
+            right: 5%;
+            cursor: pointer;
+            color: var(--grey);
+        }
+        button{
+            width: 100%;
+            height: 60px;
+            background-color: var(--pryColor);
+            border-radius: 10px;
+            border: none;
+            margin: 10px 0 20px 0;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        button:hover{
+            background-color: var(--pryColor90Per);
+        }
+        button svg{
+            margin-left: 10px;
+        }
+        .footerLinks{
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .footerLinks a{
+            color: #fff;
+            text-decoration: none;
+            padding: 10px;
+            font-weight: 300;
+        }
+        @media screen and (max-width: 1220px){
+            .form{
+                width: 40%;
+                padding: 30px 55px ;
+            }
+        }
+        @media screen and (max-width: 1020px){
+            .form{
+                width: 45%;
+                padding: 30px 50px ;
+            }
+        }
+        @media screen and (max-width: 900px){
+            .form{
+                width: 50%;
+                padding: 30px 45px ;
+            }
+        }
+        @media screen and (max-width: 750px){
+            .form{
+                width: 70%;
+                padding: 30px 30px ;
+            }
+            .footerLinks a{
+                padding: 5px;
+            }
+            .link_size_desk  a {
+                font-size: 12px;
+            }
+            
+            /* --- For fonts size --- */
+            p, a {
+                font-size: 13px;
+            }
+            h1, h2, h3, h4 {
+                font-size: 20px;
+            }
+        }
+        @media screen and (max-width: 500px){
+            .form{
+                width: 95%;
+                padding: 30px 20px ;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="signin">
+        <div class="form">
+            <form action="">
+                Airtime Cabal
+                <h3>Sign in</h3>
+                <p class="title_text">Sign in to access your dashboard</p>
+                <div class="input" style="margin-bottom: 10px;">
+                    <input type="email" placeholder="Email">
+                </div>
+                <div class="input" style="margin-bottom: 10px;">
+                    <input type="password" placeholder="Password" id="inputPasswors">
+                </div>
+                <div style="text-align: left; display: flex; align-items: center;">
+                    <a href="#" style="margin-right: 5px;">Forgot password ?</a>
+                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#2376F3" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <button>Sign In 
+                    <svg width="20px" height="20px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </button>
+                <div>
+                    <p>New to Airtime Cabal? <a href="signup.html">Create an Account</a></p>
+                </div>
+            </form>
+        </div>
+        <div class="footerLinks link_size_desk">
+            <div>
+                <a href="index.html" style="display: flex; align-items: center;">© AirtimeCabal</a>
+            </div>
+            <div>
+                <a href="#" style="display: flex; align-items: center;">Contact US
+                    <svg width="14px" height="14px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+            <div>
+                <a href="#" style="display: flex; align-items: center;">API Doc
+                    <svg width="14px" height="14px" style="margin-left: 5px;" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4 12H20M20 12L14 6M20 12L14 18" stroke="#fff" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
