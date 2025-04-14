@@ -3,9 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    
     <title>Airtime Cabal</title>
     <style>
         :root {
@@ -15,12 +18,14 @@
             --pryColor_BTN_Hover : #0041a1;
             --pryColorDark : #17335e;
             --grey : #9E9E9E;
+            --inactive_Link: #656565;
+            --inactive_icon: #B5B5B5;
         }
         *{
             padding: 0;
             margin: 0;
             box-sizing: border-box;
-            font-family: "Roboto", serif;
+            font-family: "Inter", serif;
         }
         body{
             background-color: #fff;
@@ -91,15 +96,15 @@
             transition: 0.5s;
             cursor: pointer;
         }
-        .pry_btn {
+        .pry-btn {
             color: #fff;
             background-color: var(--pryColor);
         }
-        .sec_btn {
+        .sec-btn {
             color: var(--pryColor);
             background-color: var(--pryColorLight);
         }
-        .sec_btn:hover {
+        .sec-btn:hover {
             background-color: #d9e7fc;
         }
         button:hover {
@@ -110,7 +115,7 @@
         }
         
         /* ---------Scroll to the Top Styling --------------- */
-        .scrollToTopBtn {
+        .scroll-to-top-btn {
             position: fixed;
             bottom: 20px;
             right: 20px;
@@ -119,7 +124,7 @@
             transition: all 0.5s ease;
             z-index: 10;
         }
-        .scrollToTopBtn svg {
+        .scroll-to-top-btn svg {
             width: 50px;
             height: 50px;
             fill: #434343;
@@ -127,21 +132,21 @@
             border-radius: 50%;
         }
 
-        .scrollToTopBtn svg:hover {
+        .scroll-to-top-btn svg:hover {
             fill: var(--pryColor);
         }
 
         /* -- This is for styling the Hero Section  -- */
-        .hero_section{
+        .hero-section{
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin: 70px 130px 0 130px;
         }
-        .hero_image img{
+        .hero-image img{
             width: 500px;
         }
-        .hero_button {
+        .hero-button {
             margin: 20px 7px 0 0;
             display: flex;
             align-items: center;
@@ -153,18 +158,18 @@
             background-color: var(--pryColorLight);
             padding: 50px 130px;
         }
-        .Features_container {
+        .features-container {
             display: grid;
             column-gap: 20px;
             row-gap: 20px;
             grid-template-columns: auto auto;
         }
 
-        .Features_container > div {
+        .features-container > div {
             text-align: left;
             
         }
-        .Features_container > div > div {
+        .features-container > div > div {
             background-color: #fff;
             padding: 50px;
             text-align: left; 
@@ -175,13 +180,13 @@
             min-height: 500px; */
         }
 
-        .Features_container > div:nth-child(1) > div:nth-child(2){
+        .features-container > div:nth-child(1) > div:nth-child(2){
             margin-bottom: 0px;
         }
-        .Features_container > div:nth-child(2) > div:nth-child(1){
+        .features-container > div:nth-child(2) > div:nth-child(1){
             margin-top: 0px;
         }
-        .features_item span svg{
+        .features-item span svg{
             background-color: var(--pryColor);
             width: 35px;
             height: 35px;
@@ -190,38 +195,38 @@
             fill: #fff;
             margin-bottom: 20px;
         }
-        .features_image {
+        .features-image {
             position: relative;
         }
-        .features_image img {
+        .features-image img {
             place-items: center;
             width: 100%;
         }
-        .Features_container > div:nth-child(1) > div:nth-child(1) button{
+        .features-container > div:nth-child(1) > div:nth-child(1) button{
             position: absolute;
             bottom: 8px;
         }
-        .Features_container > div:nth-child(2) > div:nth-child(2) button{
+        .features-container > div:nth-child(2) > div:nth-child(2) button{
             position: absolute;
             bottom: 8px;
         }
-        .Features_container > div > div button {
+        .features-container > div > div button {
             margin-top: 20px;
         }
-        .Features_container > div > div p {
+        .features-container > div > div p {
             margin: 20px 0;
         }
-        .Features_container > div > div h4 {
+        .features-container > div > div h4 {
             font-size: 30px;
         }
-        .Features_container > div:nth-child(2) > div:nth-child(2) {
+        .features-container > div:nth-child(2) > div:nth-child(2) {
             background-color: #434343;
             color: #fff;
         }
 
         /* -- This is for stylng the API Features section -- */
 
-        .API_features{
+        .api-features{
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -263,7 +268,7 @@
         .button-container button:hover {
         background-color: var(--pryColor_BTN_Hover);
         }
-        .F_header{
+        .f-header{
             background-color: var(--pryColorLight);
             padding: 10px;
             display: flex;
@@ -272,21 +277,21 @@
             border-radius: 10px;
             width: 80%;
         }
-        .F_header div {
+        .f-header div {
             font-size: small;
             text-align: center;
         }
-        .F_body{
+        .f-body{
             display: flex;
             align-items: center;
             justify-content: space-between;
             margin-top: 50px;
         }
-        .F_body p{
+        .f-body p{
             font-size: 20px;
             margin: 30px 0;
         }
-        .F_body_text{
+        .f-body-text{
             margin-right: 100px;
         }
         /* -- Styling the testimonials section -- */
@@ -299,14 +304,14 @@
             flex-direction: column;
             justify-content: center;
         }
-        .tst_header{    
+        .tst-header{    
             display: flex;
             align-items:start ;
             justify-content: space-between;
             margin: 20px 0 60px 0;
             color: #fff;
         }
-        .tst_items{
+        .tst-items{
             display: flex;
             align-items: center;
             justify-content: space-between;
@@ -317,22 +322,34 @@
             overflow: hidden;
             transition: 0.5s all ease;
         }
-        .tst_item{
+        .tst-item{
             background-color: #fff;
             border-radius: 30px;
             padding: 30px 50px;
             /* cursor: pointer; */
             width: 330px;
-            height: 1;
+            height: 290px;
             position: absolute;
             transition: left 0.5s cubic-bezier(0.645, 0.045, 0.354, 1);
             overflow: hidden;
         }
-        .tst_item span svg {
+        .tst-item span svg {
             margin-bottom: 30px;
             fill: var(--pryColor);
         }
-        
+        .tst-item-div-1 {
+            height: 30px;  
+            margin-bottom: 5px;
+        }
+        .tst-item-div-2 {
+            height: 140px; 
+            margin-bottom: 5px;
+        }
+        .tst-item-div-3 {
+            display: flex; 
+            align-items: center; 
+            height: 50px;
+        }             
         .slider-item:nth-child(1){
             left: calc(-330px + -20px);
         }
@@ -358,33 +375,48 @@
             left: calc((330px + 20px) * 6);
         }
 
-        .arrow_btn{
+        .arrow-btn{
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .arrow_btn svg:hover{
+        .arrow-btn svg:hover{
             fill: #151515;
         }
 
+        /* Styling the Scrollbar   */
+        ::-webkit-scrollbar {
+            width: 4px; /* Makes the scrollbar thinner */
+            height: 4px; /* Makes horizontal scrollbar thinner */
+        }
+        ::-webkit-scrollbar-track {
+            background: var(--grey_Stroke); /* Light gray background */
+        }
+        ::-webkit-scrollbar-thumb {
+            background-color: var(--inactive_icon); /* Dark gray color */
+            border-radius: 10px; /* Rounded edges */
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background-color: var(--inactive_Link); /* Darker gray when hovered */
+        }
         /* --- Styling the Trusted partner section --- */
 
-        .trusted_partners{
+        .trusted-partners{
             display: flex;
             align-items: center;
             padding: 0px 130px;
             overflow: hidden;
         }
-        .trusted_partners_text {
+        .trusted-partners-text {
             padding: 15px 20px 15px 0;
         }
-        .trusted_partners p{
+        .trusted-partners p{
             font-size: 16px;
-            font-weight: 600;
+            font-weight: 500;
             width: 100px;
         }
 
-        .logo_slider {
+        .logo-slider {
             overflow-x: hidden;
         }
         .overflow {
@@ -392,20 +424,19 @@
             padding: 8px 16px;
             overflow: hidden;
         }
-        .logo_wrapper {
+        .logo-wrapper {
             display: flex;
             justify-content: space-around;
             animation: Logoloop 25s linear infinite;
         }
-        .logo_item {
+        .logo-item {
             margin-left: 1px;
             padding: 16px;
             aspect-ratio: 30/9;
             display: grid;
             place-items: center;
-            border-radius: 5px;
         }
-        .logo_item img {
+        .logo-item img {
             height: 32px;
             margin-inline: 28px;
         }
@@ -427,108 +458,147 @@
         }
 
 
-        /* --- Styling the Article section --- */
+        /* --- Styling the Article section (default style) --- */
 
-        .article_blogs{
+        .article-blogs{
             padding: 20px 130px;
-            margin-top: 50px;
+            margin-top: 40px;
+/*          border: 1px solid pink;*/
         }
-        .article_blogs h2{
-            margin-bottom: 60px;
+        .article-blogs h2{
+            margin-bottom: 40px;
         }
-        .article_items{
+        .article-items{
             display: flex;
             align-items: center;
             justify-content: space-between;
+/*          border:1px solid black;*/
         }
         .article{
-            width: 250px;
-            margin-right: 50px;
+            max-width: 30%;
+            height: 194px;
+/*            border:1px solid green;*/
         }
         .article a{
             font-size: inherit;
         }
-        .article_snippet h3{
+        .article-snippet h3{
             margin-bottom: 20px;
             border-left: 3px solid var(--pryColor);
-            padding-left: 30px;
+            padding-left: 20px;
             transition: all .7s ease;
         }
-        .article_snippet h3:hover{
+        .article-snippet h3:hover{
             border-left: 20px solid var(--pryColor);
             color: var(--pryColor);
         }
-        .article_snippet{
+        .article-snippet{
             border-left: 1px solid #7E7E7E;
         }
-        .article_snippet p{
+        .article-snippet p{
             margin-bottom: 20px;
             padding-left: 30px;
         }
 
-        /* -- This is for styling the Call To Action CTA footer region of the page -- */
-        .footer_CTA{
-            margin: 210px 130px 50px 130px;
+        /* -- This is for styling the Call To Action CTA footer region of the page (default style) -- */
+
+        .footer-ctayy{
+            margin: 100px 130px 50px 130px;
             background-color: var(--pryColor);
             border-radius: 30px;
             display: flex;
             align-items: center;
             justify-content: space-around;
             height: 500px;
+/*            border: 1px solid yellow;*/
         }
-        .CTA_image img {
-            margin-top: -190px;
-            margin-left: 50px;
+        .cta-image-div {
+            margin-top: -150px;
+            text-align: center;
+            width: 50%;
+/*            border: 1px solid blue;*/
+            height: auto;
+            text-align: center;
         }
-        .CTA_text {
-            margin: 0 0px;
+        #cta-image {
+            width: 450px;
+            height: auto;
         }
-        .CTA_text h3 {
+        .cta-text-div {
+            width: 50%;
+/*            border: 1px solid green;*/
+        }
+        .cta-text-div h3 {
             color: #fff;
             font-size: 50px;
             margin: 0 20px 20px 20px;
         }
-        .CTA_text p{
+        .cta-text-div p{
             color: #fff;
             font-size: 20px;
             margin: 0 30px 20px 20px;
             
         }
 
-        .CTA_text button{
+        .cta-text-div button{
             background-color: #fff;
             margin: 0 20px 20px 20px;
         }
 
-        /* -- This is for styling the Footer section of the page -- */
-        footer p{
-            font-size: 20px;
-            margin: 15px 0;
-        }
-        footer a{
-            padding-top: 10px;
-            font-size: 20px;
-        }
+        /* -- This is for styling the Footer section of the page (default style)-- */
         footer{
             background-color: #151515;
             padding: 20px 130px;
             color: #A6A6A6;
         }
-        .footer_links{
+        .footer-links{
             display: flex;
-            align-items: center;
+            flex-wrap: wrap;
+            align-items: start ;
             justify-content: space-between;
-            margin: 100px 0;
+            margin: 30px 0;
             color: #A6A6A6;
         }
-        .footer_links a{
-            color: #A6A6A6;
+        .footer-link-items {
+            margin-right: 10px;
         }
-        .footer_below_hr {
+        .footer-newsletter {
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        .footer-newsletter-form {
             display: flex;
+            margin-top: 10px;
+        }
+        .footer-newsletter-form input {
+            padding: 15px 20px;
+            border-radius: 10px 0 0 10px;
+            border: none;
+            width: 150px;
+        }
+        .footer-newsletter-form-button {
+            padding: 15px 20px;
+            border-radius: 0 10px 10px 0;
+            background-color: var(--pryColor);
+            color: #fff;
+            border: none;
+            cursor: pointer;
+        }
+        input:focus {
+            outline: none;
+        }
+        .footer-links a{
+            color: #A6A6A6;
+            display: flex;
+            gap: 5px;
             align-items: center;
-            justify-content: space-between;
-            margin: 50px 0;
+        }
+        .footer-links a:hover{
+            color: #ffffff;
+        }
+        .footer-link-item {
+            margin: 10px 0;
+            list-style: none;
         }
         footer hr {
             border-top: 1px solid #A6A6A6;
@@ -536,22 +606,25 @@
             border-left: 1px solid #ffffff00;
             border-right: 1px solid #ffffff00;
         }
-        .footer_icons svg{
-            fill: #A6A6A6;
-            cursor: pointer;
-            transition: 0.5s all ease;
+        .footer-below-hr {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin: 20px 0;
         }
-        .footer_icons svg:hover{
-            fill: #fff;
-        }
-        .footer_icons{
+        .footer-icons{
             width: 250px;
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        .footer_below_hr span {
-            font-size: 14px;
+        .footer-icons svg{
+            fill: #A6A6A6;
+            cursor: pointer;
+            transition: 0.5s all ease;
+        }
+        .footer-icons svg:hover{
+            fill: #fff;
         }
 
 
@@ -566,29 +639,29 @@
                 padding: 20px 100px 10px 100px;
                 margin-top: 30px;
             }
-            .hero_section{
+            .hero-section{
                 margin: 70px 100px 0 100px;
             }
             .features{
                 padding: 50px 100px;
             }
-            .API_features{
+            .api-features{
                 margin: 60px 100px;
             }
             .testimonials{
                 padding: 40px 100px;
             }
-            .trusted_partners{
+            .trusted-partners{
                 font-size: 14px;
                 padding: 0px 100px;
             }
-            .article_blogs{
+            .article-blogs{
                 padding: 20px 100px;
             }
-            .footer_CTA{
-                margin: 210px 100px 50px 100px;
+            .footer-ctayy{
+                margin: 100px 100px 50px 100px;
             }
-            .CTA_text h3 {
+            .cta-text-div h3 {
                 font-size: 40px;
                 margin: 0 30px 20px 20px;
             }
@@ -607,31 +680,31 @@
                 padding: 20px 60px 20px 60px;
                 margin-top: 10px;
             }
-            .hero_section{
+            .hero-section{
                 margin: 70px 60px 0 60px;
             }
-            .hero_image img{
+            .hero-image img{
                 width: 400px;
             }
             .features{
                 padding: 50px 60px;
             }
-            .API_features{
+            .api-features{
                 margin: 60px 60px;
             }
             .testimonials{
                 padding: 40px 60px;
             }
-            .trusted_partners{
+            .trusted-partners{
                 padding: 0px 60px;
             }
-            .article_blogs{
+            .article-blogs{
                 padding: 20px 60px;
             }
-            .footer_CTA{
-                margin: 210px 60px 50px 60px;
+            .footer-ctayy{
+                margin: 100px 60px 50px 60px;
             }
-            .CTA_text h3 {
+            .cta-text-div h3 {
                 font-size: 40px;
                 margin: 0 20px 20px 20px;
             }
@@ -710,23 +783,23 @@
             /* --------End of styling for the Header/ Navigation */
 
 
-            .hero_section{
+            .hero-section{
                 margin: 70px 60px 0 60px;
             }
-            .hero_image img{
+            .hero-image img{
                 width: 350px;
             }
             .features{
                 padding: 50px 60px;
             }
-            .Features_container > div > div {
+            .features-container > div > div {
                 padding: 30px;
                 
             }
-            .API_features{
+            .api-features{
                 margin: 60px 60px;
             }
-            .F_header{
+            .f-header{
                 width: 90%;
             }
             .image-container img{
@@ -735,75 +808,92 @@
             .testimonials{
                 padding: 40px 60px;
             }
-            .tst_header{    
+            .tst-header{    
                 margin: 20px 0 30px 0;
             }
-            .trusted_partners{
+            .trusted-partners{
                 font-size: 12px;
                 padding: 0px 60px;
             }
-            .trusted_partners_text {
+            .trusted-partners-text {
                 padding: 10px 15px 10px 0;
             }
-            .trusted_partners p{
+            .trusted-partners p{
                 font-size: 12px;
                 font-weight: 400;
                 width: 80px;
             }
-            .logo_item img {
+            .logo-item img {
                 height: 28px;
                 margin-inline: 18px;
             }
-            .article{
-                width: 150px;
-                margin-right: 50px;
-            }
-            .article_blogs{
+            .article-blogs{
                 padding: 20px 60px;
                 margin-top: 20px;
             }
-            .article_blogs h2{
+            .article-blogs h2{
                 margin-bottom: 30px;
             }
-            .footer_CTA{
+            .article{
+                height: 230px;
+            }
+            .footer-ctayy{
                 margin: 130px 60px 50px 60px;
-                height: 400px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: auto;
+
             }
-            .CTA_image img {
-                margin-top: -200px;
-                margin-left: 30px;
+            .cta-image-div, .cta-text-div {
+                width: 100%;
             }
-            .CTA_text h3 {
+            #cta-image {
+                width: 400px;
+                height: auto;
+            }
+            /*.cta-text-div {
+                border: 1px solid red;
+            }*/
+            .cta-text-div h3 {
                 font-size: 30px;
                 margin: 0 20px 20px 20px;
             }
-            .CTA_text p {
+            .cta-text-div p {
                 font-size: 14px;
                 margin: 0 30px 20px 20px;
             }
             footer{
                 padding: 20px 60px;
             }
-            footer p{
-                font-size: 14px;
-                margin: 10px 0;
-            }
-            footer a{
-                padding-top: 10px;
-                font-size: 14px;
-            }
-            .footer_icons{
+            .footer-icons{
                 width: 180px;
                 display: flex;
             }
-            .footer_links{
-                margin: 50px 0;
+            .footer-links{
+                margin: 20px 0;
                 color: #A6A6A6;
             }
-            .footer_below_hr {
-                margin: 50px 0;
+            .footer-below-hr {
+                margin: 20px 0;
+            }
+            footer{
+                padding: 20px 30px;
+            }
+            .footer-link-items {
+                margin-right: 20px;
+            }
+            .footer-links{
+                display: flex;
+                flex-wrap: wrap;
+                flex-direction: row;
+                align-items: start;
+                justify-content: space-between;
+                margin: 10px 0;
             }
         }
+
         @media screen and (max-width: 750px){
             h1{
                 font-size: 35px;
@@ -813,14 +903,14 @@
             header nav{
                 padding: 20px 30px 20px 30px;
             }
-            .hero_section{
+            .hero-section{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 margin: 40px 30px 0 30px;
             }
-            .hero_image img{
+            .hero-image img{
                 width: 430px;
                 margin-top: 20px;
                 
@@ -828,41 +918,41 @@
             .features{
                 padding: 50px 30px;
             }
-            .Features_container {
+            .features-container {
                 display: flex;
                 flex-direction: column;
             }
-            .Features_container > div > div h4 {
+            .features-container > div > div h4 {
                 font-size: 24px;
             }
-            .features_image img {
+            .features-image img {
                 display: none;
             }
-            .Features_container > div:nth-child(1) > div:nth-child(1) button{
+            .features-container > div:nth-child(1) > div:nth-child(1) button{
                 position: relative;
                 bottom: 8px;
             }
-            .Features_container > div:nth-child(2) > div:nth-child(2) button{
+            .features-container > div:nth-child(2) > div:nth-child(2) button{
                 position: relative;
                 bottom: 8px;
             }
-            .Features_container > div:nth-child(1) > div:nth-child(2){
+            .features-container > div:nth-child(1) > div:nth-child(2){
                 margin-bottom: 5px;
             }
-            .Features_container > div:nth-child(2) > div:nth-child(1){
+            .features-container > div:nth-child(2) > div:nth-child(1){
                 margin-top: -5px;
             }
-            .API_features{
+            .api-features{
                 margin: 40px 30px;
             }
-            .F_body{
+            .f-body{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
                 margin-top: 50px;
             }
-            .F_header{
+            .f-header{
                 padding: 10px;
                 width: 100%;
             }
@@ -873,38 +963,28 @@
             .testimonials{
                 padding: 30px 30px;
             }
-            .trusted_partners{
+            .trusted-partners{
                 padding: 0px 30px;
             }
-            .article{
-                width: inherit;
-                margin-right: 50px;
-            }
-            .article_blogs{
+            .article-blogs{
                 padding: 20px 30px;
             }
-            .article_items{
+            .article-items{
                 display: flex;
                 flex-direction: column;
                 align-items: center;
                 justify-content: center;
             }
-            .footer_CTA{
-                margin: 210px 30px 50px 30px;
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                height: 100%;
-            }
-            .CTA_image img {
-                margin-top: -180px;
-                margin-left: 50px;
+            .article{
+                max-width: inherit;
+                width: 100%;
+                height: 150px;
             }
             footer{
                 padding: 20px 30px;
             }
         }
+
         @media screen and (max-width: 500px){
             button{
                 padding: 10px 15px;
@@ -926,91 +1006,78 @@
             header nav{
                 padding: 20px;
             }
-            .hero_section{
+            .hero-section{
                 margin: 40px 20px 0 20px;
             }
-            .hero_image img{
+            .hero-image img{
                 width: 290px;
                 margin-top: 20px;
             }
             .features{
                 padding: 30px 20px;
             }
-            .API_features{
+            .api-features{
                 margin: 30px 20px;
             }
-            .F_body{
+            .f-body{
                 margin-top: 20px;
             }
-            .F_header{
+            .f-header{
                 padding: 5px;
                 width: 100%;
                 display: flex;
                 align-items: center;
                 justify-content: space-between;
             }
-            .F_body{
+            .f-body{
                 margin-top: 30px;
             }
-            .F_body p{
+            .f-body p{
                 font-size: 14px;
                 margin: 15px 0;
             }
-            .F_body_text button{
+            .f-body-text button{
                 margin-top: 20px;
             }
             .testimonials{
                 padding: 20px;
             }
-            .tst_item{
+            .tst-item{
                 padding: 20px;
                 width: 330px;
             }
-            .tst_header{    
+            .tst-header{    
                 margin: 20px 0;
             }
-            .trusted_partners{
+            .trusted-partners{
                 padding: 0px 20px;
             }
-            .logo_item img {
+            .logo-item img {
                 height: 22px;
                 margin-inline: 10px;
             }
-            .article{
-                width: inherit;
-                margin-bottom: 20px;
+            .footer-ctayy {
+                margin-left: 30px;
+                margin-right: 30px;
             }
-            .article_blogs{
-                padding: 20px 30px;
-            }
-            .article_items{
-                display: flex;
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-            }
-            .footer_CTA{
-                margin: 80px 20px 50px 20px;
-                height: 100%;
-            }
-            .footer_CTA h3{
+            .footer-ctayy h3{
                 font-size: 24px;
             }
-            .CTA_image img {
-                margin-top: -100px;
-                margin-left: 50px;
+            #cta-image {
+                width: 350px;
+                height: auto;
             }
             footer{
                 padding: 20px 30px;
             }
-            .footer_links{
+            .footer-links{
                 display: flex;
                 flex-direction: column;
                 align-items: start;
                 justify-content: center;
                 margin: 10px 0;
             }
-            .footer_below_hr {
+            .footer-below-hr {
                 display: flex;
                 flex-direction: column-reverse;
                 align-items: center;
@@ -1018,6 +1085,30 @@
                 margin: 20px 0;
                 gap: 20px;
                 text-align: center;
+            }
+        }
+
+        @media screen and (max-width: 450px){
+            #cta-image {
+                width: 300px;
+            }
+        }
+
+        @media screen and (max-width: 400px){
+            .article{
+                height: 180px;
+            }
+            #cta-image {
+                width: 250px;
+            }
+        }
+
+        @media screen and (max-width: 300px){
+            .article{
+                height: 200px;
+            }
+            #cta-image {
+                width: 200px;
             }
         }
     </style>
@@ -1030,13 +1121,13 @@
             </div>
             <div class="nav-menu">
                 <div class="nav-links">
-                    <a href="#">Use</a>
-                    <a href="#">Learn</a>
-                    <a href="#">Build</a>
+                    <a href="#">About</a>
+                    <a href="#">Pricing</a>
+                    <a href="#">FAQ</a>
                 </div>
                 <div class="nav-button">
-                    <a href="#"><button class="sec_btn">Contact</button></a>
-                    <a href="signin.html" ><button class="pry_btn" >Dashboard</button></a>
+                    <a href="#"><button class="sec-btn">Support</button></a>
+                    <a href="sign-in.php" ><button class="pry-btn" >Sign In</button></a>
                 </div>
             </div>
             <div class="hamburger" id="hamburger">
@@ -1047,377 +1138,416 @@
         </nav>
     </header>
     <!-- ---------Scroll to the top button -------------------- -->
-    <span id="scrollToTopBtn" class="scrollToTopBtn">
+    <span id="scroll-to-top-btn" class="scroll-to-top-btn">
         <svg xmlns="http://www.w3.org/2000/svg" height="24" width="24" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M256 512A256 256 0 1 0 256 0a256 256 0 1 0 0 512zM377 271c9.4 9.4 9.4 24.6 0 33.9s-24.6 9.4-33.9 0l-87-87-87 87c-9.4 9.4-24.6 9.4-33.9 0s-9.4-24.6 0-33.9L239 167c9.4-9.4 24.6-9.4 33.9 0L377 271z"/></svg>
     </span>
 
     <!-- --------------This is the Hero section of the Landing page -------------- -->
-    <div class="hero_section">
-        <div class="hero-text&buttons">
+    <div class="hero-section">
+        <div>
             <div>
-                <h1>The Gateway to Africa's Payment Ecosystem random </h1>
+                <h1>The Engine That Powers Data Reselling Businesses</h1>
             </div>
-            <div class="hero_button">
-                <a href="#" ><button class="pry_btn">Get a free integration →</button></a>
+            <div class="hero-button">
+                <a href="sign-up.php" ><button class="pry-btn">Sign up for free →</button></a>
                 <a href="#" style="color: #000; display: flex;">Read Docs →</a>
             </div>
         </div>
-        <div class="hero_image">
+        <div class="hero-image">
             <img src="images/mobile.png" alt="">
         </div>
     </div>
     <!-- This is the Features Section -->
-    <div class="features Features_container">
+    <div class="features features-container">
         <div>
-            <div class="features_item">
-                <h4>Access 50+ APIs protocols with secure authentication</h4>
-                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
-                <div class="features_image">
+            <div class="features-item">
+                <h4>The API For Cheap Data Plans</h4>
+                <p>Access over 150 affordable data plans from MTN, Airtel, Glo, and 9mobile. Our seamless platform lets businesses and resellers integrate and vend bulk airtime and data at unbeatable rates. Start saving and earning today!</p>
+                <div class="features-image">
                     <div>
-                        <img src="images/image_buttons.png" alt="" >
+                        <img src="images/image-buttons.png" alt="" >
                     </div>
-                    <a href=""><button class="pry_btn">Get a free integration →</button></a>
+                    <a href="sign-up.php"><button class="pry-btn">Get a free integration →</button></a>
                 </div>
             </div>
-            <div class="features_item">
+            <div class="features-item">
                 <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="25" viewBox="0 0 640 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="25" viewBox="0 0 640 512"><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>
                 </span>
-                <h4>Major API Integration</h4>
-                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
-                <div class="features_image">
-                    <a href="#" ><button class="sec_btn">Get a free integration →</button></a>
+                <h4>Convert Airtime to Cash Instantly</h4>
+                <p>Turn your MTN, Airtel, Glo, or 9mobile airtime into real money at the best rates in Nigeria. Enjoy fast payouts and a seamless service. Get started now and receive cash directly in your bank account!</p>
+                <div class="features-image">
+                    <a href="#" ><button class="sec-btn">Chat with support →</button></a>
                 </div>
             </div>
         </div>
         <div>
-            <div class="features_item">
+            <div class="features-item">
                 <span>
                     <svg xmlns="http://www.w3.org/2000/svg" height="20" width="20" viewBox="0 0 512 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M448 160l-128 0 0-32 128 0 0 32zM48 64C21.5 64 0 85.5 0 112l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 64zM448 352l0 32-256 0 0-32 256 0zM48 288c-26.5 0-48 21.5-48 48l0 64c0 26.5 21.5 48 48 48l416 0c26.5 0 48-21.5 48-48l0-64c0-26.5-21.5-48-48-48L48 288z"/></svg>
                 </span>
-                <h4>Advance monitoring and statistics</h4>
-                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
-                <div class="features_image">
-                    <a href="#" ><button class="sec_btn">Get a free integration →</button></a>
+                <h4>Pay Bills Seamlessly</h4>
+                <p>Enjoy fast, secure processing for electricity, cable, and internet payments through our advanced API.</p>
+                <div class="features-image">
+                    <a href="sign-up.php" ><button class="sec-btn">Get a free integration →</button></a>
                 </div>
             </div>
-            <div class="features_item">
-                <h4>Advance monitoring and statistics</h4>
-                <p>API authentication is the process of verifying the identity of a user who is making an API request</p>
-                <div class="features_image">
+            <div class="features-item">
+                <h4>Experience Unmatched Reliability</h4>
+                <p>Our secure and powerful system handles any transaction volume effortlessly, ensuring 99.99% uptime all year round. Count on us anytime.</p>
+                <div class="features-image">
                     <div>
-                        <img src="images/image_padlock.png" alt="">
+                        <img src="images/image-padlock.png" alt="">
                     </div>
-                    <a href="#"><button class="sec_btn">Get a free integration </button></a>
+                    <a href="sign-up.php"><button class="sec-btn">Sign up for free</button></a>
                 </div>
             </div>
         </div>
     </div>
+
+
     <!-- API Features Section -->
 
-    <div class="API_features">
-        <div class="tabs F_header">
-            <div class="tab active" data-tab="1">Pay-in API</div>
-            <div class="tab" data-tab="2">API Balance</div>
-            <div class="tab" data-tab="3">Swift Payment</div>
-            <div class="tab" data-tab="4">Payout API</div>
+    <div class="api-features">
+        <div class="tabs f-header">
+            <div class="tab active" data-tab="1">Data API</div>
+            <div class="tab" data-tab="2">Airtime API</div>
+            <div class="tab" data-tab="3">Bills Payment</div>
+            <div class="tab" data-tab="4">Balance API</div>
         </div>
-        <div class="F_body">
-            <div class="F_body_text">
+        <div class="f-body">
+            <div class="f-body-text">
                 <div class="content">
-                    <h2 id="tab-title"></h2>
-                    <p id="tab-description"></p>
+                    <h2 id="tab-title">Fast Data Vending API</h2>
+                    <p id="tab-description">Integrate our data plan vending API seamlessly in 5 minutes</p>
                 </div>
                 <div class="button-container">
-                    <button id="view-script">View API Script →</button>
+                    <button id="view-script">Try a test transaction →</button>
                 </div>
             </div>
             <div class="image-container">
-                <img id="image1" src="images/image11.png" alt="Image 1" class="active">
-                <img id="image2" src="images/image12.png" alt="Image 2">
-                <img id="image3" src="images/image21.png" alt="Image 3">
-                <img id="image4" src="images/image22.png" alt="Image 4">
-                <img id="image5" src="images/image31.png" alt="Image 5">
-                <img id="image6" src="images/image32.png" alt="Image 6">
+                <img id="image1" src="images/data-ui.png" alt="Image 1" class="active">
+                <img id="image2" src="images/data-script.png" alt="Image 2">
+                <img id="image3" src="images/airtime-ui.png" alt="Image 3">
+                <img id="image4" src="images/airtime-script.png" alt="Image 4">
+                <img id="image5" src="images/bill-ui.png" alt="Image 5">
+                <img id="image6" src="images/bill-script.png" alt="Image 6">
                 <img id="image7" src="images/image41.png" alt="Image 7">
                 <img id="image8" src="images/image42.png" alt="Image 8">
             </div>
         </div>
     </div>
+
+
     <!-- Testimonials Section -->
     <div class="testimonials container">
-        <div class="tst_header">
+        <div class="tst-header">
             <div>
                 <h2>What Our Customers Says</h2>
                 <p>Don't take our words for it, see for yourself</p>
             </div>
-            <div class="arrow_btn">
-                <span class=" arrow_left fas fa-arrow-left" id="next_btn">
+            <div class="arrow-btn">
+                <span class=" arrow-left fas fa-arrow-left" id="next-btn">
                     <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 8L8 12M8 12L12 16M8 12H16M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                 </span>
-                <span class="arrow_right fas fa-arrow-right" id="prev_btn">
+                <span class="arrow-right fas fa-arrow-right" id="prev-btn">
                     <svg width="45px" height="45px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 16L16 12M16 12L12 8M16 12H8M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"/>
                         </svg>
                 </span>
             </div>
         </div>
-        <div class="tst_items slider">
-            <div class="tst_item slider-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    
-                </span>
-                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
-                <div class="" style="display: flex; align-items: center;">
-                    <img src="images/pic_profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
-                    <span>Customer's Name</span>
+        <div class="tst-items slider">
+            <div class="tst-item slider-item">
+                <div class="tst-item-div-1">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        
+                    </span>
+                </div>
+                <div class="tst-item-div-2">Fast, simple, secure and very reliable the best service ever.</div>
+                <div class="tst-item-div-3">
+                    <img src="images/pic-profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
+                    <span>Adeniran Abdullateef</span>
                 </div>
             </div>
-            <div class="tst_item slider-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    
-                </span>
-                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
-                <div class="" style="display: flex; align-items: center;">
-                    <img src="images/pic_profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
-                    <span>Customer's Name</span>
+            <div class="tst-item slider-item">
+                <div class="tst-item-div-1">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                    </span>
+                </div>
+                
+                <div class="tst-item-div-2">This is the best plug for conversation of airtime to cash.. Instant</div>
+                <div class="tst-item-div-3">
+                    <img src="images/pic-profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
+                    <span>Emmanuel Ogba</span>
                 </div>
             </div>
-            <div class="tst_item slider-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    
-                </span>
-                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
-                <div class="" style="display: flex; align-items: center;">
-                    <img src="images/pic_profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
-                    <span>Customer's Name</span>
+            <div class="tst-item slider-item">
+                <div class="tst-item-div-1">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                    </span>
+                </div>
+                <div class="tst-item-div-2">First review I’m giving to anyone. I Converted airtime to cash, was fast and I recommend this site to someone that want to get some cash back from excess recharge of airtime</div>
+                <div class="tst-item-div-3">
+                    <img src="images/pic-profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
+                    <span>El Nino</span>
                 </div>
             </div>
-            <div class="tst_item slider-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    
-                </span>
-                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
-                <div class="" style="display: flex; align-items: center;">
-                    <img src="images/pic_profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
-                    <span>Customer's Name</span>
+            <div class="tst-item slider-item">
+               <div class="tst-item-div-1">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                    </span>
+                </div>
+                <div class="tst-item-div-2">This is so wonderful I don't even believe it at first but guess what I received my money with no time you guys are too much thanks 😊😊</div>
+                <div class="tst-item-div-3">
+                    <img src="images/pic-profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
+                    <span>Nnoruka Clara</span>
                 </div>
             </div>
-            <div class="tst_item slider-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    
-                </span>
-                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
-                <div class="" style="display: flex; align-items: center;">
-                    <img src="images/pic_profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
-                    <span>Customer's Name</span>
+            <div class="tst-item slider-item">
+                <div class="tst-item-div-1">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                    </span>
+                </div>
+                <div class="tst-item-div-2">They are trustworthy and very reliable and I will say this again and again anywhere. Got my money, I will always recommend you guys</div>
+                <div class="tst-item-div-3">
+                    <img src="images/pic-profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
+                    <span>Stephen Hopewell</span>
                 </div>
             </div>
-            <div class="tst_item slider-item">
-                <span>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                    <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
-                </span>
-                <p style="margin-bottom: 30px;">Ocasy makes saving so easy and rewarding! I love setting my financial goals and seeing my progress every day</p>
-                <div class="" style="display: flex; align-items: center;">
-                    <img src="images/pic_profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
-                    <span>Customer's Name</span>
+            <div class="tst-item slider-item">
+                <div class="tst-item-div-1">
+                    <span>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                        <svg xmlns="http://www.w3.org/2000/svg" height="20" width="22.5" viewBox="0 0 576 512"><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M316.9 18C311.6 7 300.4 0 288.1 0s-23.4 7-28.8 18L195 150.3 51.4 171.5c-12 1.8-22 10.2-25.7 21.7s-.7 24.2 7.9 32.7L137.8 329 113.2 474.7c-2 12 3 24.2 12.9 31.3s23 8 33.8 2.3l128.3-68.5 128.3 68.5c10.8 5.7 23.9 4.9 33.8-2.3s14.9-19.3 12.9-31.3L438.5 329 542.7 225.9c8.6-8.5 11.7-21.2 7.9-32.7s-13.7-19.9-25.7-21.7L381.2 150.3 316.9 18z"/></svg>
+                    </span>
+                </div>
+                <div class="tst-item-div-2">This is the best Airtime conversion app you can ever come across, very very reliable. My first experience with them is totally awesome. More Grace!</div>
+                <div class="tst-item-div-3">
+                    <img src="images/pic-profile.png" alt="" class="customer_image" width="40px" style="margin-right: 10px;">
+                    <span>Omeke Toochukwu Livinus</span>
                 </div>
             </div>
         </div>
     </div>
     <!-- Trusted Partners section -->
-    <div class="trusted_partners">
-        <div class="trusted_partners_text">
+    <div class="trusted-partners">
+        <div class="trusted-partners-text">
             <p>Trusted by thousands of Businesses</p>
         </div>
-        <div class="trusted_partners_logo">
-            <div class="logo_slider">
+        <div class="trusted-partners-logo">
+            <div class="logo-slider">
                 <div class="overflow">
-                    <div class="logo_wrapper">
-                        <div class="logo_item">
+                    <div class="logo-wrapper">
+                        <div class="logo-item">
                             <img src="images/glo.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/9 mobile.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/9mobile.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/Airtel-logo.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/airtel-logo.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/MTN-Logo.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/mtn-Logo.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/moniPoint.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/moniepoint.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/Flutterwave.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/flutterwave.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/BEDC.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/bedc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/EKEDC.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/ekedc.png" alt="">
                         </div>
-                        <div class="logo_item">
+                        <div class="logo-item">
                             <img src="images/eedc.png" alt="">
                         </div>
-                        <div class="logo_item">
+                        <div class="logo-item">
                             <img src="images/phedc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/kaduna edc.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/kaduna-edc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/KEDCO.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/kedco.png" alt="">
                         </div>
-                        <div class="logo_item">
+                        <div class="logo-item">
                             <img src="images/aedc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/JEDC.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/jedc.png" alt="">
                         </div>
+                        
                     </div>
-                    <div class="logo_wrapper">
-                        <div class="logo_item">
+                    <div class="logo-wrapper">
+                        <div class="logo-item">
+                            <img src="images/moniepoint.png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/9mobile.png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/airtel-logo.png" alt="">
+                        </div>
+                        <div class="logo-item">
+                            <img src="images/mtn-logo.png" alt="">
+                        </div>
+                        <div class="logo-item">
                             <img src="images/glo.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/9 mobile.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/flutterwave.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/Airtel-logo.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/bedc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/MTN-Logo.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/ekedc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/moniPoint.png" alt="">
-                        </div>
-                        <div class="logo_item">
-                            <img src="images/Flutterwave.png" alt="">
-                        </div>
-                        <div class="logo_item">
-                            <img src="images/BEDC.png" alt="">
-                        </div>
-                        <div class="logo_item">
-                            <img src="images/EKEDC.png" alt="">
-                        </div>
-                        <div class="logo_item">
+                        <div class="logo-item">
                             <img src="images/eedc.png" alt="">
                         </div>
-                        <div class="logo_item">
+                        <div class="logo-item">
                             <img src="images/phedc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/kaduna edc.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/kaduna-edc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/KEDCO.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/kedco.png" alt="">
                         </div>
-                        <div class="logo_item">
+                        <div class="logo-item">
                             <img src="images/aedc.png" alt="">
                         </div>
-                        <div class="logo_item">
-                            <img src="images/JEDC.png" alt="">
+                        <div class="logo-item">
+                            <img src="images/jedc.png" alt="">
                         </div>
+
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <hr class="hr1">
-    <div class="article_blogs">
+    <div class="article-blogs">
         <h2>Recent articles</h2>
-        <div class="article_items">
+        <div class="article-items">
             <div class="article">
-                <div class="article_snippet">
-                    <h3><a href="#">Put a “Pay Now” Button to your Website for Payments</a></h3>
-                    <p>A “Pay Now” button on your website simplifies the checkout process, reduces abandoned carts, and ensures a smooth customer experience. </p>
+                <div class="article-snippet">
+                    <h3><a href="#">How to Convert Airtime to Cash</a></h3>
+                    <p style="padding-bottom: 17px;">
+                        If you mistakenly over-recharge your phone number, worry no more! In this blog post, you will learn how to convert the airtime back to cash in 2 minutes.
+                    </p>
                 </div>
             </div>
             <div class="article">
-                <div class="article_snippet">
-                    <h3><a href="#">Put a “Pay Now” Button to your Website for Payments</a></h3>
-                    <p>A “Pay Now” button on your website simplifies the checkout process, reduces abandoned carts, and ensures a smooth customer experience. </p>
+                <div class="article-snippet">
+                    <h3><a href="#">How to Buy Cheap Data Plans</a></h3>
+                    <p>
+                        The recent hike in data plan prices has caused nothing but dismay for many Nigerians. In this blog post, I will reveal a new way to buy data at a mouth-watering rate.
+                    </p>
                 </div>
             </div>
             <div class="article">
-                <div class="article_snippet">
-                    <h3><a href="#">Put a “Pay Now” Button to your Website for Payments</a></h3>
-                    <p>A “Pay Now” button on your website simplifies the checkout process, reduces abandoned carts, and ensures a smooth customer experience. </p>
+                <div class="article-snippet">
+                    <h3><a href="#">How to Start Data Reselling Business</a></h3>
+                    <p>
+                        Data plan reselling is one of the easiest side hustles you can start on your phone without any capital. Join me as I take you into a world of endless possibilities!
+                    </p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="footer_CTA">
-        <div class="CTA_image hero_image">
-            <img src="images/mobile.png" alt="">
+    <div class="footer-ctayy">
+        <div class="cta-image-div">
+            <img src="images/mobile.png" alt="Airtime Cabal Referral" id="cta-image">
         </div>
-        <div class="CTA_text">
-            <h3>Connect with Suppliers Globally</h3>
-            <p>When it comes to payment, we are the bridge you need. Send money to your suppliers with ease in over 100 countries.</p>
-            <a href="#" ><button class="sec_btn">View Dashboard →</button></a>
+        <div class="cta-text-div">
+            <h3>Refer a Friend and Earn Big</h3>
+            <p>Take advantage of Airtime Cabal referral system, and make money online for free when the people you refer register with your referral link.</p>
+            <a href="sign-up.php" ><button class="sec-btn">Sign up now →</button></a>
         </div>
     </div>
     <footer>
-        <div class="footer_links">
-            <div class="footer_logo">
-                Airtime Cabal Logo
-                <p>77 King St W Suite 400, Toronto, ON M5K 0A1.</p>
+        <div class="footer-links">
+            <div class="footer-logo footer-link-items">
+                <div>
+                    <img src="logo1.svg" alt="Airtime Cabal" style="width: 50px;">
+                </div>
+                <div class="footer-newsletter">
+                    <p>Get the latest updates on cheap data</p>
+                    <div class="footer-newsletter-form">
+                        <input type="email" name="email" id="email" placeholder="Enter email ">
+                        <button class="footer-newsletter-form-button">Subscribe</button>
+                    </div>
+                </div>
             </div>
-            <div>
-                <strong><p>Title 1</p></strong>
-                <a href="#">Identification</a><br>
-                <a href="#">Payment</a>
+            <div class="footer-link-items">
+                <ul>
+                    <li class="footer-link-item"><h5>Business Info</h5></li>
+                    <li class="footer-link-item"><a href="#">About</a></li>
+                    <li class="footer-link-item"><a href="#">Pricing</a></li>
+                    <li class="footer-link-item"><a href="#">Blog</a></li>
+                    <li class="footer-link-item"><a href="#">Testimonial</a></li>
+                </ul>
             </div>
-            <div>
-                <strong><p>Title 2</p></strong>
-                <a href="#">Identification</a><br>
-                <a href="#">Payment</a>
+            <div class="footer-link-items">
+                <ul>
+                    <li class="footer-link-item"><h5>Legal & Policy Info</h5></li>
+                    <li class="footer-link-item"><a href="#">Terms & Conditions</a></li>
+                    <li class="footer-link-item"><a href="#">Privacy Policy</a></li>
+                </ul>
             </div>
-            <div>
-                <strong><p>Title 3</p></strong>
-                <a href="#">Identification</a><br>
-                <a href="#">Payment</a>
+            <div class="footer-link-items">
+                <ul>
+                    <li class="footer-link-item"><h5>Contact & Support</h5></li>
+                    <li class="footer-link-item"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="m17.018 2.048l-.965-.261l-.523 1.93l.966.262a5 5 0 0 1 3.521 3.524l.26.965l1.931-.521l-.26-.965a7 7 0 0 0-4.93-4.934m-.914 3.378l-.965-.261l-.523 1.93l.966.262a1.5 1.5 0 0 1 1.056 1.057l.26.965l1.931-.52l-.26-.966a3.5 3.5 0 0 0-2.465-2.467"/><path fill="currentColor" d="M9.58 2H1v1a19.9 19.9 0 0 0 3.196 10.85a20.1 20.1 0 0 0 5.954 5.954A19.9 19.9 0 0 0 21 23h1v-8.58l-6.69-1.487l-1.86 1.86a14.1 14.1 0 0 1-4.242-4.243l1.859-1.86z"/></svg>+2348183092533</a></li>
+                    <li class="footer-link-item"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><g fill="currentColor"><path d="M22 7.535V17a3 3 0 0 1-2.824 2.995L19 20H5a3 3 0 0 1-2.995-2.824L2 17V7.535l9.445 6.297l.116.066a1 1 0 0 0 .878 0l.116-.066z"/><path d="M19 4c1.08 0 2.027.57 2.555 1.427L12 11.797l-9.555-6.37a3 3 0 0 1 2.354-1.42L5 4z"/></g></svg>Support@airtimecabal.com</a></li>
+                    <li class="footer-link-item"><a href=""><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M8.75 10a3.25 3.25 0 1 1 6.5 0a3.25 3.25 0 0 1-6.5 0"/><path fill="currentColor" fill-rule="evenodd" d="M3.774 8.877a8.04 8.04 0 0 1 8.01-7.377h.432a8.04 8.04 0 0 1 8.01 7.377a8.7 8.7 0 0 1-1.933 6.217L13.5 20.956a1.937 1.937 0 0 1-3 0l-4.792-5.862a8.7 8.7 0 0 1-1.934-6.217M12 5.25a4.75 4.75 0 1 0 0 9.5a4.75 4.75 0 0 0 0-9.5" clip-rule="evenodd"/></svg>Nigeria</a></li>
+                    <li class="footer-link-item"><a href="#"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path fill="currentColor" d="M18 15H6l-4 4V3a1 1 0 0 1 1-1h15a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1m5-6v14l-4-4H8a1 1 0 0 1-1-1v-1h14V8h1a1 1 0 0 1 1 1M8.19 4c-.87 0-1.57.2-2.11.59c-.52.41-.78.98-.77 1.77l.01.03h1.93c.01-.3.1-.53.28-.69a1 1 0 0 1 .66-.23c.31 0 .57.1.75.28c.18.19.26.45.26.75c0 .32-.07.59-.23.82c-.14.23-.35.43-.61.59c-.51.34-.86.64-1.05.91C7.11 9.08 7 9.5 7 10h2c0-.31.04-.56.13-.74s.26-.36.51-.52c.45-.24.82-.53 1.11-.93s.44-.81.44-1.31c0-.76-.27-1.37-.81-1.82C9.85 4.23 9.12 4 8.19 4M7 11v2h2v-2zm6 2h2v-2h-2zm0-9v6h2V4z"/></svg>FAQ</a></li>
+                </ul>
             </div>
         </div>
         <hr>
-        <div class="footer_below_hr">
+        <div class="footer-below-hr">
             <div>
-                <span id="copyright" class="copyright"></span>
+                <span id="copyright" class="copyright">Copyright &copy; 2025 Airtime Cabal Limited All rights reserved</span>
             </div>
-            <div class="footer_icons">
+            <div class="footer-icons">
                 <a href="#">
                     <svg xmlns="http://www.w3.org/2000/svg" height="24" width="22.25" viewBox="0 0 448 512" ><!--!Font Awesome Free 6.7.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2025 Fonticons, Inc.--><path d="M380.9 97.1C339 55.1 283.2 32 223.9 32c-122.4 0-222 99.6-222 222 0 39.1 10.2 77.3 29.6 111L0 480l117.7-30.9c32.4 17.7 68.9 27 106.1 27h.1c122.3 0 224.1-99.6 224.1-222 0-59.3-25.2-115-67.1-157zm-157 341.6c-33.2 0-65.7-8.9-94-25.7l-6.7-4-69.8 18.3L72 359.2l-4.4-7c-18.5-29.4-28.2-63.3-28.2-98.2 0-101.7 82.8-184.5 184.6-184.5 49.3 0 95.6 19.2 130.4 54.1 34.8 34.9 56.2 81.2 56.1 130.5 0 101.8-84.9 184.6-186.6 184.6zm101.2-138.2c-5.5-2.8-32.8-16.2-37.9-18-5.1-1.9-8.8-2.8-12.5 2.8-3.7 5.6-14.3 18-17.6 21.8-3.2 3.7-6.5 4.2-12 1.4-32.6-16.3-54-29.1-75.5-66-5.7-9.8 5.7-9.1 16.3-30.3 1.8-3.7 .9-6.9-.5-9.7-1.4-2.8-12.5-30.1-17.1-41.2-4.5-10.8-9.1-9.3-12.5-9.5-3.2-.2-6.9-.2-10.6-.2-3.7 0-9.7 1.4-14.8 6.9-5.1 5.6-19.4 19-19.4 46.3 0 27.3 19.9 53.7 22.6 57.4 2.8 3.7 39.1 59.7 94.8 83.8 35.2 15.2 49 16.5 66.6 13.9 10.7-1.6 32.8-13.4 37.4-26.4 4.6-13 4.6-24.1 3.2-26.4-1.3-2.5-5-3.9-10.5-6.6z"/></svg>
                 </a>
@@ -1438,10 +1568,8 @@
         </div>
 
     </footer>
-
     <script>
         // Script for controlling the Toggling of the Navigation menu ----------------------- ////
-
         const hamburger = document.querySelector(".hamburger");
         const navMenu = document.querySelector(".nav-menu");
         const navLink = document.querySelectorAll(".nav-link");
@@ -1458,12 +1586,12 @@
             hamburger.classList.remove("active");
             navMenu.classList.remove("active");
         }
-
-        // JavaScript code for controlling the customer review section -------------------- ////
-        
+    </script>
+    <script>
+        // JavaScript code for controlling the customer review section ---------------- ////
         // Reference To Buttons
-        var btnLeft = document.getElementById('prev_btn');
-        var btnRight = document.getElementById('next_btn');
+        var btnLeft = document.getElementById('prev-btn');
+        var btnRight = document.getElementById('next-btn');
         
         // Reference To Slider
         var slider = document.querySelector('.container .slider');
@@ -1500,11 +1628,11 @@
         slider.addEventListener('mouseout', autoSlide);
         btnRight.addEventListener('mouseout', autoSlide);
         btnLeft.addEventListener('mouseout', autoSlide);
-        
-        //  Scroll to the Top Script ---------------------- ////
-
+    </script>
+    <script>
+        //  Scroll to the Top Script -------------------- ////
         // Get the button
-        const scrollToTopBtn = document.getElementById('scrollToTopBtn');
+        const scrollToTopBtn = document.getElementById('scroll-to-top-btn');
 
         // When the user scrolls down 100px from the top of the document, show the button
         window.onscroll = function() {
@@ -1519,9 +1647,9 @@
         scrollToTopBtn.onclick = function() {
             window.scrollTo({ top: 0, behavior: 'smooth' });
         };
-
-        // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section --------------- ////
-
+    </script>
+    <script>
+        // JavaScript code for controlling the Dynamic Content Swithcing on the API Features section ------- ////
         const tabs = document.querySelectorAll('.tab');
         const title = document.getElementById('tab-title');
         const description = document.getElementById('tab-description');
@@ -1530,7 +1658,7 @@
 
         const tabData = {
         1: {
-            title: "Fast Payment APIs Links",
+            title: "Fast Data Plan Purchase APIs Links",
             description: "Carbon wanted to make their risk assessment and borrower qualification better with high-quality data.",
             images: ["image1", "image2"]
         },
@@ -1586,15 +1714,15 @@
 
         // Initialize with default content
         updateContent(currentTab);
+    </script>
+    <script>
+            // The script for controlling the copyright -------------- ////
 
-        // The script for controlling the copyright -------------- ////
-
-        document.addEventListener("DOMContentLoaded", function() {
+            document.addEventListener("DOMContentLoaded", function() {
             const currentYear = new Date().getFullYear();
             const copyrightText = `Copyright © ${currentYear} Airtime Cabal  All rights reserved`;
             document.getElementById("copyright").textContent = copyrightText;
         });
-
     </script>
 </body>
 </html>
